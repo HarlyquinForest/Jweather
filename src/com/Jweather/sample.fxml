@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="background" stylesheets="@../../source/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane stylesheets="@../../source/style.css">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="foreground" stylesheets="@../../source/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="661.0" layoutY="138.0" styleClass="bigDegree" stylesheets="@../../source/style.css" text="-20°" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0">
+                     <font>
+                        <Font name="Roboto" size="96.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="714.0" layoutY="14.0" text="Locatoin of current weather deatials" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="30.0">
+                     <font>
+                        <Font name="Roboto Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="564.0" layoutY="106.0" text="Today" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="694.0" layoutY="257.0" text="Snowy" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="260.0">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="95.0" layoutY="391.0" text="Humidity:" textFill="WHITE" AnchorPane.leftAnchor="97.0">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="138.0" layoutY="421.0" text="Wind:" textFill="WHITE" AnchorPane.leftAnchor="140.0">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="33.0" layoutY="451.0" text="Chance of rain:" textFill="WHITE" AnchorPane.leftAnchor="35.0">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="212.0" layoutY="389.0" text="39%" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="212.0" layoutY="421.0" text="7mph" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="212.0" layoutY="451.0" text="50%" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Regular" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="633.0" layoutY="49.0" text="Last Update 12:30 PM" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="50.0">
+                     <font>
+                        <Font name="Roboto Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="612.0" layoutY="27.0" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="580.0">
+                     <font>
+                        <Font name="Roboto Regular" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="894.0" layoutY="27.0" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="600.0">
+                     <font>
+                        <Font name="Roboto Regular" size="22.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="settings_btn" ellipsisString="" layoutX="35.0" layoutY="17.0" prefHeight="404.0" prefWidth="480.0" styleClass="settings_button" stylesheets="@../../source/style.css" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+      <ImageView blendMode="LIGHTEN" fitHeight="255.0" fitWidth="1500.0" opacity="0.23" pickOnBounds="true" smooth="false" y="501.0">
+         <image>
+            <Image url="@../../source/noise.jpg" />
+         </image>
+         <effect>
+            <GaussianBlur />
+         </effect>
+      </ImageView>
+      <Line endX="1500.0" layoutY="502.0" stroke="WHITE" strokeWidth="3.0" />
+      <Line endX="750.0" endY="730.0" fill="WHITE" layoutX="10.0" layoutY="10.0" startX="750.0" startY="505.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="2.0" />
+      <AnchorPane layoutY="502.0" prefHeight="240.0" prefWidth="750.0">
+         <children>
+            <Label text="Daily" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="Roboto Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="98.0" layoutY="40.0" text="Day1" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="475.0" layoutY="40.0" text="Day5" textFill="WHITE" AnchorPane.leftAnchor="570.0">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="371.0" layoutY="40.0" text="Day4" textFill="WHITE" AnchorPane.leftAnchor="460.0">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="278.0" layoutY="40.0" text="Day3" textFill="WHITE" AnchorPane.leftAnchor="350.0">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="182.0" layoutY="40.0" text="Day2" textFill="WHITE" AnchorPane.leftAnchor="220.0">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="750.0" layoutY="512.0" prefHeight="240.0" prefWidth="750.0">
+         <children>
+            <Label layoutX="14.0" layoutY="-1.0" text="Hourly" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-1.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

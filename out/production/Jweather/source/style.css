@@ -1,0 +1,25 @@
+.background
+{
+    -fx-background-image:url('summer.jpg');
+    -fx-background-repeat: no-repeat ;
+    -fx-background-size: cover ;
+    -fx-background-color:#e9e9e9;
+}
+.foreground
+{
+    -fx-background-color : rgba(0,0,0,0.3);
+}
+.boxblur
+{
+    -fx-background-color : rgba(255,255,255,0.5);
+}
+.bigDegree
+{
+    -fx-font-size : 110px;
+}
+.settings_button
+{
+    -fx-background-image: url("baseline_settings_white_48dp.png");
+    -fx-background-size: contain;
+}
+
