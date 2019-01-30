@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="background" stylesheets="@../../source/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="background" stylesheets="@../../source/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Jweather.Controller">
    <children>
       <AnchorPane stylesheets="@../../source/style.css">
          <children>
@@ -71,17 +71,17 @@
                         <Font name="Roboto Regular" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="612.0" layoutY="27.0" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="580.0">
+                  <Label fx:id="preiv_city" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="580.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
                   </Label>
-                  <Label layoutX="894.0" layoutY="27.0" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="600.0">
+                  <Label fx:id="next_city" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="580.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
                   </Label>
-                  <Button fx:id="settings_btn" ellipsisString="" layoutX="35.0" layoutY="17.0" prefHeight="404.0" prefWidth="480.0" styleClass="settings_button" stylesheets="@../../source/style.css" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="settings_btn" cacheHint="SPEED" ellipsisString="" layoutX="35.0" layoutY="17.0" prefHeight="25.0" prefWidth="25.0" styleClass="settings_button" stylesheets="@../../source/style.css" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
                </children></AnchorPane>
          </children>
       </AnchorPane>
