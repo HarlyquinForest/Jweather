@@ -16,12 +16,12 @@
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="foreground" stylesheets="@../../source/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" layoutX="661.0" layoutY="138.0" styleClass="bigDegree" stylesheets="@../../source/style.css" text="-20°" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0">
+                  <Label fx:id="Today_degree" alignment="CENTER" layoutX="661.0" layoutY="138.0" styleClass="bigDegree" stylesheets="@../../source/style.css" text="--" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0">
                      <font>
-                        <Font name="Roboto" size="96.0" />
+                        <Font name="Roboto Regular" size="96.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="714.0" layoutY="14.0" text="Locatoin of current weather deatials" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="30.0">
+                  <Label fx:id="current_location_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="714.0" layoutY="14.0" text="city name" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="30.0">
                      <font>
                         <Font name="Roboto Bold" size="15.0" />
                      </font>
@@ -31,7 +31,7 @@
                         <Font name="Roboto" size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="694.0" layoutY="257.0" text="Snowy" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="260.0">
+                  <Label fx:id="weather_name_lbl" alignment="CENTER" layoutX="694.0" layoutY="257.0" text="--" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="260.0">
                      <font>
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
@@ -51,17 +51,17 @@
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="212.0" layoutY="389.0" text="39%" textFill="WHITE">
+                  <Label fx:id="humidity_lbl" layoutX="212.0" layoutY="389.0" text="0%" textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="212.0" layoutY="421.0" text="7mph" textFill="WHITE">
+                  <Label fx:id="wind_lbl" layoutX="212.0" layoutY="421.0" text="mph" textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="212.0" layoutY="451.0" text="50%" textFill="WHITE">
+                  <Label layoutX="212.0" layoutY="451.0" text="0%" textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
@@ -71,12 +71,12 @@
                         <Font name="Roboto Regular" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="preiv_city" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="580.0">
+                  <Label fx:id="preiv_city" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="630.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="next_city" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="580.0">
+                  <Label fx:id="next_city" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="630.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
@@ -90,7 +90,7 @@
             <Image url="@../../source/noise.jpg" />
          </image>
          <effect>
-            <GaussianBlur />
+            <GaussianBlur radius="19.99" />
          </effect>
       </ImageView>
       <Line endX="1500.0" layoutY="502.0" stroke="WHITE" strokeWidth="3.0" />
@@ -102,27 +102,77 @@
                   <Font name="Roboto Bold" size="25.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="98.0" layoutY="40.0" text="Day1" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+            <Label fx:id="day1_lbl" alignment="CENTER" layoutX="99.0" layoutY="63.0" text="Day1" textFill="WHITE" AnchorPane.leftAnchor="99.0">
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="day5_lbl" alignment="CENTER" layoutX="619.0" layoutY="63.0" text="Day5" textFill="WHITE" AnchorPane.leftAnchor="619.0">
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="day4_lbl" alignment="CENTER" layoutX="489.0" layoutY="63.0" text="Day4" textFill="WHITE" AnchorPane.leftAnchor="489.0">
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="day3_lbl" alignment="CENTER" layoutX="359.0" layoutY="63.0" text="Day3" textFill="WHITE" AnchorPane.leftAnchor="359.0">
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="day2_lbl" alignment="CENTER" layoutX="229.0" layoutY="63.0" text="Day2" textFill="WHITE" AnchorPane.leftAnchor="229.0">
+               <font>
+                  <Font name="Roboto Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="day1_temp_lbl" alignment="CENTER" layoutX="115.0" layoutY="101.0" text="--" textFill="WHITE">
                <font>
                   <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="475.0" layoutY="40.0" text="Day5" textFill="WHITE" AnchorPane.leftAnchor="570.0">
+            <Label fx:id="day2_temp_lbl" alignment="CENTER" layoutX="245.0" layoutY="101.0" text="--" textFill="WHITE">
                <font>
                   <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="371.0" layoutY="40.0" text="Day4" textFill="WHITE" AnchorPane.leftAnchor="460.0">
+            <Label fx:id="day3_temp_lbl" alignment="CENTER" layoutX="375.0" layoutY="101.0" text="--" textFill="WHITE">
                <font>
                   <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="278.0" layoutY="40.0" text="Day3" textFill="WHITE" AnchorPane.leftAnchor="350.0">
+            <Label fx:id="day4_temp_lbl" alignment="CENTER" layoutX="505.0" layoutY="101.0" text="--" textFill="WHITE">
                <font>
                   <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="182.0" layoutY="40.0" text="Day2" textFill="WHITE" AnchorPane.leftAnchor="220.0">
+            <Label fx:id="day5_temp_lbl" alignment="CENTER" layoutX="635.0" layoutY="101.0" text="--" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="weather_day1_lbl" alignment="CENTER" layoutX="115.0" layoutY="128.0" text="--" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="weather_day2_lbl" alignment="CENTER" layoutX="245.0" layoutY="128.0" text="--" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="weather_day3_lbl" alignment="CENTER" layoutX="375.0" layoutY="128.0" text="--" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="weather_day4_lbl" alignment="CENTER" layoutX="505.0" layoutY="128.0" text="--" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Regular" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="weather_day5_lbl" alignment="CENTER" layoutX="635.0" layoutY="128.0" text="--" textFill="WHITE">
                <font>
                   <Font name="Roboto Regular" size="25.0" />
                </font>

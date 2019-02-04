@@ -1,0 +1,7 @@
+.background
+{
+    -fx-background-image:url('spring.jpg');
+    -fx-background-repeat: no-repeat ;
+    -fx-background-size: cover ;
+    -fx-background-color:#e9e9e9;
+}
