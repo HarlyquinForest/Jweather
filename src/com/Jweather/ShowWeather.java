@@ -22,7 +22,7 @@ public class ShowWeather
     private String ThemeWinter = getClass().getResource("/source/winter.css").toExternalForm();
     private String ThemeSpring = getClass().getResource("/source/spring.css").toExternalForm();
     private File current = new File("/tmp/Jweather/"+Settings.City+"/current.xml");
-
+    private File daily = new File("/tmp/Jweather/"+ Settings.City+"/daily.xml");
     public String showCurrnet()
     {
         String output ;
@@ -39,7 +39,7 @@ public class ShowWeather
             Element el = (Element)node;
             String temp = el.getAttribute("value");
             double degree = Double.parseDouble(temp);
-            output = String.format("%02d",Math.round(degree))+"°";
+            output = String.format("%02d",Math.round(degree));
 
             sy = doc.getElementsByTagName("humidity");
             node = sy.item(0);
@@ -87,7 +87,31 @@ public class ShowWeather
         return output;
     }
 
-
+    public String showDays()
+    {
+        String output = "";
+        try
+        {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Element element ;
+            Document doc = dBuilder.parse(daily);
+            NodeList nodeList = doc.getElementsByTagName("symbol");
+            NodeList details ;
+            Node node ;
+            for(int i = 1 ; i < nodeList.getLength() ; i++)
+            {
+                node = nodeList.item(i);
+                element = (Element)node;
+                output += element.getAttribute("name")+"-";
+                details = doc.getElementsByTagName("temperature");
+                node = details.item(i);
+                element = (Element)node;
+                output+=String.format("%02d",Math.round(Double.parseDouble(element.getAttribute("day"))))+"°-";
+            }
+        }catch (Exception e){e.printStackTrace();}
+        return output;
+    }
 
     public  void setWallpaper(Scene scene)
     {

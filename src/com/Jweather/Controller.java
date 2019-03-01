@@ -36,6 +36,26 @@ public class Controller
     private Label day4_lbl;
     @FXML
     private Label day5_lbl;
+    @FXML
+    private Label day1_temp_lbl;
+    @FXML
+    private Label day2_temp_lbl;
+    @FXML
+    private Label day3_temp_lbl;
+    @FXML
+    private Label day4_temp_lbl;
+    @FXML
+    private Label day5_temp_lbl;
+    @FXML
+    private Label weather_day1_lbl;
+    @FXML
+    private Label weather_day2_lbl;
+    @FXML
+    private Label weather_day3_lbl;
+    @FXML
+    private Label weather_day4_lbl;
+    @FXML
+    private Label weather_day5_lbl;
 
 
     @FXML
@@ -55,7 +75,21 @@ public class Controller
         day4_lbl.setText(days[3].replaceFirst("DAY",""));
         day5_lbl.setText(days[4].replaceFirst("DAY",""));
 
+        String[] tempDays = w.showDays().split("-");
+        for(int i = 0 ; i < 5 ;)
+        {
+            weather_day1_lbl.setText(tempDays[i]);
+            day1_temp_lbl.setText(tempDays[++i]);
+            weather_day2_lbl.setText(tempDays[++i]);
+            day2_temp_lbl.setText(tempDays[++i]);
+            weather_day3_lbl.setText(tempDays[++i]);
+            day3_temp_lbl.setText(tempDays[++i]);
+            weather_day4_lbl.setText(tempDays[++i]);
+            day4_temp_lbl.setText(tempDays[++i]);
+            weather_day5_lbl.setText(tempDays[++i]);
+            day5_temp_lbl.setText(tempDays[++i]);
 
+        }
 
     }
 
