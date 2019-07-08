@@ -14,29 +14,42 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
+import java.util.Set;
 
-public class Weather
+public class Weather extends Thread
 {
     //variables
-    private String City ;
+    private int City ;
 
 
     //constructor
     public Weather()
     {
         City = Settings.City;
+        System.out.println(City);
         CreateDirs();
     }
     //create tmp dirs
     private void CreateDirs()
     {
-        new File("/tmp/Jweather").mkdir();
+        File main = new File("/tmp/Jweather");
         File CityDir = new File("/tmp/Jweather/"+City);
+        if(!main.exists())
+        {
+            try
+            {
+                main.mkdir();
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
         if(!CityDir.exists())
         {
             try
             {
                 CityDir.mkdir();
+                System.out.println("Dir created");
 
             }catch (Exception e )
             {
@@ -45,55 +58,99 @@ public class Weather
         }
     }
 
-
-    //get weather info form api
-    public void  getWeather()
+    public static boolean saved()
     {
-        File currentW = new File("/tmp/Jweather/"+City+"/current.xml");
+        boolean ok = true;
+        if(!new File("/tmp/Jweather/"+Settings.City+"/current.xml").exists())
+        {
+            ok = false ;
+        }
+        else if(!new File("/tmp/Jweather/"+Settings.City+"/daily.xml").exists())
+        {
+            ok = false ;
+        }
+        else if(!new File("/tmp/Jweather/"+Settings.City+"/hourly.xml").exists())
+        {
+           ok = false ;
+        }
+        return ok ;
+    }
+    public void run()
+    {
+        int sleep = 1000 ;
+        do
+        {
+            Settings.checkConnection();
+            Settings.ready = saved();
+            try {
+                sleep(sleep);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(sleep != 20000)
+                sleep +=100 ;
+
+        } while(Settings.offline);
+        if(!saved())
+        {
+            getWeather();
+            Settings.ready = true;
+        }
+        else
+        {
+            Settings.ready = true;
+        }
+    }
+    //get weather info form api
+    private void  getWeather()
+    {
+        String API ;
+        if(Settings.Celcius)
+            API = "&APPID=04ed4038994ff1be56247052ae7bc45f&units=metric&mode=xml";
+        else
+            API = "&APPID=04ed4038994ff1be56247052ae7bc45f&units=imperial&mode=xml";
+        File current = new File("/tmp/Jweather/"+City+"/current.xml");
         File daily = new File("/tmp/Jweather/"+City+"/daily.xml");
         File hourly = new File("/tmp/Jweather/"+City+"/hourly.xml");
-        String API_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + City + "&APPID=04ed4038994ff1be56247052ae7bc45f&units=metric&mode=xml";
+        String[] API_URL = {
+                  "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + City + API
+                , "http://api.openweathermap.org/data/2.5/weather?id=" + City + API
+                , "http://api.openweathermap.org/data/2.5/forecast?id=" + City + API
+                            };
+        URL url ;
+        URLConnection urlConnection ;
+        HttpURLConnection connection ;
+        BufferedReader in ;
+        String write ;
+        String read ;
         try
         {
-            URL url = new URL(API_URL);
-            URLConnection urlConnection = url.openConnection();
-            HttpURLConnection connection =  (HttpURLConnection) urlConnection ;
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String urlString ="";
-            String current ;
+            for(int i = 0 ; i < 3 ; i++)
+            {
+                url = new URL(API_URL[i]);
+                urlConnection = url.openConnection();
+                connection =  (HttpURLConnection) urlConnection ;
+                in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                write ="";
+                read = "";
 
-            while((current = in.readLine()) != null )
-            {
-                urlString += current;
+                while((read = in.readLine()) != null )
+                {
+                    write += read;
+                }
+                switch (i)
+                {
+                    case 0 :
+                        FileUtils.write(daily , write , "utf-8");
+                        break;
+                    case 1 :
+                        FileUtils.write(current , write , "utf-8");
+                        break;
+                    case 2 :
+                        FileUtils.write(hourly , write , "utf-8");
+                        break;
+                }
             }
-            FileUtils.write(daily , urlString , "utf-8");
-            //current
-            API_URL = "http://api.openweathermap.org/data/2.5/weather?q=" + City + "&APPID=04ed4038994ff1be56247052ae7bc45f&units=metric&mode=xml";
-            url = new URL(API_URL);
-            urlConnection = url.openConnection();
-            connection = (HttpURLConnection) urlConnection;
-            in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            urlString = "";
-            current = "";
-            while((current = in.readLine()) != null )
-            {
-                urlString += current;
-            }
-            FileUtils.write(currentW , urlString , "utf-8");
-            //5 day forecast 3 hours
-            API_URL = "http://api.openweathermap.org/data/2.5/forecast?q=" + City + "&APPID=04ed4038994ff1be56247052ae7bc45f&units=metric&mode=xml";
-            url = new URL(API_URL);
-            urlConnection = url.openConnection();
-            connection = (HttpURLConnection) urlConnection;
-            in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            urlString = "";
-            current = "";
-            while((current = in.readLine()) != null )
-            {
-                urlString += current;
-            }
-            FileUtils.write(hourly , urlString , "utf-8");
-
 
         } catch(Exception e )
         {
@@ -101,173 +158,4 @@ public class Weather
         }
 
     }
-
-    /*private static Scanner sc = new Scanner(System.in);
-
-
-        File file ;
-        System.out.println("Enter you city name : ");
-        String city = sc.nextLine();
-        String dirPath = "/tmp/"+city;
-        file = new File(dirPath);
-        if(file.exists())
-            System.out.println("folder is exist");
-        else
-        {
-            System.out.println("folder is missing but i will create");
-            file.mkdir();
-        }
-        System.out.println("daily or hourly : ");
-        char c = sc.next().charAt(0);
-        if ( c == 'd')
-            file = new File(dirPath+"/daily.xml");
-        else if (c == 'h' )
-            file = new File(dirPath+"/hourly.xml");
-        else
-            file = new File(dirPath+"/daily.xml");
-        boolean saved = false;
-        if(file.exists())
-        {
-            System.out.println("File is exist \n Reading form file");
-            Thread.sleep(2000);
-            getWeather(file , c);
-        }else
-        {
-            saved = saveWeather(file , city ,c );
-        }
-        if(saved)
-            getWeather(file , c);
-
-
-
-    public static void getWeather(File file , char mode)
-    {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        switch (mode )
-        {
-            case 'd':
-                dailyWeather(file , dbFactory);
-                break;
-            case 'h' :
-                hourlyWeather(file , dbFactory);
-                break;
-        }
-
-    }
-    private static void dailyWeather(File file, DocumentBuilderFactory dbFactory)
-    {
-        try
-        {
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-
-            Document doc = dBuilder.parse(file);
-            doc.getDocumentElement().normalize();
-            System.out.println(doc.getDocumentElement().getNodeName());
-
-            NodeList nList = doc.getElementsByTagName("location");
-            Node node = nList.item(0);
-            System.out.println("Current Element : "+node.getNodeName());
-
-            if(node.getNodeType() == Node.ELEMENT_NODE)
-            {
-                Element el = (Element)node;
-                System.out.println("City name : "+el.getElementsByTagName("name").item(0).getTextContent());
-                System.out.println("Country name : "+el.getElementsByTagName("country").item(0).getTextContent());
-                node = nList.item(1);
-                el = (Element)node;
-                System.out.println("altitude : "+el.getAttribute("altitude")
-                        +"\nlatitude : "+el.getAttribute("latitude")
-                        +"\nlongitude : "+el.getAttribute("longitude")
-                        +"\ngeobase : "+el.getAttribute("geobase")
-                        +"\ngeobaseid : "+el.getAttribute("geobaseid"));
-                nList = doc.getElementsByTagName("time");
-                NodeList sy ;
-                for(int i = 0 ; i < nList.getLength() ; i++)
-                {
-                    node = nList.item(i);
-                    el = (Element) node ;
-                    System.out.println("--------------------------------------------------");
-                    System.out.printf("Day %s : %n",el.getAttribute("day"));
-                    sy = doc.getElementsByTagName("symbol");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("Symbol : %s %n",el.getAttribute("name"));
-                    sy = doc.getElementsByTagName("windSpeed");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("WindSpeed : %s mps  Name : %s%n", el.getAttribute("mps") , el.getAttribute("name"));
-                    sy = doc.getElementsByTagName("temperature");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("Avg Temperature : %s C  Min : %s C   Max : %s C%n", el.getAttribute("day") , el.getAttribute("min"),el.getAttribute("max"));
-                }
-
-            }
-
-
-        }catch(Exception e){e.printStackTrace();}
-
-    }
-    private static void hourlyWeather(File file, DocumentBuilderFactory dbFactory)
-    {
-        try
-        {
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-
-            Document doc = dBuilder.parse(file);
-            doc.getDocumentElement().normalize();
-            System.out.println(doc.getDocumentElement().getNodeName());
-
-            NodeList nList = doc.getElementsByTagName("location");
-            Node node = nList.item(0);
-            System.out.println("Current Element : "+node.getNodeName());
-
-            if(node.getNodeType() == Node.ELEMENT_NODE)
-            {
-                Element el = (Element)node;
-                System.out.println("City name : "+el.getElementsByTagName("name").item(0).getTextContent());
-                System.out.println("Country name : "+el.getElementsByTagName("country").item(0).getTextContent());
-                node = nList.item(1);
-                el = (Element)node;
-                System.out.println("altitude : "+el.getAttribute("altitude")
-                        +"\nlatitude : "+el.getAttribute("latitude")
-                        +"\nlongitude : "+el.getAttribute("longitude")
-                        +"\ngeobase : "+el.getAttribute("geobase")
-                        +"\ngeobaseid : "+el.getAttribute("geobaseid"));
-                nList = doc.getElementsByTagName("time");
-                NodeList sy ;
-                for(int i = 0 ; i < nList.getLength() ; i++)
-                {
-                    node = nList.item(i);
-                    el = (Element) node ;
-                    System.out.println("--------------------------------------------------");
-                    System.out.printf("from  %s to %s  %n",el.getAttribute("from") , el.getAttribute("to"));
-                    sy = doc.getElementsByTagName("symbol");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("Symbol : %s %n",el.getAttribute("name"));
-                    sy = doc.getElementsByTagName("windSpeed");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("WindSpeed : %s mps  Name : %s%n", el.getAttribute("mps") , el.getAttribute("name"));
-                    sy = doc.getElementsByTagName("temperature");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("Temperature : %s C %n", el.getAttribute("value"));
-                    sy = doc.getElementsByTagName("humidity");
-                    node = sy.item(i);
-                    el = (Element)node;
-                    System.out.printf("Humidity : %s%s %n" , el.getAttribute("value"),el.getAttribute("unit"));
-                    sy = doc.getElementsByTagName("clouds");
-                    node = sy.item(i);
-                    el = (Element) node ;
-                    System.out.printf("Clouds : %s %n" , el.getAttribute("value"));
-                }
-
-            }
-
-
-        }catch(Exception e){e.printStackTrace();}
-
-    }*/
 }

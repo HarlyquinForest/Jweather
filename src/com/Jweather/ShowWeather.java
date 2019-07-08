@@ -1,8 +1,9 @@
 package com.Jweather;
 
 import com.sun.javafx.binding.StringFormatter;
-import com.sun.xml.internal.ws.util.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -22,7 +23,11 @@ public class ShowWeather
     private String ThemeWinter = getClass().getResource("/source/winter.css").toExternalForm();
     private String ThemeSpring = getClass().getResource("/source/spring.css").toExternalForm();
     private File current = new File("/tmp/Jweather/"+Settings.City+"/current.xml");
-    private File daily = new File("/tmp/Jweather/"+ Settings.City+"/daily.xml");
+    private File daily   = new File("/tmp/Jweather/"+ Settings.City+"/daily.xml");
+
+    public ShowWeather()
+    {
+    }
     public String showCurrnet()
     {
         String output ;
@@ -54,12 +59,18 @@ public class ShowWeather
             sy= doc.getElementsByTagName("clouds");
             node= sy.item(0);
             el= (Element) node ;
-            output+= "-"+StringUtils.capitalize(el.getAttribute("name"));
+            output+= "-"+WordUtils.capitalize(el.getAttribute("name"));
+
+            sy = doc.getElementsByTagName("weather");
+            node= sy.item(0);
+            el= (Element) node ;
+            output += "-"+el.getAttribute("icon");
+
 
             sy= doc.getElementsByTagName("city");
             node= sy.item(0);
             el= (Element) node ;
-            output+= "-"+ StringUtils.capitalize(el.getAttribute("name"));
+            output+= "-"+ WordUtils.capitalize(el.getAttribute("name"));
 
             sy= doc.getElementsByTagName("country");
             node= sy.item(0);
@@ -108,6 +119,12 @@ public class ShowWeather
                 node = details.item(i);
                 element = (Element)node;
                 output+=String.format("%02d",Math.round(Double.parseDouble(element.getAttribute("day"))))+"°-";
+
+                details = doc.getElementsByTagName("symbol");
+                node = details.item(i);
+                element = (Element) node ;
+                output += element.getAttribute("var")+"-";
+
             }
         }catch (Exception e){e.printStackTrace();}
         return output;

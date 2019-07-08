@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Set;
 
 public class Main extends Application {
 
@@ -20,16 +21,25 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Weather w = new Weather();
-        w.getWeather();
+
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root,1500,750);
+
+        Settings set = new Settings();
+        Weather w = new Weather();
         ShowWeather s = new ShowWeather();
+
         s.setWallpaper(scene);
+
+        if(set.state())
+            w.start();
+
+
         primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+
     }
 
 

@@ -14,6 +14,8 @@
 .bigDegree
 {
     -fx-font-size : 110px;
+    -fx-stroke: black;
+    -fx-stroke-line-cap: round;
 }
 .settings_button
 {
@@ -25,4 +27,28 @@
 {
     -fx-background-color: #474747;
 }
+.refresh_btn
+{
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-padding: 0px;
+}
+.refresh_btn:hover
+{
+    -fx-background-color: #474747;
+}
+.exit_btn
+{
+    -fx-background-color: rgba(255,255,255,0);
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-padding: 0px;
+}
+.exit_btn:hover
+{
+    -fx-background-color: #474747;
+    -fx-text-fill: red;
+}
+
 
