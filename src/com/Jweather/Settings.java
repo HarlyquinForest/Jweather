@@ -12,14 +12,16 @@ import org.apache.commons.io.FileUtils;
 
 public class Settings
 {
-    public static int City = 0;
+    public static City city = new City();
     public static boolean Celcius;
     public static boolean ready = false ;
     public static boolean offline = false ;
-    private Hashtable< Integer , String> Cities  = new Hashtable<Integer, String>();
+    public static boolean refresh = true ;
+    public static Hashtable< Integer , String > Cities  = new Hashtable<Integer, String>();
     public static ArrayList<String> City_List = new ArrayList<String>();
     protected static String HOME_PATH = System.getProperty("user.home");
     public static String CONFIG_PATH = HOME_PATH+"/.Jweather";
+
     public static  boolean checkConnection()
     {
         String IP ;
@@ -73,12 +75,10 @@ public class Settings
 
     }
 
-
     public Settings()
     {
         CreateDir();
         read_Settings();
-
     }
     private void CreateDir()
     {
@@ -95,7 +95,7 @@ public class Settings
     {
         File Settings = new File(CONFIG_PATH+"/config.conf");
         List<String> reader = new ArrayList<String>();
-
+        //System.out.println("Read Settings");
         try
         {
             reader = FileUtils.readLines(Settings,"utf-8");
@@ -117,7 +117,7 @@ public class Settings
                 Celcius = true;
                 break;
         }
-        String temp[] = new String[2];
+        String temp[] = new String[3];
         int i = 0 ;
         for (String line:reader)
         {
@@ -130,11 +130,15 @@ public class Settings
             {
 
                 temp = line.split(",");
-                System.out.println(temp[1]);
+                //System.out.println(temp[1]);
                 Cities.put(Integer.parseInt(temp[0]), temp[1].replace("*", ""));
                 City_List.add(temp[1].replace("*", ""));
-                if (temp[1].contains("*")) {
-                    City = Integer.parseInt(temp[0]);
+                if (temp[2].contains("*"))
+                {
+                    System.out.println(temp[0]);
+                    city.setId(Integer.parseInt(temp[0]));
+                    city.setName(temp[1]);
+                    city.setCountry(temp[2]);
                 }
             }
             catch (Exception e)
@@ -151,12 +155,17 @@ public class Settings
 
     public boolean state()
     {
-        if(City != 0)
+        if(city.getId() != 0)
         {
             return true;
         }
         else
             return false ;
+    }
+
+    public static int getID()
+    {
+        return city.getId();
     }
 
 

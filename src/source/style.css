@@ -50,5 +50,13 @@
     -fx-background-color: #474747;
     -fx-text-fill: red;
 }
+.nav
+{
+
+}
+.nav:hover
+{
+    -fx-background-color: #474747;
+}
 
 

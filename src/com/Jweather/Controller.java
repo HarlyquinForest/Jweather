@@ -4,9 +4,11 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Modality;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import org.apache.commons.lang3.text.WordUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +25,8 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Controller
 {
@@ -96,7 +100,7 @@ public class Controller
                 System.out.println("By Thread");
                 while (true)
                 {
-                    System.out.println(currentThread() + "" + update + " sleep " + sleep);
+                    //System.out.println(currentThread() + "" + update + " sleep " + sleep);
                     update = Settings.ready;
                     try {
                         sleep(sleep);
@@ -113,6 +117,17 @@ public class Controller
                                 Update();
                                 Settings.ready = false ;
                                 System.out.println("Updated");
+                            }
+                        });
+                    }
+                    if(Settings.refresh)
+                    {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                Weather weather = new Weather();
+                                weather.GetWeather();
+                                Update();
                             }
                         });
                     }
@@ -174,18 +189,25 @@ public class Controller
         day5_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[14]+".png")));
 
     }
-    public void NextCityMouseHandler(ActionEvent event)
+    public void NextCityMouseHandler(MouseEvent event)
     {
-        //Main.scene.getStylesheets().remove(0);
-        //Main.scene.getStylesheets().add(ThemeSummer);
+        //System.out.println(Settings.Cities);
+        int key = nextKey();
 
+        default_lbl();
+
+        newCity(key);
 
 
     }
-    public void PrivCityMouseHandler(ActionEvent event)
+    public void PrivCityMouseHandler(MouseEvent event)
     {
-        //Main.scene.getStylesheets().remove(0);
-        //Main.scene.getStylesheets().add(ThemeFall);
+        //System.out.println(Settings.Cities);
+        int key = privKey();
+
+        default_lbl();
+
+        newCity(key);
     }
     public void Settings_btn_Clicked(ActionEvent event )
     {
@@ -200,8 +222,7 @@ public class Controller
 
         }catch (Exception e )
         {
-            //e.printStackTrace();
-            e.getCause();
+            e.printStackTrace();
         }
     }
     public void updatebtn()
@@ -239,5 +260,72 @@ public class Controller
 
         weather_day5_lbl.setText("--");
         day5_temp_lbl.setText("--");
+    }
+    private void newCity(int key)
+    {
+        Settings.city.setId(key);
+        Settings.city.setName(Settings.Cities.get(key));
+
+        Settings.refresh = true;
+        Settings.ready = true;
+
+    }
+    private int nextKey()
+    {
+        int next = 0 ;
+        int temp = 0 ;
+        int first = 0 ;
+        Set<Integer> set = Settings.Cities.keySet();
+
+        Iterator<Integer> itr = set.iterator();
+        boolean n = false ;
+        first = itr.next();
+        while(itr.hasNext())
+        {
+            temp = itr.next();
+            if(Settings.city.getId() == temp)
+            {
+                n  = true;
+            }
+            else if(n)
+            {
+                next = temp;
+                n=false;
+            }
+        }
+        if(next==0)
+            next=first;
+        System.out.println(next);
+        return next;
+
+    }
+    private int privKey()
+    {
+        int priv = 0 ;
+        int temp = 0 ;
+
+        boolean p = false;
+        Set<Integer> set = Settings.Cities.keySet();
+
+        Iterator<Integer> itr = set.iterator();
+
+        while(itr.hasNext())
+        {
+            temp = itr.next();
+            if(Settings.city.getId() == temp)
+            {
+                p=true;
+            }
+            else
+            {
+                priv = temp ;
+            }
+
+        }
+        if(!p)
+            priv=temp;
+        System.out.println(priv);
+        return priv;
+
     }
 }

@@ -72,12 +72,12 @@
                         <Font name="Roboto Regular" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="preiv_city" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="630.0">
+                  <Label fx:id="preiv_city" styleClass="nav" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="630.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="next_city" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="630.0">
+                  <Label fx:id="next_city" styleClass="nav" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="630.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
