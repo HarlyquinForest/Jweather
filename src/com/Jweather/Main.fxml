@@ -15,7 +15,7 @@
    <children>
       <AnchorPane stylesheets="@../../source/style.css">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="foreground" stylesheets="@../../source/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="foreground" stylesheets="@../../source/style.css" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="Today_degree" alignment="CENTER" layoutX="661.0" layoutY="138.0" styleClass="bigDegree" stylesheets="@../../source/style.css" text="--" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0">
                      <font>
@@ -67,22 +67,22 @@
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="633.0" layoutY="49.0" text="Last Update 12:30 PM" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="50.0">
+                  <Label fx:id="last_update_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="633.0" layoutY="49.0" text="Last Update 12:30 PM" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="50.0">
                      <font>
                         <Font name="Roboto Regular" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="preiv_city" styleClass="nav" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="630.0">
+                  <Label fx:id="preiv_city" layoutX="612.0" layoutY="27.0" onMouseClicked="#PrivCityMouseHandler" styleClass="nav" text="&lt;" textFill="WHITE" AnchorPane.leftAnchor="630.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="next_city" styleClass="nav" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="630.0">
+                  <Label fx:id="next_city" layoutX="894.0" layoutY="27.0" onMouseClicked="#NextCityMouseHandler" styleClass="nav" text="&gt;" textFill="WHITE" AnchorPane.rightAnchor="630.0">
                      <font>
                         <Font name="Roboto Regular" size="22.0" />
                      </font>
                   </Label>
-                  <Button fx:id="settings_btn" cacheHint="SPEED" ellipsisString="" layoutX="35.0" layoutY="17.0" onAction="#Settings_btn_Clicked" prefHeight="25.0" prefWidth="25.0" styleClass="settings_button" stylesheets="@../../source/style.css" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                  <Button fx:id="settings_btn" cacheHint="SPEED" ellipsisString="" layoutX="35.0" layoutY="17.0" minWidth="26.0" onAction="#Settings_btn_Clicked" prefHeight="25.0" prefWidth="26.0" styleClass="settings_button" stylesheets="@../../source/style.css" textOverrun="CENTER_ELLIPSIS" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
                   <Label alignment="CENTER" layoutX="820.0" layoutY="145.0" text="°" textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="30.0" />
@@ -113,7 +113,7 @@
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="day_temp" layoutX="1236.0" layoutY="391.0" text="--" textFill="WHITE" AnchorPane.rightAnchor="240.0">
+                  <Label fx:id="day_temp" layoutX="1241.0" layoutY="391.0" text="--" textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
@@ -128,7 +128,6 @@
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="exit_btn" layoutX="1450.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#updatebtn" styleClass="exit_btn" stylesheets="@../../source/style.css" text="X" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                </children></AnchorPane>
          </children>
       </AnchorPane>
@@ -273,6 +272,51 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
+            <Pane fx:id="chart_canvas" layoutX="15.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0" />
+            <Pane layoutX="20.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0">
+               <children>
+                  <Label fx:id="h1" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h2" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h3" alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h4" alignment="CENTER" contentDisplay="CENTER" layoutX="307.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h5" alignment="CENTER" contentDisplay="CENTER" layoutX="393.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h6" alignment="CENTER" contentDisplay="CENTER" layoutX="481.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h7" alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="h8" alignment="CENTER" contentDisplay="CENTER" layoutX="657.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
    </children>

@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -18,18 +19,31 @@
       <Line endX="275.0" layoutX="114.0" layoutY="121.0" startX="-100.0" />
       <JFXRadioButton fx:id="fahrenheit_radio" layoutX="23.0" layoutY="63.0" onAction="#radioButton_handle" text="Fahrenheit" />
       <JFXRadioButton fx:id="celsius_radio" layoutX="211.0" layoutY="63.0" onAction="#radioButton_handle" text="Celsius" />
-      <JFXTextField fx:id="search_textbox" layoutX="25.0" layoutY="169.0" prefHeight="26.0" prefWidth="288.0" promptText="Enter city name or ID" />
-      <JFXButton fx:id="find_btn" layoutX="322.0" layoutY="169.0" onAction="#find_btn" text="Find" />
-      <JFXListView fx:id="cities_listview" layoutX="25.0" layoutY="211.0" prefHeight="106.0" prefWidth="360.0" />
-   <JFXButton fx:id="save_btn" layoutX="25.0" layoutY="328.0" onAction="#save_btn" text="Save" />
+      <JFXTextField fx:id="search_textbox" layoutX="25.0" layoutY="169.0" prefHeight="26.0" prefWidth="360.0" promptText="Enter city name or ID" />
+      <JFXListView fx:id="cities_listview" layoutX="22.0" layoutY="234.0" onMouseClicked="#listview_handler" prefHeight="106.0" prefWidth="360.0" />
       <Label layoutX="25.0" layoutY="131.0" text="Cities">
          <font>
             <Font name="Roboto" size="20.0" />
          </font>
       </Label>
-   <Label layoutX="42.0" layoutY="395.0" text="About blah blah blah blah blah blah " textAlignment="CENTER">
+   <Label layoutX="42.0" layoutY="409.0" text="About blah blah blah blah blah blah " textAlignment="CENTER">
       <font>
          <Font name="Roboto" size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="26.0" layoutY="203.0" onMouseClicked="#trouble_btn" text="Having trouble find your city?" textFill="#092cf5">
+      <font>
+         <Font name="Roboto" size="15.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Label>
+      <JFXButton fx:id="find_btn" layoutX="335.0" layoutY="169.0" onAction="#find_btn" text="Find" textAlignment="CENTER" AnchorPane.rightAnchor="19.0" />
+   <JFXButton fx:id="clear_btn" layoutX="1.0" layoutY="169.0" onAction="#clear" text="x" visible="false" />
+   <Label layoutX="22.0" layoutY="350.0" text="Double clicking will make selected city as default" textAlignment="CENTER" textFill="#909090">
+      <font>
+         <Font name="Roboto" size="15.0" />
       </font>
    </Label>
 </AnchorPane>

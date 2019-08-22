@@ -1,13 +1,12 @@
 package com.Jweather;
 
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.EventHandler;
-import javafx.scene.control.ComboBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.stage.Modality;
-import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import org.apache.commons.lang3.text.WordUtils;
 import javafx.event.ActionEvent;
@@ -21,10 +20,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.awt.*;
-import java.io.File;
-import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -34,64 +31,28 @@ public class Controller
     {
 
     }
-
     @FXML
-    private Label Today_degree;
+    private Label h1,h2,h3,h4,h5,h6,h7,h8;
     @FXML
-    private  Label humidity_lbl;
+    private Label day_temp , night_temp , avg_temp;
     @FXML
-    private  Label wind_lbl;
+    private Label Today_degree ,  humidity_lbl , wind_lbl , weather_name_lbl , current_location_lbl;
     @FXML
-    private Label weather_name_lbl;
+    private Label day1_lbl,day2_lbl,day3_lbl,day4_lbl, day5_lbl;
     @FXML
-    private  Label current_location_lbl;
+    private Label day1_temp_lbl, day2_temp_lbl, day3_temp_lbl,day4_temp_lbl,day5_temp_lbl;
     @FXML
-    private Label day1_lbl;
+    private Label weather_day1_lbl, weather_day2_lbl,weather_day3_lbl, weather_day4_lbl,weather_day5_lbl;
     @FXML
-    private Label day2_lbl;
+    private Label last_update_lbl;
     @FXML
-    private Label day3_lbl;
+    private ImageView today_weather_icon,day1_weather_icon ,day2_weather_icon ,day3_weather_icon ,day4_weather_icon ,day5_weather_icon ;
     @FXML
-    private Label day4_lbl;
-    @FXML
-    private Label day5_lbl;
-    @FXML
-    private Label day1_temp_lbl;
-    @FXML
-    private Label day2_temp_lbl;
-    @FXML
-    private Label day3_temp_lbl;
-    @FXML
-    private Label day4_temp_lbl;
-    @FXML
-    private Label day5_temp_lbl;
-    @FXML
-    private Label weather_day1_lbl;
-    @FXML
-    private Label weather_day2_lbl;
-    @FXML
-    private Label weather_day3_lbl;
-    @FXML
-    private Label weather_day4_lbl;
-    @FXML
-    private Label weather_day5_lbl;
-    @FXML
-    private ImageView today_weather_icon;
-    @FXML
-    private ImageView day1_weather_icon ;
-    @FXML
-    private ImageView day2_weather_icon ;
-    @FXML
-    private ImageView day3_weather_icon ;
-    @FXML
-    private ImageView day4_weather_icon ;
-    @FXML
-    private ImageView day5_weather_icon ;
-    @FXML
-    private ComboBox interval_combo;
+    private Pane chart_canvas;
 
     private boolean update = Settings.ready ;
     private int sleep = 1000;
+    private int[] temperture = new int[8];
 
     @FXML
     public void initialize() {
@@ -116,7 +77,9 @@ public class Controller
                             public void run() {
                                 Update();
                                 Settings.ready = false ;
+                                update = Settings.ready;
                                 System.out.println("Updated");
+
                             }
                         });
                     }
@@ -127,7 +90,9 @@ public class Controller
                             public void run() {
                                 Weather weather = new Weather();
                                 weather.GetWeather();
+
                                 Update();
+                                System.out.println("Updated refrsh");
                             }
                         });
                     }
@@ -135,10 +100,7 @@ public class Controller
 
             }
         }.start();
-        /*ObservableList<String> list = FXCollections.observableArrayList();
-        list.add("Hello");
-        list.add("10m");
-        interval_combo.setItems(list);*/
+
 
     }
     private void Update()
@@ -153,6 +115,8 @@ public class Controller
         Image today_icon = new Image(getClass().getResourceAsStream(today_icon_));
         today_weather_icon.setImage(today_icon);
         current_location_lbl.setText(temp[5]);
+
+        last_update_lbl.setText("Last Update "+temp[6]);
 
         String[] days = w.Days().split("-");
         day1_lbl.setText(days[0].replaceFirst("DAY",""));
@@ -188,6 +152,23 @@ public class Controller
         day5_temp_lbl.setText(tempDays[13]);
         day5_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[14]+".png")));
 
+        int day = Integer.parseInt(tempDays[15]) , night = Integer.parseInt(tempDays[16]) , avg = (day + night)/2 ;
+        day_temp.setText(tempDays[15]+"°");
+        night_temp.setText(tempDays[16]+"°");
+        avg_temp.setText(avg+"°");
+
+
+        String[] t = w.forecast().split("-");
+
+        h1.setText(t[0]);h2.setText(t[2]);h3.setText(t[4]);h4.setText(t[6]);h5.setText(t[8]);h6.setText(t[10]);h7.setText(t[12]);h8.setText(t[14]);
+
+        int c = 0 ;
+        for(int i = 1 ; i < 16 ; i+=2 , c++)
+        {
+            temperture[c] =Integer.parseInt(t[i]);
+        }
+
+        init_chart();
     }
     public void NextCityMouseHandler(MouseEvent event)
     {
@@ -218,7 +199,19 @@ public class Controller
             stage.setTitle("Settings");
             stage.setScene(new Scene(settings , 400 , 500));
             stage.setResizable(false);
-            stage.showAndWait();
+            stage.show();
+
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent windowEvent) {
+                    try {
+                        Settings.save();
+                        //System.exit(0);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
 
         }catch (Exception e )
         {
@@ -239,6 +232,9 @@ public class Controller
         wind_lbl.setText("--");
         weather_name_lbl.setText("--");
         current_location_lbl.setText("--");
+        day_temp.setText("--");
+        night_temp.setText("--");
+        avg_temp.setText("--");
 
         day1_lbl.setText("--");
         day2_lbl.setText("--");
@@ -279,10 +275,16 @@ public class Controller
 
         Iterator<Integer> itr = set.iterator();
         boolean n = false ;
-        first = itr.next();
+
         while(itr.hasNext())
         {
-            temp = itr.next();
+            if(first==0 && temp == 0 )
+            {
+                temp = itr.next();
+                first = temp ;
+            }
+            else
+                temp = itr.next();
             if(Settings.city.getId() == temp)
             {
                 n  = true;
@@ -316,16 +318,86 @@ public class Controller
             {
                 p=true;
             }
-            else
+            else if(!p)
             {
                 priv = temp ;
             }
 
         }
-        if(!p)
+        if(priv==0)
             priv=temp;
         System.out.println(priv);
         return priv;
+
+    }
+    private void init_chart()
+    {
+        chart_canvas.getChildren().clear();
+        Line line[] = new Line[7];
+        Label l[] = new Label[8];
+        Circle circle[] = new Circle[8];
+
+        Line bar = new Line();
+        int x = 0 ;
+        for(int i = 0 ; i < 8 ; i++)
+        {
+            bar.setEndX(72);
+            bar.setEndY(-116);
+            bar.setStartX(72);
+            bar.setStartY(50);
+            bar.setLayoutY(126);
+            bar.setLayoutX(x);
+            bar.setStroke(Color.WHITE);
+            bar.setOpacity(0.3);
+            chart_canvas.getChildren().add(bar);
+            bar =  new Line();
+            x+=87;
+        }
+
+        int startx , endx = -15 , starty =100 ,endy = temperture[0];
+        for(int i = 0 ; i < 8 ; i++)
+        {
+            startx = endx;
+
+            starty=endy;
+            endy=  90 - temperture[i];
+
+            endx = startx+87;
+            endy+=10;
+
+            if(i!=0)
+            {
+                line[i-1] = new Line();
+                line[i-1].setStartY(starty);
+                line[i-1].setEndY(endy);
+                line[i-1].setStartX(startx);
+                line[i-1].setEndX(endx);
+
+                line[i-1].setStroke(Color.WHITE);
+                line[i-1].setStrokeWidth(2);
+                line[i-1].setOpacity(0.5);
+                chart_canvas.getChildren().add(line[i-1]);
+            }
+            l[i] = new Label();
+            circle[i] = new Circle();
+
+            circle[i].setRadius(3);
+            circle[i].setCenterY(endy);
+            circle[i].setCenterX(endx);
+            circle[i].setFill(Color.WHITE);
+
+            l[i].setLayoutX(endx-12);
+            if(endy>starty)
+                l[i].setLayoutY(endy-30);
+            else
+                l[i].setLayoutY(endy+10);
+            l[i].setText(temperture[i]+"°");
+            l[i].setTextFill(Color.WHITE);
+
+            chart_canvas.getChildren().add(l[i]);
+            chart_canvas.getChildren().add(circle[i]);
+
+        }
 
     }
 }

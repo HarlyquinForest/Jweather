@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Jweather">
+    <output-path>$PROJECT_DIR$/out/artifacts/Jweather</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.Jweather.Main" />
+        <option name="description" value="" />
+        <option name="height" value="700" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Jweather" />
+        <option name="vendor" value="" />
+        <option name="version" value="1" />
+        <option name="width" value="1500" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Jweather.jar">
+        <element id="module-output" name="Jweather" />
+      </element>
+    </root>
+  </artifact>
+</component>

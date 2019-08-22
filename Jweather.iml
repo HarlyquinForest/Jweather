@@ -13,5 +13,6 @@
     <orderEntry type="library" name="javafx.base" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.8" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.3" level="project" />
+    <orderEntry type="library" name="org.jfree:jfreechart:1.5.0" level="project" />
   </component>
 </module>

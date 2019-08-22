@@ -25,8 +25,8 @@ public class Weather extends Thread
     //constructor
     public Weather()
     {
-        City = Settings.City;
-        System.out.println(City);
+        this.City = Settings.getID();
+        //System.out.println(City);
         CreateDirs();
     }
     //create tmp dirs
@@ -61,15 +61,16 @@ public class Weather extends Thread
     public static boolean saved()
     {
         boolean ok = true;
-        if(!new File("/tmp/Jweather/"+Settings.City+"/current.xml").exists())
+        int id = Settings.city.getId();
+        if(!new File("/tmp/Jweather/"+id+"/current.xml").exists())
         {
             ok = false ;
         }
-        else if(!new File("/tmp/Jweather/"+Settings.City+"/daily.xml").exists())
+        else if(!new File("/tmp/Jweather/"+id+"/daily.xml").exists())
         {
             ok = false ;
         }
-        else if(!new File("/tmp/Jweather/"+Settings.City+"/hourly.xml").exists())
+        else if(!new File("/tmp/Jweather/"+id+"/hourly.xml").exists())
         {
            ok = false ;
         }
@@ -100,6 +101,10 @@ public class Weather extends Thread
         {
             Settings.ready = true;
         }
+    }
+    public void GetWeather()
+    {
+        getWeather();
     }
     //get weather info form api
     private void  getWeather()
@@ -155,6 +160,9 @@ public class Weather extends Thread
         } catch(Exception e )
         {
             System.out.println("Some problem occured!");
+        }
+        finally {
+            Settings.refresh = false ;
         }
 
     }

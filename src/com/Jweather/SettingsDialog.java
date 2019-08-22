@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 
 
@@ -50,6 +51,11 @@ public class SettingsDialog
         update();
 
     }
+    @FXML
+    public void exitWindow(ActionEvent event)
+    {
+
+    }
     public void update()
     {
         Collection<String> cities = Settings.Cities.values();
@@ -73,11 +79,13 @@ public class SettingsDialog
         {
             celsius_radio.setSelected(false);
             fahrenheit_radio.setSelected(true);
+            Settings.Celcius = false ;
         }
         else if(id == celsius_radio.getId())
         {
             fahrenheit_radio.setSelected(false);
             celsius_radio.setSelected(true);
+            Settings.Celcius = true;
         }
 
     }
@@ -208,8 +216,7 @@ public class SettingsDialog
 
 
     }
-
-    public void listview_handler(MouseEvent event) throws  Exception
+    public void listview_handler(MouseEvent event)
     {
         if(event.getClickCount() == 2)
         {
@@ -224,38 +231,7 @@ public class SettingsDialog
             });
             Settings.refresh = true;
             Settings.ready = true;
-            File file = new File(Settings.CONFIG_PATH+"/config.conf");
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
 
-            String line ;
-            String[] temp = new String[3];
-            String Data = randomAccessFile.readLine()+"\n";
-            randomAccessFile.seek(2);
-            while((line = randomAccessFile.readLine()) != null )
-            {
-
-                temp = line.split(",");
-                if(Integer.parseInt(temp[0]) == Settings.city.getId())
-                {
-                    System.out.println(line+"Will use as default");
-                    if(!temp[2].contains("*"))
-                        Data+=line+"*\n";
-                    else
-                        Data+=line+"\n";
-                }
-                else if(temp[2].contains("*"))
-                {
-                    Data+=line.replace("*","")+"\n";
-                }
-                else
-                    Data+=line+"\n";
-
-            }
-            file.delete();
-            System.out.println(Data);
-            //System.out.println(lineNumber);
-            System.out.println(randomAccessFile.readLine());
-            FileUtils.writeStringToFile(file , Data , "utf-8");
 
         }
 
@@ -289,4 +265,6 @@ public class SettingsDialog
             e.printStackTrace();
         }
     }
+
+
 }

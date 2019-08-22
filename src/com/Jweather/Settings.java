@@ -2,6 +2,7 @@ package com.Jweather;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Settings
     public static boolean Celcius;
     public static boolean ready = false ;
     public static boolean offline = false ;
-    public static boolean refresh = true ;
+    public static boolean refresh = false ;
     public static Hashtable< Integer , String > Cities  = new Hashtable<Integer, String>();
     public static ArrayList<String> City_List = new ArrayList<String>();
     protected static String HOME_PATH = System.getProperty("user.home");
@@ -32,7 +33,7 @@ public class Settings
 
         }catch (Exception e)
         {
-            System.out.println("can't find server ");
+            //System.out.println("can't find server ");
             offline = true ;
             return false ;
 
@@ -50,8 +51,7 @@ public class Settings
                 {
                     reachable = true;
                     offline = false ;
-                    offline = false ;
-                    System.out.println("Server is reachable ");
+                    //System.out.println("Server is reachable ");
 
                 }
                 else
@@ -128,7 +128,6 @@ public class Settings
             }
             try
             {
-
                 temp = line.split(",");
                 //System.out.println(temp[1]);
                 Cities.put(Integer.parseInt(temp[0]), temp[1].replace("*", ""));
@@ -168,5 +167,45 @@ public class Settings
         return city.getId();
     }
 
+    public static void save() throws Exception
+    {
+        File file = new File(Settings.CONFIG_PATH+"/config.conf");
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+
+        String line ;
+        String[] temp = new String[3];
+        char unit = ' ';
+        if(Settings.Celcius)
+            unit='C';
+        else
+            unit='F';
+        String Data = unit+"\n";
+        randomAccessFile.seek(2);
+        while((line = randomAccessFile.readLine()) != null )
+        {
+
+            temp = line.split(",");
+            if(Integer.parseInt(temp[0]) == Settings.city.getId())
+            {
+                //System.out.println(line+"Will use as default");
+                if(!temp[2].contains("*"))
+                    Data+=line+"*\n";
+                else
+                    Data+=line+"\n";
+            }
+            else if(temp[2].contains("*"))
+            {
+                Data+=line.replace("*","")+"\n";
+            }
+            else
+                Data+=line+"\n";
+
+        }
+        file.delete();
+        //System.out.println(Data);
+        //System.out.println(lineNumber);
+        FileUtils.writeStringToFile(file , Data , "utf-8");
+
+    }
 
 }

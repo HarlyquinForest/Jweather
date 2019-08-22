@@ -1,11 +1,13 @@
 package com.Jweather;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.WindowEvent;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,14 +33,22 @@ public class Main extends Application {
 
         s.setWallpaper(scene);
 
-        if(set.state())
-            w.start();
+        w.start();
+
 
 
         primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
 
     }
 
