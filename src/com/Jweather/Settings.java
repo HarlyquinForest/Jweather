@@ -12,6 +12,7 @@ public class Settings
     private String CONFIG_PATH = HOME_PATH+"/.Jweather";
     private File CONFIG_FILE = new File(CONFIG_PATH+"/config.conf");
     private File CITY_DATA = new File(CONFIG_PATH+"/city.json");
+    private File TMP = new File("/tmp/Jweather");
     private Unit unit ;
     private String API ;
     private City defaultCity;
@@ -27,6 +28,14 @@ public class Settings
                System.out.println("We got some error while creating required directories");
                System.exit(-1);
            }
+        }
+        if(!TMP.exists())
+        {
+            if(!TMP.mkdirs())
+            {
+                System.out.println("We got some error while creating required directories");
+                System.exit(-1);
+            }
         }
         if(!CONFIG_FILE.exists())
         {
@@ -94,7 +103,7 @@ public class Settings
 
         if (defaultCity != null)
         {
-            API = "http://api.openweathermap.org/data/2.5/forecast/daily?id="+ defaultCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
+            API = "?id="+ defaultCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
         }
         else
         {

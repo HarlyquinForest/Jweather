@@ -19,10 +19,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class ShowWeather {
-    private String ThemeSummer = getClass().getResource("/source/summer.css").toExternalForm();
-    private String ThemeFall = getClass().getResource("/source/fall.css").toExternalForm();
-    private String ThemeWinter = getClass().getResource("/source/winter.css").toExternalForm();
-    private String ThemeSpring = getClass().getResource("/source/spring.css").toExternalForm();
+
     /*private File current = new File("/tmp/Jweather/" + Settings.city.getId() + "/current.xml");
     private File daily = new File("/tmp/Jweather/" + Settings.city.getId() + "/daily.xml");
     private File hourly = new File("/tmp/Jweather/" + Settings.city.getId() + "/hourly.xml");
@@ -31,70 +28,7 @@ public class ShowWeather {
     {
     }
 
-    /*public String showCurrnet() {
-        String output;
-        try {
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-
-            Document doc = dBuilder.parse(current);
-            doc.getDocumentElement().normalize();
-
-            Node node;
-            NodeList sy = doc.getElementsByTagName("temperature");
-            node = sy.item(0);
-            Element el = (Element) node;
-            String temp = el.getAttribute("value");
-            double degree = Double.parseDouble(temp);
-            output = String.format("%02d", Math.round(degree));
-
-            sy = doc.getElementsByTagName("humidity");
-            node = sy.item(0);
-            el = (Element) node;
-            output += "-" + el.getAttribute("value");
-
-            sy = doc.getElementsByTagName("speed");
-            node = sy.item(0);
-            el = (Element) node;
-            output += "-" + el.getAttribute("value");
-
-            sy = doc.getElementsByTagName("clouds");
-            node = sy.item(0);
-            el = (Element) node;
-            output += "-" + WordUtils.capitalize(el.getAttribute("name"));
-
-            sy = doc.getElementsByTagName("weather");
-            node = sy.item(0);
-            el = (Element) node;
-            output += "-" + el.getAttribute("icon");
-
-
-            sy = doc.getElementsByTagName("city");
-            node = sy.item(0);
-            el = (Element) node;
-            output += "-" + WordUtils.capitalize(el.getAttribute("name"));
-
-            sy = doc.getElementsByTagName("country");
-            node = sy.item(0);
-            el = (Element) node;
-            output += " , " + el.getTextContent() + "-";
-
-            sy = doc.getElementsByTagName("lastupdate");
-            node = sy.item(0);
-            el = (Element) node;
-            String t[] = el.getAttribute("value").split("T");
-            output += t[1];
-
-
-            return output;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "°";
-        }
-    }
-
-    public String Days() {
+    /*public String Days() {
         String output = "";
 
         for (int i = 1; i <= 5; i++)
@@ -178,29 +112,7 @@ public class ShowWeather {
         return output;
     }
 
-    public void setWallpaper(Scene scene) {
-        String Month = LocalDate.now().getMonth().toString();
-        switch (Month) {
-            case "MARCH":
-            case "APRIL":
-            case "MAY":
-                scene.getStylesheets().add(ThemeSpring);
-                break;
-            case "JUNE":
-            case "JULY":
-            case "AUGUST":
-                scene.getStylesheets().add(ThemeSummer);
-                break;
-            case "SEPTEMBER":
-            case "OCTOBER":
-            case "NOVEMBER":
-                scene.getStylesheets().add(ThemeFall);
-                break;
-            case "DECEMBER":
-            case "JANUARY":
-            case "FEBRUARY":
-                scene.getStylesheets().add(ThemeWinter);
-        }
+
 
     }*/
 }

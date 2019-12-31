@@ -40,6 +40,14 @@ public class City
         this.name = name;
     }
 
+    public void setDaysForcast(Weather[] daysForcast) {
+        this.daysForcast = daysForcast;
+    }
+
+    public void setCurrentWeather(Weather currentWeather) {
+        this.currentWeather = currentWeather;
+    }
+
     @Override
     public String toString()
     {
