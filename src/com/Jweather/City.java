@@ -4,35 +4,45 @@ public class City
 {
     private String name ;
     private String country;
-    private int id = 0 ;
+    private Weather currentWeather ;
+    private Weather[] daysForcast;
+    private int ID = 0 ;
 
-    public int getId() {
-        return id;
+    protected City(int i , String n , String c)
+    {
+        ID = i ;
+        name = n ;
+        country = c;
+        daysForcast = new Weather[6];
     }
 
-    public String getCountry() {
+    int getId() {
+        return ID;
+    }
+
+    String getCountry() {
         return country;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setCountry(String country) {
+    void setCountry(String country) {
         this.country = country;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    void setId(int id) {
+        this.ID = id;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 
     @Override
     public String toString()
     {
-        return id + "," + name + ","+country;
+        return ID + "," + name + ","+country;
     }
 }

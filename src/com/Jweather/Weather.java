@@ -16,153 +16,52 @@ import java.net.URLConnection;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Weather extends Thread
+public class Weather
 {
     //variables
-    private int City ;
+    private int currentDegree ;
+    private String icon ;
+    private String weather ;
+    private String day ;
 
-
-    //constructor
-    public Weather()
+    Weather(int degree , String ico , String name , String d)
     {
-        this.City = Settings.getID();
-        //System.out.println(City);
-        CreateDirs();
+            currentDegree = degree;
+            icon = ico ;
+            weather = name ;
+            day = d ;
     }
-    //create tmp dirs
-    private void CreateDirs()
-    {
-        File main = new File("/tmp/Jweather");
-        File CityDir = new File("/tmp/Jweather/"+City);
-        if(!main.exists())
-        {
-            try
-            {
-                main.mkdir();
-            }catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        if(!CityDir.exists())
-        {
-            try
-            {
-                CityDir.mkdir();
-                System.out.println("Dir created");
 
-            }catch (Exception e )
-            {
-                e.printStackTrace();
-            }
-        }
+    public int getCurrentDegree() {
+        return currentDegree;
     }
-    public static boolean saved()
-    {
-        boolean ok = true;
-        int id = Settings.city.getId();
-        if(!new File("/tmp/Jweather/"+id+"/current.xml").exists())
-        {
-            ok = false ;
-        }
-        else if(!new File("/tmp/Jweather/"+id+"/daily.xml").exists())
-        {
-            ok = false ;
-        }
-        else if(!new File("/tmp/Jweather/"+id+"/hourly.xml").exists())
-        {
-           ok = false ;
-        }
-        return ok ;
+
+    public String getDay() {
+        return day;
     }
-    public void run()
-    {
-        int sleep = 1000 ;
-        do
-        {
-            Settings.checkConnection();
-            Settings.ready = saved();
-            try {
-                sleep(sleep);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if(sleep != 20000)
-                sleep +=100 ;
 
-        } while(Settings.offline);
-        if(!saved())
-        {
-            getWeather();
-            Settings.ready = true;
-        }
-        else
-        {
-            Settings.ready = true;
-        }
+    public String getIcon() {
+        return icon;
     }
-    public void GetWeather()
-    {
-        getWeather();
+
+    public void setCurrentDegree(int currentDegree) {
+        this.currentDegree = currentDegree;
     }
-    //get weather info form api
-    private void  getWeather()
-    {
-        String API ;
-        if(Settings.Celcius)
-            API = "&APPID=04ed4038994ff1be56247052ae7bc45f&units=metric&mode=xml";
-        else
-            API = "&APPID=04ed4038994ff1be56247052ae7bc45f&units=imperial&mode=xml";
-        File current = new File("/tmp/Jweather/"+City+"/current.xml");
-        File daily = new File("/tmp/Jweather/"+City+"/daily.xml");
-        File hourly = new File("/tmp/Jweather/"+City+"/hourly.xml");
-        String[] API_URL = {
-                  "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + City + API
-                , "http://api.openweathermap.org/data/2.5/weather?id=" + City + API
-                , "http://api.openweathermap.org/data/2.5/forecast?id=" + City + API
-                            };
-        URL url ;
-        URLConnection urlConnection ;
-        HttpURLConnection connection ;
-        BufferedReader in ;
-        String write ;
-        String read ;
-        try
-        {
-            for(int i = 0 ; i < 3 ; i++)
-            {
-                url = new URL(API_URL[i]);
-                urlConnection = url.openConnection();
-                connection =  (HttpURLConnection) urlConnection ;
-                in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                write ="";
-                read = "";
 
-                while((read = in.readLine()) != null )
-                {
-                    write += read;
-                }
-                switch (i)
-                {
-                    case 0 :
-                        FileUtils.write(daily , write , "utf-8");
-                        break;
-                    case 1 :
-                        FileUtils.write(current , write , "utf-8");
-                        break;
-                    case 2 :
-                        FileUtils.write(hourly , write , "utf-8");
-                        break;
-                }
-            }
+    public void setDay(String day) {
+        this.day = day;
+    }
 
-        } catch(Exception e )
-        {
-            System.out.println("Some problem occured!");
-        }
-        finally {
-            Settings.refresh = false ;
-        }
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
+    public void setWeather(String weather) {
+        this.weather = weather;
+    }
+
+    public String getWeather() {
+        return weather;
     }
 }
+
