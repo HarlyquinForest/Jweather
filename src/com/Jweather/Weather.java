@@ -57,7 +57,6 @@ public class Weather extends Thread
             }
         }
     }
-
     public static boolean saved()
     {
         boolean ok = true;

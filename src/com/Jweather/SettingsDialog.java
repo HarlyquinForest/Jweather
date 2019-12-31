@@ -1,6 +1,4 @@
 package com.Jweather;
-
-
 import com.jfoenix.controls.*;
 import com.google.gson.*;
 import com.sun.javafx.application.HostServicesDelegate;
@@ -26,12 +24,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-
-
 public class SettingsDialog
 {
-    private String[] Cities ;
-
     @FXML
     private JFXRadioButton fahrenheit_radio ;
     @FXML
@@ -186,7 +180,6 @@ public class SettingsDialog
                         });
                     }
                 }.start();
-
             }
             else
             {

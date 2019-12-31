@@ -5,23 +5,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
+import javafx.application.Application;
 import org.apache.commons.io.FileUtils;
 
 public class Settings
 {
-    public static City city = new City();
-    public static boolean Celcius;
-    public static boolean ready = false ;
-    public static boolean offline = false ;
-    public static boolean refresh = false ;
-    public static Hashtable< Integer , String > Cities  = new Hashtable<Integer, String>();
-    public static ArrayList<String> City_List = new ArrayList<String>();
-    protected static String HOME_PATH = System.getProperty("user.home");
-    public static String CONFIG_PATH = HOME_PATH+"/.Jweather";
+    static City city = new City();
+    static boolean Celcius;
+    static boolean ready = false ;
+    static boolean offline = false ;
+    static boolean refresh = false ;
+    static Hashtable< Integer , String > Cities  = new Hashtable<Integer, String>();
+    static ArrayList<String> City_List = new ArrayList<String>();
+    static String HOME_PATH = System.getProperty("user.home");
+    static String CONFIG_PATH = HOME_PATH+"/.Jweather";
 
     public static  boolean checkConnection()
     {
@@ -208,4 +210,10 @@ public class Settings
 
     }
 
+    void copyFile() throws  Exception
+    {
+        File test = new File("src/source/city.json");
+        File test2 = new File(CONFIG_PATH+"/city.json");
+        FileUtils.copyFile(test , test2);
+    }
 }

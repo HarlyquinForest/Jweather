@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="499.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Jweather.SettingsDialog">
+<AnchorPane prefHeight="499.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Jweather.SettingsDialog">
       <Label layoutX="23.0" layoutY="14.0" text="Unit ">
          <font>
             <Font name="Roboto" size="20.0" />
@@ -26,9 +26,9 @@
             <Font name="Roboto" size="20.0" />
          </font>
       </Label>
-   <Label layoutX="42.0" layoutY="409.0" text="About blah blah blah blah blah blah " textAlignment="CENTER">
+   <Label layoutX="25.0" layoutY="381.0" maxWidth="350.0" text="Hello , I am Amin Yousefnejad from Iran . Tnx for using this software , If you have any idea or if you want to keep in touch with me here is my email : aminyousefnejad28@gmail.com" textAlignment="CENTER" wrapText="true">
       <font>
-         <Font name="Roboto" size="20.0" />
+         <Font name="Roboto" size="14.0" />
       </font>
    </Label>
    <Label layoutX="26.0" layoutY="203.0" onMouseClicked="#trouble_btn" text="Having trouble find your city?" textFill="#092cf5">
@@ -41,7 +41,7 @@
    </Label>
       <JFXButton fx:id="find_btn" layoutX="335.0" layoutY="169.0" onAction="#find_btn" text="Find" textAlignment="CENTER" AnchorPane.rightAnchor="19.0" />
    <JFXButton fx:id="clear_btn" layoutX="1.0" layoutY="169.0" onAction="#clear" text="x" visible="false" />
-   <Label layoutX="22.0" layoutY="350.0" text="Double clicking will make selected city as default" textAlignment="CENTER" textFill="#909090">
+   <Label layoutX="22.0" layoutY="350.0" text="*Double clicking will make selected city as default" textAlignment="CENTER" textFill="#909090">
       <font>
          <Font name="Roboto" size="15.0" />
       </font>

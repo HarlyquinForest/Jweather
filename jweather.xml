@@ -159,7 +159,7 @@
       <patternset refid="library.patterns"/>
     </fileset>
   </path>
-  
+
   <path id="library.org.apache.commons:commons-lang3:3.3.2.classpath">
     <pathelement location="${basedir}/lib/commons-lang3-3.3.2.jar"/>
   </path>

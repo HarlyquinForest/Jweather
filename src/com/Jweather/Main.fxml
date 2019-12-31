@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="background" stylesheets="@../../source/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Jweather.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1500.0" styleClass="background" stylesheets="@../../source/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Jweather.Controller">
    <children>
       <AnchorPane stylesheets="@../../source/style.css">
          <children>
@@ -19,15 +19,15 @@
                <children>
                   <Label fx:id="Today_degree" alignment="CENTER" layoutX="661.0" layoutY="138.0" styleClass="bigDegree" stylesheets="@../../source/style.css" text="--" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="600.0">
                      <font>
-                        <Font name="Roboto Regular" size="96.0" />
+                        <Font name="Roboto Black" size="96.0" />
                      </font>
                   </Label>
                   <Label fx:id="current_location_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="714.0" layoutY="14.0" text="city name" textFill="WHITE" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="30.0">
                      <font>
-                        <Font name="Roboto Bold" size="15.0" />
+                        <Font name="Roboto" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="564.0" layoutY="106.0" text="Today" textFill="WHITE">
+                  <Label layoutX="564.0" layoutY="106.0" text="Now" textFill="WHITE">
                      <font>
                         <Font name="Roboto" size="25.0" />
                      </font>
@@ -62,7 +62,7 @@
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
                   </Label>
-                  <Label layoutX="212.0" layoutY="451.0" text="0%" textFill="WHITE" AnchorPane.leftAnchor="230.0">
+                  <Label fx:id="chance_lbl" layoutX="212.0" layoutY="451.0" text="0%" textFill="WHITE" AnchorPane.leftAnchor="230.0">
                      <font>
                         <Font name="Roboto Regular" size="25.0" />
                      </font>
@@ -96,7 +96,7 @@
                         <Rectangle2D />
                      </viewport>
                   </ImageView>
-                  <Button fx:id="refresh_btn" layoutX="840.0" layoutY="47.0" mnemonicParsing="false" onMouseClicked="#updatebtn" styleClass="refresh_btn" stylesheets="@../../source/style.css" text="🗘">
+                  <Button fx:id="refresh_btn" layoutX="843.0" layoutY="52.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#updatebtn" prefHeight="15.0" prefWidth="15.0" styleClass="refresh_btn" stylesheets="@../../source/style.css" text=" ">
                   </Button>
                   <Label layoutX="1176.0" layoutY="390.0" text="Day:" textFill="WHITE">
                      <font>

@@ -1,13 +1,17 @@
 package com.Jweather;
 
+import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 import org.apache.commons.lang3.text.WordUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,6 +53,8 @@ public class Controller
     private ImageView today_weather_icon,day1_weather_icon ,day2_weather_icon ,day3_weather_icon ,day4_weather_icon ,day5_weather_icon ;
     @FXML
     private Pane chart_canvas;
+    @FXML
+    private Button refresh_btn;
 
     private boolean update = Settings.ready ;
     private int sleep = 1000;
@@ -103,12 +109,15 @@ public class Controller
 
 
     }
+
     private void Update()
     {
+        rotate_animation(refresh_btn);
+
         ShowWeather w = new ShowWeather();
         String[] temp = w.showCurrnet().split("-");
         Today_degree.setText(temp[0]);
-        humidity_lbl.setText(temp[1]+"%");
+        humidity_lbl.setText(temp[1]);
         wind_lbl.setText(temp[2]+"m/s");
         weather_name_lbl.setText(temp[3]);
         String today_icon_ = "/source/Weather icons/"+temp[4]+".png";
@@ -153,8 +162,8 @@ public class Controller
         day5_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[14]+".png")));
 
         int day = Integer.parseInt(tempDays[15]) , night = Integer.parseInt(tempDays[16]) , avg = (day + night)/2 ;
-        day_temp.setText(tempDays[15]+"°");
-        night_temp.setText(tempDays[16]+"°");
+        day_temp.setText(tempDays[16]+"°");
+        night_temp.setText(tempDays[15]+"°");
         avg_temp.setText(avg+"°");
 
 
@@ -224,6 +233,8 @@ public class Controller
         sleep = 1000 ;
         Weather weather = new Weather();
         weather.start();
+        rotate_animation(refresh_btn);
+
     }
     public void default_lbl()
     {
@@ -235,6 +246,8 @@ public class Controller
         day_temp.setText("--");
         night_temp.setText("--");
         avg_temp.setText("--");
+
+        last_update_lbl.setText("Last Update: --:--:--");
 
         day1_lbl.setText("--");
         day2_lbl.setText("--");
@@ -363,7 +376,9 @@ public class Controller
             endy=  90 - temperture[i];
 
             endx = startx+87;
-            endy+=10;
+            //endy+=10;
+
+
 
             if(i!=0)
             {
@@ -382,6 +397,7 @@ public class Controller
             circle[i] = new Circle();
 
             circle[i].setRadius(3);
+
             circle[i].setCenterY(endy);
             circle[i].setCenterX(endx);
             circle[i].setFill(Color.WHITE);
@@ -399,5 +415,15 @@ public class Controller
 
         }
 
+    }
+    private void rotate_animation(Control obj)
+    {
+        RotateTransition rotate = new RotateTransition();
+
+        rotate.setDuration(Duration.millis(1000));
+        rotate.setNode(obj);
+        rotate.setCycleCount(1);
+        rotate.setByAngle(180);
+        rotate.play();
     }
 }

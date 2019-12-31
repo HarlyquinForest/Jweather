@@ -7,7 +7,7 @@
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/com/Jweather/Weather.java" line="111" />
-    <bookmark url="file://$PROJECT_DIR$/src/com/Jweather/Controller.java" line="162" />
+    <bookmark url="file://$PROJECT_DIR$/src/com/Jweather/Controller.java" line="172" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="first commit" />
@@ -27,6 +27,11 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints>
+      <file url="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java" />
+    </disable_hints>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -84,150 +89,153 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.521879">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#initialize#0;class#SettingsDialog#0" />
-                    <element signature="method#update#0;class#SettingsDialog#0" />
-                    <element signature="method#radioButton_handle#0;class#SettingsDialog#0" />
-                    <element signature="method#isNumric#0;class#SettingsDialog#0" />
-                    <element signature="method#find_btn#0;class#SettingsDialog#0" />
-                    <element signature="method#listview_handler#0;class#SettingsDialog#0" />
-                    <element signature="method#clear#0;class#SettingsDialog#0" />
-                    <element signature="method#trouble_btn#0;class#SettingsDialog#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#checkConnection#0;class#Settings#0" />
-                    <element signature="e#963#1117#0" />
-                    <element signature="method#Settings#0;class#Settings#0" />
-                    <element signature="method#CreateDir#0;class#Settings#0" />
-                    <element signature="method#read_Settings#0;class#Settings#0" />
-                    <element signature="method#state#0;class#Settings#0" />
-                    <element signature="method#save#0;class#Settings#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2505">
-                  <caret line="192" column="52" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
-                  <folding>
-                    <element signature="e#838#870#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="19" selection-start-line="19" selection-end-line="19" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#showCurrnet#0;class#ShowWeather#0" />
-                    <element signature="method#Days#0;class#ShowWeather#0" />
-                    <element signature="method#showDays#0;class#ShowWeather#0" />
-                    <element signature="method#forecast#0;class#ShowWeather#0" />
-                    <element signature="method#setWallpaper#0;class#ShowWeather#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/City.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="31" selection-start-line="31" selection-end-line="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.fxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="750">
-                  <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-                </state>
-              </provider>
-              <provider editor-type-id="JavaFX-Scene-Builder" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/source/style.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="22" selection-start-line="22" selection-end-line="22" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.fxml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="169" selection-start-line="12" selection-start-column="169" selection-end-line="12" selection-end-column="169" />
-                </state>
-              </provider>
-              <provider editor-type-id="JavaFX-Scene-Builder" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Weather.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1080">
-                  <caret line="113" column="61" selection-start-line="113" selection-start-column="61" selection-end-line="113" selection-end-column="61" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#CreateDirs#0;class#Weather#0" />
-                    <element signature="method#saved#0;class#Weather#0" />
-                    <element signature="e#2431#2432#0" expanded="true" />
-                    <element signature="e#2459#2460#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="123" selection-start-line="123" selection-end-line="123" />
+              <folding>
+                <element signature="e#982#1014#0" />
+                <element signature="e#2283#2344#0" />
+                <element signature="e#2376#2444#0" />
+                <element signature="e#3081#3539#1" />
+                <element signature="class#3129:3515" />
+                <element signature="method#run#0;class#3129:3515" />
+                <element signature="e#6355#6417#1" />
+                <element signature="e#6451#6638#0" />
+                <element signature="e#6643#6828#0" />
+                <element signature="e#6833#7766#0" />
+                <element signature="e#6903#7687#0" />
+                <element signature="class#7305:7674" />
+                <element signature="method#handle#0;class#7305:7674" />
+                <element signature="e#7447#7553#0" />
+                <element signature="e#7574#7642#0" />
+                <element signature="e#7716#7760#0" />
+                <element signature="e#7771#7958#0" />
+                <element signature="e#7963#8896#0" />
+                <element signature="e#8901#9099#0" />
+                <element signature="e#9104#9878#0" />
+                <element signature="e#9370#9772#1" />
+                <element signature="e#9423#9504#1" />
+                <element signature="e#9615#9657#1" />
+                <element signature="e#9693#9762#1" />
+                <element signature="e#9883#10453#0" />
+                <element signature="e#10125#10348#1" />
+                <element signature="e#10216#10255#1" />
+                <element signature="e#10292#10337#1" />
+                <element signature="e#10458#12448#0" />
+                <element signature="e#10741#11110#1" />
+                <element signature="e#11226#12441#1" />
+                <element signature="e#11411#11836#1" />
+                <element signature="e#12453#12734#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+              <folding>
+                <element signature="e#1369#1370#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="636">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+              <folding>
+                <element signature="method#Days#0;class#ShowWeather#0" />
+                <element signature="method#showDays#0;class#ShowWeather#0" />
+                <element signature="method#forecast#0;class#ShowWeather#0" />
+                <element signature="method#setWallpaper#0;class#ShowWeather#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#checkConnection#0;class#Settings#0" />
+                <element signature="e#963#1117#0" />
+                <element signature="e#1145#1270#0" />
+                <element signature="e#1329#1827#0" />
+                <element signature="e#1444#1816#1" />
+                <element signature="e#1505#1667#1" />
+                <element signature="e#1705#1801#1" />
+                <element signature="e#1856#1923#0" />
+                <element signature="e#1948#1990#0" />
+                <element signature="method#Settings#0;class#Settings#0" />
+                <element signature="method#CreateDir#0;class#Settings#0" />
+                <element signature="method#read_Settings#0;class#Settings#0" />
+                <element signature="e#2507#2579#0" />
+                <element signature="e#2610#2654#0" />
+                <element signature="e#2695#2938#0" />
+                <element signature="e#3039#3785#1" />
+                <element signature="e#3077#3139#1" />
+                <element signature="e#3168#3684#0" />
+                <element signature="e#3454#3670#1" />
+                <element signature="e#3729#3774#0" />
+                <element signature="method#state#0;class#Settings#0" />
+                <element signature="e#3868#3904#1" />
+                <element signature="method#save#0;class#Settings#0" />
+                <element signature="e#4531#5050#1" />
+                <element signature="e#4649#4869#1" />
+                <element signature="e#4925#4989#1" />
+                <element signature="e#5082#5109#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Jweather/Weather.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-293">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="method#Weather#0;class#Weather#0" />
+                <element signature="method#CreateDirs#0;class#Weather#0" />
+                <element signature="e#909#1078#1" />
+                <element signature="e#939#984#0" />
+                <element signature="e#1016#1068#0" />
+                <element signature="e#1117#1342#1" />
+                <element signature="e#1147#1247#0" />
+                <element signature="e#1280#1332#0" />
+                <element signature="method#saved#0;class#Weather#0" />
+                <element signature="e#1531#1567#1" />
+                <element signature="e#1646#1682#1" />
+                <element signature="e#1762#1797#1" />
+                <element signature="e#1994#2039#0" />
+                <element signature="e#2071#2123#0" />
+                <element signature="e#2250#2322#1" />
+                <element signature="e#2344#2390#1" />
+                <element signature="method#getWeather#0;class#Weather#0" />
+                <element signature="e#3475#4437#0" />
+                <element signature="e#3530#4426#1" />
+                <element signature="e#3914#3968#1" />
+                <element signature="e#4012#4412#0" />
+                <element signature="e#4466#4534#0" />
+                <element signature="e#4551#4601#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -240,6 +248,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>StringUtils</find>
+      <find>refresh_btn</find>
     </findStrings>
     <replaceStrings>
       <replace>WordUtils</replace>
@@ -265,26 +274,28 @@
         <option value="$PROJECT_DIR$/src/source/spring.css" />
         <option value="$PROJECT_DIR$/src/source/winter.css" />
         <option value="$PROJECT_DIR$/src/com/Jweather/City.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Weather.java" />
-        <option value="$PROJECT_DIR$/src/source/style.css" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/SettingsDialog.fxml" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Main.fxml" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Settings.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Controller.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/ShowWeather.java" />
         <option value="/tmp/Jweather/121801/daily.xml" />
         <option value="/tmp/Jweather/121801/current.xml" />
         <option value="/tmp/Jweather/121801/hourly.xml" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Weather.java" />
+        <option value="$PROJECT_DIR$/jweather.xml" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java" />
+        <option value="$PROJECT_DIR$/src/source/style.css" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/SettingsDialog.fxml" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/ShowWeather.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Settings.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Main.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="30" />
-    <option name="width" value="1600" />
-    <option name="height" value="870" />
+    <option name="x" value="-1" />
+    <option name="y" value="27" />
+    <option name="width" value="1602" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -294,7 +305,32 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Jweather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jweather" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jweather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jweather" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Jweather" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jweather" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
@@ -317,14 +353,15 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563999512776" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="/usr/share/java/javafx-sdk-11.0.2" />
+    <property name="jdk.selected.JAVA_MODULE" value="11" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/commons-lang3-3.3.2.jar!/" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.3076075" />
+    <property name="project.structure.side.proportion" value="0.41379312" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -489,6 +526,19 @@
       <workItem from="1563950385583" duration="12123000" />
       <workItem from="1563992307102" duration="6412000" />
       <workItem from="1566114880885" duration="1971000" />
+      <workItem from="1566465540070" duration="897000" />
+      <workItem from="1566547233042" duration="1812000" />
+      <workItem from="1566716021317" duration="4525000" />
+      <workItem from="1566893650345" duration="1882000" />
+      <workItem from="1569680514074" duration="786000" />
+      <workItem from="1569767228098" duration="1359000" />
+      <workItem from="1569778481252" duration="1376000" />
+      <workItem from="1569779925884" duration="2440000" />
+      <workItem from="1570250532056" duration="5000" />
+      <workItem from="1570774016185" duration="1448000" />
+      <workItem from="1570899494638" duration="3234000" />
+      <workItem from="1570911434659" duration="410000" />
+      <workItem from="1576697813049" duration="1751000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1548796358114</created>
@@ -501,7 +551,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159553000" />
+    <option name="totallyTimeSpent" value="181478000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,10 +563,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="30" width="1600" height="870" extended-state="6" />
+    <frame x="-1" y="27" width="1602" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.1962677" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1957638" />
       <window_info id="Structure" order="1" weight="0.24967825" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -524,9 +574,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32977304" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35380507" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3978638" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32900432" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3490566" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39748955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32918397" />
@@ -536,7 +586,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32918397" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32734275" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32479784" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.3249258" />
@@ -620,9 +670,6 @@
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/ClassLoader.class" />
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jfxrt.jar!/javafx/application/Application.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/jfoenix/jfoenix/9.0.8/jfoenix-9.0.8.jar!/com/jfoenix/controls/JFXButton.class" />
-    <entry file="file://$PROJECT_DIR$/Jweather.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/source/summer.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -697,137 +744,239 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///tmp/Jweather/121801/hourly.xml">
+    <entry file="file:///tmp/Jweather/121801/hourly.xml" />
+    <entry file="file:///tmp/Jweather/121801/current.xml" />
+    <entry file="file:///tmp/Jweather/121801/daily.xml" />
+    <entry file="file://$PROJECT_DIR$/jweather.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2745">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="375">
+          <caret line="160" column="9" lean-forward="true" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///tmp/Jweather/121801/current.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/jweather.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file:///tmp/Jweather/121801/daily.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Jweather.iml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        <state relative-caret-position="92">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#initialize#0;class#SettingsDialog#0" />
+            <element signature="method#exitWindow#0;class#SettingsDialog#0" />
             <element signature="method#update#0;class#SettingsDialog#0" />
+            <element signature="e#1547#1603#1" />
+            <element signature="e#1625#1684#1" />
             <element signature="method#radioButton_handle#0;class#SettingsDialog#0" />
+            <element signature="e#1862#2006#1" />
+            <element signature="e#2060#2202#1" />
             <element signature="method#isNumric#0;class#SettingsDialog#0" />
+            <element signature="e#2277#2333#0" />
+            <element signature="e#2396#2434#0" />
             <element signature="method#find_btn#0;class#SettingsDialog#0" />
+            <element signature="e#2668#6257#1" />
+            <element signature="e#2768#6131#1" />
+            <element signature="e#2997#3059#1" />
+            <element signature="e#3097#3161#1" />
+            <element signature="class#3244:6107" />
+            <element signature="method#run#0;class#3244:6107" />
+            <element signature="e#3609#4966#0" />
+            <element signature="e#4122#4782#1" />
+            <element signature="e#4379#4752#1" />
+            <element signature="e#5035#5111#0" />
+            <element signature="class#5159:6065" />
+            <element signature="method#run#0;class#5159:6065" />
+            <element signature="e#5361#5622#1" />
+            <element signature="e#5692#6009#1" />
+            <element signature="e#6161#6247#1" />
+            <element signature="e#6318#6951#1" />
+            <element signature="e#6336#6581#0" />
+            <element signature="e#6604#6656#0" />
+            <element signature="e#6677#6941#0" />
             <element signature="method#listview_handler#0;class#SettingsDialog#0" />
+            <element signature="e#7066#7490#1" />
+            <element signature="e#7197#7404#0" />
+            <element signature="e#7277#7390#1" />
             <element signature="method#clear#0;class#SettingsDialog#0" />
             <element signature="method#trouble_btn#0;class#SettingsDialog#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#checkConnection#0;class#Settings#0" />
-            <element signature="e#963#1117#0" />
-            <element signature="method#Settings#0;class#Settings#0" />
-            <element signature="method#CreateDir#0;class#Settings#0" />
-            <element signature="method#read_Settings#0;class#Settings#0" />
-            <element signature="method#state#0;class#Settings#0" />
-            <element signature="method#save#0;class#Settings#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2505">
-          <caret line="192" column="52" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
-          <folding>
-            <element signature="e#838#870#0" />
+            <element signature="e#7766#8376#0" />
+            <element signature="e#8399#8443#0" />
+            <element signature="e#8464#8508#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/City.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="323">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+        <state relative-caret-position="299">
+          <caret line="13" column="308" selection-start-line="13" selection-start-column="308" selection-end-line="13" selection-end-column="308" />
+          <folding>
+            <element signature="n#Pane#0;n#!!top" />
+            <element signature="n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+            <element signature="n#ImageView#0;n#children#0;n#Pane#0;n#!!top" />
+            <element signature="n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+            <element signature="n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/source/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+        <state relative-caret-position="207">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.fxml">
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="169" selection-start-line="12" selection-start-column="169" selection-end-line="12" selection-end-column="169" />
+        <state relative-caret-position="636">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="method#Days#0;class#ShowWeather#0" />
+            <element signature="method#showDays#0;class#ShowWeather#0" />
+            <element signature="method#forecast#0;class#ShowWeather#0" />
+            <element signature="method#setWallpaper#0;class#ShowWeather#0" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Weather.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="113" column="61" selection-start-line="113" selection-start-column="61" selection-end-line="113" selection-end-column="61" />
+        <state relative-caret-position="193">
+          <caret line="213" column="5" lean-forward="true" selection-start-line="213" selection-start-column="5" selection-end-line="213" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#CreateDirs#0;class#Weather#0" />
-            <element signature="method#saved#0;class#Weather#0" />
-            <element signature="e#2431#2432#0" expanded="true" />
-            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="method#checkConnection#0;class#Settings#0" />
+            <element signature="e#963#1117#0" />
+            <element signature="e#1145#1270#0" />
+            <element signature="e#1329#1827#0" />
+            <element signature="e#1444#1816#1" />
+            <element signature="e#1505#1667#1" />
+            <element signature="e#1705#1801#1" />
+            <element signature="e#1856#1923#0" />
+            <element signature="e#1948#1990#0" />
+            <element signature="method#Settings#0;class#Settings#0" />
+            <element signature="method#CreateDir#0;class#Settings#0" />
+            <element signature="method#read_Settings#0;class#Settings#0" />
+            <element signature="e#2507#2579#0" />
+            <element signature="e#2610#2654#0" />
+            <element signature="e#2695#2938#0" />
+            <element signature="e#3039#3785#1" />
+            <element signature="e#3077#3139#1" />
+            <element signature="e#3168#3684#0" />
+            <element signature="e#3454#3670#1" />
+            <element signature="e#3729#3774#0" />
+            <element signature="method#state#0;class#Settings#0" />
+            <element signature="e#3868#3904#1" />
+            <element signature="method#save#0;class#Settings#0" />
+            <element signature="e#4531#5050#1" />
+            <element signature="e#4649#4869#1" />
+            <element signature="e#4925#4989#1" />
+            <element signature="e#5082#5109#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="124">
+          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Weather.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="-293">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#showCurrnet#0;class#ShowWeather#0" />
-            <element signature="method#Days#0;class#ShowWeather#0" />
-            <element signature="method#showDays#0;class#ShowWeather#0" />
-            <element signature="method#forecast#0;class#ShowWeather#0" />
-            <element signature="method#setWallpaper#0;class#ShowWeather#0" />
+            <element signature="method#Weather#0;class#Weather#0" />
+            <element signature="method#CreateDirs#0;class#Weather#0" />
+            <element signature="e#909#1078#1" />
+            <element signature="e#939#984#0" />
+            <element signature="e#1016#1068#0" />
+            <element signature="e#1117#1342#1" />
+            <element signature="e#1147#1247#0" />
+            <element signature="e#1280#1332#0" />
+            <element signature="method#saved#0;class#Weather#0" />
+            <element signature="e#1531#1567#1" />
+            <element signature="e#1646#1682#1" />
+            <element signature="e#1762#1797#1" />
+            <element signature="e#1994#2039#0" />
+            <element signature="e#2071#2123#0" />
+            <element signature="e#2250#2322#1" />
+            <element signature="e#2344#2390#1" />
+            <element signature="method#getWeather#0;class#Weather#0" />
+            <element signature="e#3475#4437#0" />
+            <element signature="e#3530#4426#1" />
+            <element signature="e#3914#3968#1" />
+            <element signature="e#4012#4412#0" />
+            <element signature="e#4466#4534#0" />
+            <element signature="e#4551#4601#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
+          <folding>
+            <element signature="e#982#1014#0" />
+            <element signature="e#2283#2344#0" />
+            <element signature="e#2376#2444#0" />
+            <element signature="e#3081#3539#1" />
+            <element signature="class#3129:3515" />
+            <element signature="method#run#0;class#3129:3515" />
+            <element signature="e#6355#6417#1" />
+            <element signature="e#6451#6638#0" />
+            <element signature="e#6643#6828#0" />
+            <element signature="e#6833#7766#0" />
+            <element signature="e#6903#7687#0" />
+            <element signature="class#7305:7674" />
+            <element signature="method#handle#0;class#7305:7674" />
+            <element signature="e#7447#7553#0" />
+            <element signature="e#7574#7642#0" />
+            <element signature="e#7716#7760#0" />
+            <element signature="e#7771#7958#0" />
+            <element signature="e#7963#8896#0" />
+            <element signature="e#8901#9099#0" />
+            <element signature="e#9104#9878#0" />
+            <element signature="e#9370#9772#1" />
+            <element signature="e#9423#9504#1" />
+            <element signature="e#9615#9657#1" />
+            <element signature="e#9693#9762#1" />
+            <element signature="e#9883#10453#0" />
+            <element signature="e#10125#10348#1" />
+            <element signature="e#10216#10255#1" />
+            <element signature="e#10292#10337#1" />
+            <element signature="e#10458#12448#0" />
+            <element signature="e#10741#11110#1" />
+            <element signature="e#11226#12441#1" />
+            <element signature="e#11411#11836#1" />
+            <element signature="e#12453#12734#0" />
           </folding>
         </state>
       </provider>
@@ -838,11 +987,11 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>Jweather</last-edited>
+          <last-edited>JavaFXApp</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.3076075" />
+                <option value="0.18215339" />
                 <option value="0.5" />
               </list>
             </option>
@@ -855,7 +1004,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.3076075" />
+                <option value="0.18215339" />
               </list>
             </option>
           </splitter-proportions>
@@ -863,10 +1012,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18215339" />
               </list>
             </option>
           </splitter-proportions>
@@ -878,7 +1028,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.3076075" />
+                <option value="0.18215339" />
               </list>
             </option>
           </splitter-proportions>
@@ -890,7 +1040,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.3076075" />
+                <option value="0.41379312" />
               </list>
             </option>
           </splitter-proportions>
@@ -898,11 +1048,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.jfree:jfreechart:1.5.0</last-edited>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.3076075" />
+                <option value="0.41379312" />
               </list>
             </option>
           </splitter-proportions>

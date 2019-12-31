@@ -13,6 +13,7 @@
 }
 .bigDegree
 {
+    -fx-font-family: 'Roboto';
     -fx-font-size : 110px;
     -fx-stroke: black;
     -fx-stroke-line-cap: round;
@@ -29,6 +30,8 @@
 }
 .refresh_btn
 {
+    -fx-background-image: url("sinchronize-48.png");
+    -fx-background-size: contain;
     -fx-background-color: rgba(255,255,255,0);
     -fx-text-fill: white;
     -fx-font-size: 20px;
@@ -38,6 +41,7 @@
 {
     -fx-background-color: #474747;
 }
+
 .exit_btn
 {
     -fx-background-color: rgba(255,255,255,0);

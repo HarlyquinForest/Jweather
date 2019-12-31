@@ -1,4 +1,5 @@
 package com.Jweather;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +17,6 @@ import java.util.Set;
 
 public class Main extends Application {
 
-    private String ThemeSummer = getClass().getResource("/source/summer.css").toExternalForm();
-    private String ThemeFall = getClass().getResource("/source/fall.css").toExternalForm();
-    private String ThemeWinter = getClass().getResource("/source/winter.css").toExternalForm();
-    private String ThemeSpring = getClass().getResource("/source/spring.css").toExternalForm();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -35,11 +32,11 @@ public class Main extends Application {
 
         w.start();
 
-
-
         primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
+        primaryStage.setMinHeight(750);
+        primaryStage.setMinWidth(1500);
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
