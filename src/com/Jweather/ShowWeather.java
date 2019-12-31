@@ -27,7 +27,8 @@ public class ShowWeather {
     private File daily = new File("/tmp/Jweather/" + Settings.city.getId() + "/daily.xml");
     private File hourly = new File("/tmp/Jweather/" + Settings.city.getId() + "/hourly.xml");
 
-    public ShowWeather() {
+    public ShowWeather()
+    {
     }
 
     public String showCurrnet() {
