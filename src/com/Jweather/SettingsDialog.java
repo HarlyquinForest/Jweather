@@ -38,7 +38,7 @@ public class SettingsDialog
     private JFXListView cities_listview;
     @FXML
     private JFXButton clear_btn;
-
+/*
     @FXML
     public void initialize()
     {
@@ -50,7 +50,7 @@ public class SettingsDialog
     {
 
     }
-    public void update()
+   public void update()
     {
         Collection<String> cities = Settings.Cities.values();
         Settings.City_List.addAll(cities);
@@ -259,5 +259,5 @@ public class SettingsDialog
         }
     }
 
-
+*/
 }

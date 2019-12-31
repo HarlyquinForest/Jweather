@@ -21,24 +21,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        /*Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root,1500,750);
+*/
+        //Settings set = new Settings();
+        System.out.println("Connected to net ="+Connection.checkConnection());
+        System.exit(0);
+        //ShowWeather s = new ShowWeather();
 
-        Settings set = new Settings();
-        Weather w = new Weather();
-        ShowWeather s = new ShowWeather();
-
-        s.setWallpaper(scene);
-
-        w.start();
-
-        primaryStage.setTitle("Jweather");
+        /*primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(1500);
         primaryStage.show();
-
+*/
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
@@ -46,7 +43,6 @@ public class Main extends Application {
                 System.exit(0);
             }
         });
-
     }
 
 

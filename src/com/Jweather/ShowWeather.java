@@ -23,15 +23,15 @@ public class ShowWeather {
     private String ThemeFall = getClass().getResource("/source/fall.css").toExternalForm();
     private String ThemeWinter = getClass().getResource("/source/winter.css").toExternalForm();
     private String ThemeSpring = getClass().getResource("/source/spring.css").toExternalForm();
-    private File current = new File("/tmp/Jweather/" + Settings.city.getId() + "/current.xml");
+    /*private File current = new File("/tmp/Jweather/" + Settings.city.getId() + "/current.xml");
     private File daily = new File("/tmp/Jweather/" + Settings.city.getId() + "/daily.xml");
     private File hourly = new File("/tmp/Jweather/" + Settings.city.getId() + "/hourly.xml");
-
+*/
     public ShowWeather()
     {
     }
 
-    public String showCurrnet() {
+    /*public String showCurrnet() {
         String output;
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -202,5 +202,5 @@ public class ShowWeather {
                 scene.getStylesheets().add(ThemeWinter);
         }
 
-    }
+    }*/
 }

@@ -56,11 +56,11 @@ public class Controller
     @FXML
     private Button refresh_btn;
 
-    private boolean update = Settings.ready ;
+    /*private boolean update = Settings.ready ;
     private int sleep = 1000;
-    private int[] temperture = new int[8];
+    private int[] temperture = new int[8];*/
 
-    @FXML
+    /*@FXML
     public void initialize() {
         new Thread() {
             public void run() {
@@ -108,9 +108,9 @@ public class Controller
         }.start();
 
 
-    }
+    }*/
 
-    private void Update()
+   /* private void Update()
     {
         rotate_animation(refresh_btn);
 
@@ -178,8 +178,8 @@ public class Controller
         }
 
         init_chart();
-    }
-    public void NextCityMouseHandler(MouseEvent event)
+    }*/
+    /*public void NextCityMouseHandler(MouseEvent event)
     {
         //System.out.println(Settings.Cities);
         int key = nextKey();
@@ -425,5 +425,5 @@ public class Controller
         rotate.setCycleCount(1);
         rotate.setByAngle(180);
         rotate.play();
-    }
+    }*/
 }
