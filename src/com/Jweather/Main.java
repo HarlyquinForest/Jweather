@@ -7,13 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.WindowEvent;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Set;
 
 public class Main extends Application {
 
@@ -21,34 +15,52 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        /*Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root,1500,750);
-*/
-        //Settings set = new Settings();
+
+
         System.out.println("Connected to net ="+Connection.checkConnection());
 
         Settings settings = new Settings();
         City current = settings.getDefaultCity();
-        GetWeatherInfo getWeatherInfo = new GetWeatherInfo();
-        getWeatherInfo.fetchWeatherInfo(current, settings.getAPI());
+        GetWeatherInfo getWeatherInfo = new GetWeatherInfo(current);
+        getWeatherInfo.fetchWeatherInfo(settings.getAPI());
         Weather weather = current.getCurrentWeather();
         System.out.println("City :"+current.getName());
+        System.out.println("Last Update :"+current.getLastUpdate());
         System.out.println("Today Weather:");
+        System.out.println("Min "+weather.getMin());
+        System.out.println("Max "+weather.getMax());
         System.out.println(weather.getDegree());
         System.out.println(weather.getWeather());
         System.out.println(weather.getDay());
+        System.out.println(weather.getSpeed());
+        System.out.println(weather.getWindName());
+        System.out.println(weather.getWindDirection());
 
-        System.exit(0);
+        Weather[] days = current.getDaysForecast();
+        int d = 1 ;
+        for(Weather w :days)
+        {
+            System.out.println("------");
+            System.out.println("Day"+d++);
+            System.out.println(w.getDegree());
+            System.out.println(w.getWeather());
+            System.out.println(w.getDay());
+            System.out.println(w.getSpeed());
+            System.out.println(w.getWindName());
+            System.out.println(w.getWindDirection());
+        }
 
-        //ShowWeather s = new ShowWeather();
 
-        /*primaryStage.setTitle("Jweather");
+        primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(1500);
         primaryStage.show();
-*/
+
+
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
