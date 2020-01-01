@@ -4,12 +4,15 @@ public class Weather
 {
     //variables
     private int Degree;
+    private int min ;
+    private int max;
     private int humidity ;
-    private int speed ;
-    private String lastUpdate;
+    private float speed ;
     private String icon ;
     private String weather ;
     private String day ;
+    private String windName;
+    private String windDirection;
 
     Weather()
     {}
@@ -33,16 +36,20 @@ public class Weather
         return icon;
     }
 
+    public void setWindDirection(String windDirection) {
+        this.windDirection = windDirection;
+    }
+
     public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(float speed) {
         this.speed = speed;
     }
 
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
+    public void setWindName(String windName) {
+        this.windName = windName;
     }
 
     public void setDegree(int degree) {
@@ -61,8 +68,36 @@ public class Weather
         this.weather = weather;
     }
 
+    public String getWindDirection() {
+        return windDirection;
+    }
+
+    public String getWindName() {
+        return windName;
+    }
+
     public String getWeather() {
         return weather;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public int getMin() {
+        return min;
     }
 }
 
