@@ -15,13 +15,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.LocalDate;
 
 public class GetWeatherInfo
 {
+    private  City selectedCity;
 
-    void fetchWeatherInfo(City c , String api)
+    GetWeatherInfo(City c)
     {
-        File cityDir = new File("/tmp/Jweather/"+c.getId());
+        selectedCity = c;
+    }
+    void fetchWeatherInfo(String api)
+    {
+        File cityDir = new File("/tmp/Jweather/"+selectedCity.getId());
         if(!cityDir.exists())
         {
             if(!cityDir.mkdirs())
@@ -37,13 +43,13 @@ public class GetWeatherInfo
 
         if(current.exists() && daily.exists() && hourly.exists())
         {
-            setWeatherData(c , current , daily , hourly);
+            setWeatherData(current , daily , hourly);
         }
         else
         {
         try {
             fetchAPI(api, current, daily, hourly);
-            setWeatherData(c , current , daily , hourly);
+            setWeatherData(current , daily , hourly);
             System.out.println("all Good");
         }catch (Exception e)
         {
@@ -89,15 +95,15 @@ public class GetWeatherInfo
         }
     }
 
-    private void setWeatherData(City city , File c , File d , File h)
+    private void setWeatherData(File c , File d , File h)
     {
-        city.setCurrentWeather(readCurrent(c));
-        city.setDaysForcast(readDaily(d));
+        selectedCity.setCurrentWeather(readCurrent(c));
+        selectedCity.setDaysForecast(readDaily(d));
     }
-
     private Weather readCurrent(File file )
     {
-        Weather c = new Weather();
+        Weather w = new Weather();
+        w.setDay("NOW");
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -111,54 +117,49 @@ public class GetWeatherInfo
             Element el = (Element) node;
             String temp = el.getAttribute("value");
             float degree = Float.parseFloat(temp);
-            c.setDegree(Math.round(degree));
+            w.setDegree(Math.round(degree));
 
             sy = doc.getElementsByTagName("humidity");
             node = sy.item(0);
             el = (Element) node;
-            c.setHumidity( Integer.parseInt(el.getAttribute("value")));
+            w.setHumidity( Integer.parseInt(el.getAttribute("value")));
 
             sy = doc.getElementsByTagName("speed");
             node = sy.item(0);
             el = (Element) node;
-            c.setSpeed(Integer.parseInt(el.getAttribute("value")));
+            w.setSpeed(Float.parseFloat(el.getAttribute("value")));
+            w.setWindName(el.getAttribute("name"));
+
+            sy = doc.getElementsByTagName("direction");
+            node = sy.item(0);
+            el = (Element) node;
+            w.setWindDirection(el.getAttribute("name"));
 
             sy = doc.getElementsByTagName("clouds");
             node = sy.item(0);
             el = (Element) node;
-            c.setWeather(WordUtils.capitalize(el.getAttribute("name")));
+            w.setWeather(WordUtils.capitalize(el.getAttribute("name")));
 
             sy = doc.getElementsByTagName("weather");
             node = sy.item(0);
             el = (Element) node;
-            c.setIcon(el.getAttribute("icon"));
-
-
-            /*sy = doc.getElementsByTagName("city");
-            node = sy.item(0);
-            el = (Element) node;
-            WordUtils.capitalize(el.getAttribute("name"));
-
-            sy = doc.getElementsByTagName("country");
-            node = sy.item(0);
-            el = (Element) node;
-            output += " , " + el.getTextContent() + "-";
+            w.setIcon(el.getAttribute("icon"));
 
             sy = doc.getElementsByTagName("lastupdate");
             node = sy.item(0);
             el = (Element) node;
             String t[] = el.getAttribute("value").split("T");
-            output += t[1];*/
+            selectedCity.setLastUpdate(t[0]+" "+t[1]);
 
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        return  c ;
+        return  w ;
     }
     private Weather[] readDaily(File file)
     {
-        Weather[] daily = new Weather[6];
+        Weather[] daily = new Weather[5];
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -167,30 +168,56 @@ public class GetWeatherInfo
             NodeList nodeList = doc.getElementsByTagName("symbol");
             NodeList details;
             Node node;
-            for (int i = 1; i < 6; i++) {
+            for (int i = 1; i < 6; i++)
+            {
+                daily[i-1] = new Weather();
                 node = nodeList.item(i);
                 element = (Element) node;
-                //output += element.getAttribute("name") + "-";
+                daily[i-1].setWeather( element.getAttribute("name"));
+
+                details = doc.getElementsByTagName("time");
+                node= details.item(i);
+                element = (Element)node ;
+                if(LocalDate.now().plusDays(i).toString().equals(element.getAttribute("day")))
+                    daily[i-1].setDay(LocalDate.now().getDayOfWeek().plus(i).toString());
+
+
                 details = doc.getElementsByTagName("temperature");
                 node = details.item(i);
                 element = (Element) node;
-                //output += String.format("%02d", Math.round(Double.parseDouble(element.getAttribute("day")))) + "°-";
+                daily[i-1].setDegree(Math.round(Float.parseFloat(element.getAttribute("day"))));
+                daily[i-1].setMin(Math.round(Float.parseFloat(element.getAttribute("min"))));
+                daily[i-1].setMax(Math.round(Float.parseFloat(element.getAttribute("max"))));
 
                 details = doc.getElementsByTagName("symbol");
                 node = details.item(i);
                 element = (Element) node;
-                //output += element.getAttribute("var") + "-";
+                daily[i-1].setIcon(element.getAttribute("var"));
+
+                details = doc.getElementsByTagName("windSpeed");
+                node = details.item(i);
+                element = (Element) node;
+                daily[i-1].setSpeed(Float.parseFloat(element.getAttribute("mps")));
+                daily[i-1].setWindName(element.getAttribute("name"));
+
+                details = doc.getElementsByTagName("windDirection");
+                node = details.item(i);
+                element = (Element) node;
+                daily[i-1] .setWindDirection(element.getAttribute("name"));
 
             }
             nodeList = doc.getElementsByTagName("temperature");
             node = nodeList.item(0);
             element = (Element) node;
-            //output += String.format("%02d", Math.round(Double.parseDouble(element.getAttribute("min")))) + "-";
-            //output += String.format("%02d", Math.round(Double.parseDouble(element.getAttribute("max"))));
+            selectedCity.getCurrentWeather().setMin(Math.round(Float.parseFloat(element.getAttribute("min"))));
+            selectedCity.getCurrentWeather().setMax(Math.round(Float.parseFloat(element.getAttribute("max"))));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return daily;
     }
 
+    public void setCity(City selectedCity) {
+        this.selectedCity = selectedCity;
+    }
 }
