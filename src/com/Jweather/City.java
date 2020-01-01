@@ -6,7 +6,7 @@ public class City
     private String name ;
     private String country;
     private Weather currentWeather ;
-    private Weather[] daysForcast;
+    private Weather[] daysForecast;
     private int ID = 0 ;
 
     protected City(int i , String n , String c)
@@ -14,7 +14,7 @@ public class City
         ID = i ;
         name = n ;
         country = c;
-        daysForcast = new Weather[5];
+        daysForecast = new Weather[5];
     }
 
     int getId() {
@@ -41,12 +41,12 @@ public class City
         this.name = name;
     }
 
-    public void setDaysForcast(Weather[] daysForcast) {
-        this.daysForcast = daysForcast;
+    public void setDaysForecast(Weather[] daysForecast) {
+        this.daysForecast = daysForecast;
     }
 
-    public Weather[] getDaysForcast() {
-        return daysForcast;
+    public Weather[] getDaysForecast() {
+        return daysForecast;
     }
 
     public void setCurrentWeather(Weather currentWeather) {
