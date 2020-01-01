@@ -90,7 +90,7 @@
                   </Label>
                   <ImageView fx:id="today_weather_icon" fitHeight="80.0" fitWidth="80.0" layoutX="710.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../source/Weather%20icons/01d.png" />
+                        <Image url="@../../source/Weather icons/01d.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -225,7 +225,7 @@
             </Label>
             <ImageView fx:id="day1_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="96.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -233,7 +233,7 @@
             </ImageView>
             <ImageView fx:id="day2_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="227.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -241,7 +241,7 @@
             </ImageView>
             <ImageView fx:id="day3_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="357.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -249,7 +249,7 @@
             </ImageView>
             <ImageView fx:id="day4_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="487.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -257,7 +257,7 @@
             </ImageView>
             <ImageView fx:id="day5_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="617.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
