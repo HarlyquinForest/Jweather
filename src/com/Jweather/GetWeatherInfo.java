@@ -30,22 +30,25 @@ public class GetWeatherInfo
                 return ;
             }
         }
-        File current = new File(cityDir.getName()+"/current.xml");
-        File daily   = new File(cityDir.getName()+"/daily.xml");
-        File hourly  = new File(cityDir.getName()+"/hourly.xml");
+        System.out.println(cityDir.getAbsolutePath());
+        File current = new File(cityDir.getAbsolutePath()+"/current.xml");
+        File daily   = new File(cityDir.getAbsolutePath()+"/daily.xml");
+        File hourly  = new File(cityDir.getAbsolutePath()+"/hourly.xml");
 
         if(current.exists() && daily.exists() && hourly.exists())
         {
-            setWeatherData(c);
+            setWeatherData(c , current , daily , hourly);
         }
         else
         {
         try {
             fetchAPI(api, current, daily, hourly);
-            setWeatherData(c);
+            setWeatherData(c , current , daily , hourly);
+            System.out.println("all Good");
         }catch (Exception e)
         {
             System.out.println("Something went wrong");
+            e.printStackTrace();
         }
         }
     }
@@ -53,9 +56,9 @@ public class GetWeatherInfo
     private void fetchAPI(String api , File c , File d , File h) throws Exception
     {
         URL[] API_URLS = {
-                new URL("http://api.openweathermap.org/data/2.5/forecast/daily?id="+ api),
-                new URL("http://api.openweathermap.org/data/2.5/weather?id="+ api),
-                new URL("http://api.openweathermap.org/data/2.5/forecast?id="+ api)};
+                new URL("http://api.openweathermap.org/data/2.5/forecast/daily"+ api),
+                new URL("http://api.openweathermap.org/data/2.5/weather"+ api),
+                new URL("http://api.openweathermap.org/data/2.5/forecast"+ api)};
         URLConnection urlConnection ;
         HttpURLConnection connection ;
         BufferedReader in ;
@@ -89,7 +92,7 @@ public class GetWeatherInfo
     private void setWeatherData(City city , File c , File d , File h)
     {
         city.setCurrentWeather(readCurrent(c));
-        city.setDaysForcast();
+        city.setDaysForcast(readDaily(d));
     }
 
     private Weather readCurrent(File file )
@@ -108,7 +111,7 @@ public class GetWeatherInfo
             Element el = (Element) node;
             String temp = el.getAttribute("value");
             float degree = Float.parseFloat(temp);
-            c.setDegree((int) Math.round(degree));
+            c.setDegree(Math.round(degree));
 
             sy = doc.getElementsByTagName("humidity");
             node = sy.item(0);

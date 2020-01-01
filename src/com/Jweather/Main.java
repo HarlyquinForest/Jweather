@@ -26,7 +26,20 @@ public class Main extends Application {
 */
         //Settings set = new Settings();
         System.out.println("Connected to net ="+Connection.checkConnection());
+
+        Settings settings = new Settings();
+        City current = settings.getDefaultCity();
+        GetWeatherInfo getWeatherInfo = new GetWeatherInfo();
+        getWeatherInfo.fetchWeatherInfo(current, settings.getAPI());
+        Weather weather = current.getCurrentWeather();
+        System.out.println("City :"+current.getName());
+        System.out.println("Today Weather:");
+        System.out.println(weather.getDegree());
+        System.out.println(weather.getWeather());
+        System.out.println(weather.getDay());
+
         System.exit(0);
+
         //ShowWeather s = new ShowWeather();
 
         /*primaryStage.setTitle("Jweather");

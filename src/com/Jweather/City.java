@@ -48,6 +48,10 @@ public class City
         this.currentWeather = currentWeather;
     }
 
+    public Weather getCurrentWeather() {
+        return currentWeather;
+    }
+
     @Override
     public String toString()
     {

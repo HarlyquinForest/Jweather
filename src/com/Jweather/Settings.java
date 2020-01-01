@@ -113,4 +113,8 @@ public class Settings
     public String getAPI() {
         return API;
     }
+
+    public City getDefaultCity() {
+        return defaultCity;
+    }
 }
