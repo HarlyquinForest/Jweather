@@ -2,6 +2,7 @@ package com.Jweather;
 
 public class City
 {
+    private String lastUpdate;
     private String name ;
     private String country;
     private Weather currentWeather ;
@@ -13,7 +14,7 @@ public class City
         ID = i ;
         name = n ;
         country = c;
-        daysForcast = new Weather[6];
+        daysForcast = new Weather[5];
     }
 
     int getId() {
@@ -44,12 +45,24 @@ public class City
         this.daysForcast = daysForcast;
     }
 
+    public Weather[] getDaysForcast() {
+        return daysForcast;
+    }
+
     public void setCurrentWeather(Weather currentWeather) {
         this.currentWeather = currentWeather;
     }
 
     public Weather getCurrentWeather() {
         return currentWeather;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
     }
 
     @Override
