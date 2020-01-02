@@ -17,14 +17,16 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root,1500,750);
-
-
         System.out.println("Connected to net ="+Connection.checkConnection());
 
         Settings settings = new Settings();
         City current = settings.getDefaultCity();
         GetWeatherInfo getWeatherInfo = new GetWeatherInfo(current);
         getWeatherInfo.fetchWeatherInfo(settings.getAPI());
+
+        ShowWeather showWeather = new ShowWeather();
+        ShowWeather.setCity(current);
+        System.out.println(showWeather.getCity().toString());
         Weather weather = current.getCurrentWeather();
         System.out.println("City :"+current.getName());
         System.out.println("Last Update :"+current.getLastUpdate());

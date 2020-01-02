@@ -20,7 +20,29 @@ import java.util.Date;
 
 public class ShowWeather {
 
+    private static City city ;
     public ShowWeather()
     {
+    }
+
+    public static City getCity() {
+        return city;
+    }
+
+    public static void setCity(City city) {
+        ShowWeather.city = city;
+    }
+
+    public Weather getWeather()
+    {
+        return city.getCurrentWeather();
+    }
+    public Weather[] getForecast()
+    {
+        return city.getDaysForecast();
+    }
+    String showCity()
+    {
+        return city.getName();
     }
 }

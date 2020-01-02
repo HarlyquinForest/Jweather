@@ -9,7 +9,7 @@ public class City
     private Weather[] daysForecast;
     private int ID = 0 ;
 
-    protected City(int i , String n , String c)
+    City(int i , String n , String c)
     {
         ID = i ;
         name = n ;

@@ -15,7 +15,8 @@ public class Weather
     private String windDirection;
 
     Weather()
-    {}
+    {
+    }
     Weather(int degree , String ico , String name , String d)
     {
             Degree = degree;
@@ -98,6 +99,10 @@ public class Weather
 
     public int getMin() {
         return min;
+    }
+
+    public int getHumidity() {
+        return humidity;
     }
 }
 

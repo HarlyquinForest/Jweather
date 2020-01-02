@@ -31,10 +31,7 @@ import java.util.Set;
 
 public class Controller
 {
-    public Controller()
-    {
-
-    }
+    public Controller() {}
     @FXML
     private Label h1,h2,h3,h4,h5,h6,h7,h8;
     @FXML
@@ -55,6 +52,19 @@ public class Controller
     private Pane chart_canvas;
     @FXML
     private Button refresh_btn;
+
+    @FXML
+    public void initialize()
+    {
+        ShowWeather showWeather = new ShowWeather();
+        System.out.println(showWeather.showCity());
+        /*Weather current = showWeather.getWeather();
+        Today_degree.setText(current.getDegree()+"°");
+        humidity_lbl.setText(current.getHumidity()+"%");
+        wind_lbl.setText(current.getSpeed()+"mps");
+        weather_name_lbl.setText(current.getWeather());
+        current_location_lbl.setText(ShowWeather.getCity().toString());*/
+    }
 
     @FXML
     public void PrivCityMouseHandler(){}
