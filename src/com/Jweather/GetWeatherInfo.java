@@ -1,6 +1,7 @@
 package com.Jweather;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,10 +21,11 @@ import java.time.LocalDate;
 public class GetWeatherInfo
 {
     private  City selectedCity;
-
-    GetWeatherInfo(City c)
+    private boolean ready = false;
+    GetWeatherInfo(City c , String api)
     {
         selectedCity = c;
+        fetchWeatherInfo(api);
     }
     void fetchWeatherInfo(String api)
     {
@@ -44,12 +46,14 @@ public class GetWeatherInfo
         if(current.exists() && daily.exists() && hourly.exists())
         {
             setWeatherData(current , daily , hourly);
+            ready = true;
         }
         else
         {
         try {
             fetchAPI(api, current, daily, hourly);
             setWeatherData(current , daily , hourly);
+            ready = true;
             System.out.println("all Good");
         }catch (Exception e)
         {
@@ -173,7 +177,7 @@ public class GetWeatherInfo
                 daily[i-1] = new Weather();
                 node = nodeList.item(i);
                 element = (Element) node;
-                daily[i-1].setWeather( element.getAttribute("name"));
+                daily[i-1].setWeather(StringUtils.capitalize(element.getAttribute("name")));
 
                 details = doc.getElementsByTagName("time");
                 node= details.item(i);
@@ -215,6 +219,11 @@ public class GetWeatherInfo
             e.printStackTrace();
         }
         return daily;
+    }
+
+    boolean weatherReady()
+    {
+        return ready;
     }
 
     public void setCity(City selectedCity) {
