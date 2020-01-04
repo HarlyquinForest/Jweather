@@ -17,43 +17,11 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root,1500,750);
+
         System.out.println("Connected to net ="+Connection.checkConnection());
 
-        Settings settings = new Settings();
-        City current = settings.getDefaultCity();
-        GetWeatherInfo getWeatherInfo = new GetWeatherInfo(current);
-        getWeatherInfo.fetchWeatherInfo(settings.getAPI());
-
-        ShowWeather showWeather = new ShowWeather();
-        ShowWeather.setCity(current);
-        System.out.println(showWeather.getCity().toString());
-        Weather weather = current.getCurrentWeather();
-        System.out.println("City :"+current.getName());
-        System.out.println("Last Update :"+current.getLastUpdate());
-        System.out.println("Today Weather:");
-        System.out.println("Min "+weather.getMin());
-        System.out.println("Max "+weather.getMax());
-        System.out.println(weather.getDegree());
-        System.out.println(weather.getWeather());
-        System.out.println(weather.getDay());
-        System.out.println(weather.getSpeed());
-        System.out.println(weather.getWindName());
-        System.out.println(weather.getWindDirection());
-
-        Weather[] days = current.getDaysForecast();
-        int d = 1 ;
-        for(Weather w :days)
-        {
-            System.out.println("------");
-            System.out.println("Day"+d++);
-            System.out.println(w.getDegree());
-            System.out.println(w.getWeather());
-            System.out.println(w.getDay());
-            System.out.println(w.getSpeed());
-            System.out.println(w.getWindName());
-            System.out.println(w.getWindDirection());
-        }
-
+        Wallpaper wallpaper = new Wallpaper();
+        wallpaper.setWallpaper(scene);
 
         primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
