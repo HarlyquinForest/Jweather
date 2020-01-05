@@ -3,14 +3,21 @@ package com.Jweather;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class Connection
+public class Connection extends Thread
 {
-    public static  boolean checkConnection()
+    boolean ok = false;
+    @Override
+    public void run() {
+        ok = checkConnection();
+    }
+
+    public  boolean checkConnection()
     {
         String IP ;
         try(final DatagramSocket socket = new DatagramSocket())
         {
-            socket.connect(InetAddress.getByName("www.openweathermap.org"),10002);
+            socket.connect(InetAddress.getByName("www.openweathermap.org"),10002 );
+            socket.setSoTimeout(200);
             IP = socket.getInetAddress().getHostAddress();
         }catch (Exception e)
         {
