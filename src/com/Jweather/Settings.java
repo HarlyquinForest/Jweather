@@ -15,7 +15,7 @@ public class Settings
     private File TMP = new File("/tmp/Jweather");
     private Unit unit ;
     private String API ;
-    private City defaultCity;
+    static City defaultCity;
     private ArrayList<City> cities;
 
     Settings()
@@ -110,6 +110,7 @@ public class Settings
             API = null ;
         }
     }
+
     public String getAPI() {
         return API;
     }
