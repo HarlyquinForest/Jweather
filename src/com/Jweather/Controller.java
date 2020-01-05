@@ -1,35 +1,13 @@
 package com.Jweather;
 
-import javafx.animation.RotateTransition;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.stage.Modality;
-import javafx.stage.WindowEvent;
-import javafx.util.Duration;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
-import java.util.Set;
 
 public class Controller
 {
@@ -55,32 +33,55 @@ public class Controller
     @FXML
     private Button refresh_btn;
 
+    int sleep = 100 ;
+
     @FXML
     public void initialize()
     {
-        Settings settings = new Settings();
-        City current = settings.getDefaultCity();
-        GetWeatherInfo getWeatherInfo = new GetWeatherInfo(current , settings.getAPI());
         new Thread(() ->
         {
-            while (!getWeatherInfo.weatherReady())
+        City current;
+            while (true)
             {
-                System.out.println("Waiting thread is running");
+                current = Settings.defaultCity;
+                if(GetWeatherInfo.weatherReady() && current != null)
+                {
+                    System.out.println("ready");
+                    GetWeatherInfo.setReady(false);
+                    final City city = current;
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateLabel(city);
+                        }
+                    });
+                }
+//                System.out.println("Waiting thread is running");
                 try {
-                    Thread.sleep(10000);
+                    Thread.sleep(sleep);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
-            System.out.println("ready");
-        }).start();
-        //getWeatherInfo.fetchWeatherInfo(settings.getAPI());
+                sleep+=100;
+                if(sleep>=5000) {
+                    System.out.println("5 Seconds sleep");
+                    // going to deep sleep until user try to see other city
+                }
 
+            }
+        }).start();
+
+    }
+
+    void updateLabel(City city)
+    {
         ShowWeather showWeather = new ShowWeather();
-        ShowWeather.setCity(current);
+        ShowWeather.setCity(city);
         Weather w = showWeather.getWeather();
         setCurrentWeather(w);
-        setDailyWeather(ShowWeather.getCity().getDaysForecast());
+        setDailyWeather(city.getDaysForecast());
+        LineChart lineChart = new LineChart(chart_canvas , new int[]{4,2,3,5,6,7,8,9} , new String[]{"0am","6am","a","b","c","r","6","p"});
+        lineChart.drawChart();
     }
 
     void setCurrentWeather(Weather w)
@@ -128,9 +129,15 @@ public class Controller
     }
 
     @FXML
-    public void PrivCityMouseHandler(){}
+    public void PrivCityMouseHandler()
+    {
+        sleep = 100 ;
+    }
     @FXML
-    public void NextCityMouseHandler(){}
+    public void NextCityMouseHandler()
+    {
+        sleep = 100;
+    }
 
     @FXML
     public void updatebtn(){}
