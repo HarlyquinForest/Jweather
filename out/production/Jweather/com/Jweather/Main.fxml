@@ -272,51 +272,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Pane fx:id="chart_canvas" layoutX="15.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0" />
-            <Pane layoutX="20.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0">
-               <children>
-                  <Label fx:id="h1" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h2" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h3" alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h4" alignment="CENTER" contentDisplay="CENTER" layoutX="307.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h5" alignment="CENTER" contentDisplay="CENTER" layoutX="393.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h6" alignment="CENTER" contentDisplay="CENTER" layoutX="481.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h7" alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h8" alignment="CENTER" contentDisplay="CENTER" layoutX="657.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+            <Pane fx:id="chart_canvas" layoutX="15.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0" />
          </children>
       </AnchorPane>
    </children>

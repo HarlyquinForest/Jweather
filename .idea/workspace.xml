@@ -85,25 +85,17 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.44672656">
+    <splitter split-orientation="horizontal" split-proportion="0.47047496">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="168">
-                  <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+                <state relative-caret-position="384">
+                  <caret line="37" selection-start-line="37" selection-end-line="37" />
                   <folding>
                     <element signature="method#ShowWeather#0;class#ShowWeather#0" />
+                    <element signature="e#879#880#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -112,8 +104,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="792">
-                  <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+                <state relative-caret-position="312">
+                  <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
                   <folding>
                     <element signature="method#Settings#0;class#Settings#0" />
                     <element signature="e#655#892#1" />
@@ -128,43 +120,45 @@
                     <element signature="method#copyCityData#0;class#Settings#0" />
                     <element signature="e#1789#1880#0" />
                     <element signature="e#1908#1945#0" />
+                    <element signature="method#loadSettings#0;class#Settings#0" />
                     <element signature="e#2030#2104#0" />
                     <element signature="e#2132#2196#0" />
                     <element signature="e#2235#2482#0" />
                     <element signature="e#2549#2871#1" />
                     <element signature="e#2743#2861#1" />
                     <element signature="e#3070#3106#1" />
-                    <element signature="e#3202#3203#0" expanded="true" />
-                    <element signature="e#3236#3237#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="48">
+                  <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+                  <folding>
+                    <element signature="e#798#1209#0" />
+                    <element signature="e#1684#1685#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/Jweather/GetWeatherInfo.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="146">
-                  <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+                <state relative-caret-position="624">
+                  <caret line="229" column="8" selection-start-line="229" selection-start-column="8" selection-end-line="229" selection-end-column="37" />
                   <folding>
                     <element signature="method#GetWeatherInfo#0;class#GetWeatherInfo#0" />
                     <element signature="method#fetchWeatherInfo#0;class#GetWeatherInfo#0" />
-                    <element signature="e#798#957#1" />
-                    <element signature="e#846#947#1" />
-                    <element signature="e#1310#1375#1" />
-                    <element signature="e#1397#1709#1" />
-                    <element signature="e#1411#1571#0" />
-                    <element signature="e#1599#1699#0" />
                     <element signature="method#fetchAPI#0;class#GetWeatherInfo#0" />
-                    <element signature="e#2650#3031#0" />
                     <element signature="method#setWeatherData#0;class#GetWeatherInfo#0" />
                     <element signature="method#readCurrent#0;class#GetWeatherInfo#0" />
-                    <element signature="e#3372#5155#0" />
-                    <element signature="e#5176#5245#0" />
                     <element signature="method#readDaily#0;class#GetWeatherInfo#0" />
-                    <element signature="e#5375#7873#0" />
-                    <element signature="e#5784#7500#1" />
-                    <element signature="e#7894#7938#0" />
+                    <element signature="e#8289#8290#0" expanded="true" />
+                    <element signature="e#8333#8334#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -227,13 +221,157 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="226">
-                  <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
+                <state relative-caret-position="335">
+                  <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
                   <folding>
-                    <element signature="e#2669#2783#0" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#2178#2575#1" />
+                    <element signature="e#2459#2460#0" expanded="true" />
+                    <element signature="e#2532#2533#0" expanded="true" />
+                    <element signature="e#2829#3305#0" />
+                    <element signature="e#3311#5205#0" />
+                    <element signature="e#5748#5749#0" expanded="true" />
+                    <element signature="e#5773#5774#0" expanded="true" />
+                    <element signature="e#5831#5832#0" expanded="true" />
+                    <element signature="e#5856#5857#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/Jweather/LineChart.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.fxml">
+              <provider editor-type-id="JavaFX-Scene-Builder" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="360">
+                  <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
+                  <folding>
+                    <element signature="n#Label#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#1;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#1;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#2;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#2;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#3;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#3;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#4;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#4;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#5;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#5;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#6;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#6;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#7;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#7;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#8;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#8;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#9;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#9;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#10;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#10;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#11;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#11;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#12;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#12;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#13;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#13;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#viewport#0;n#ImageView#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#14;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#15;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#15;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#16;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#16;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#17;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#17;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#18;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#18;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#19;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#19;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#effect#0;n#ImageView#0;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#0;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#0;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#1;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#1;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#2;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#2;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#3;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#3;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#5;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#5;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#6;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#6;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#7;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#7;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#8;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#8;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#9;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#9;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#10;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#10;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#11;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#11;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#12;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#12;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#13;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#13;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#14;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#14;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#15;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#15;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#0;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#0;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#viewport#0;n#ImageView#0;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#1;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#1;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#viewport#0;n#ImageView#1;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#2;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#2;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#viewport#0;n#ImageView#2;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#3;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#3;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#viewport#0;n#ImageView#3;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#ImageView#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#image#0;n#ImageView#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#viewport#0;n#ImageView#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#Label#0;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
+                    <element signature="n#font#0;n#Label#0;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/com/Jweather/Connection.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#186#187#0" expanded="true" />
+                    <element signature="e#224#225#0" expanded="true" />
+                    <element signature="method#checkConnection#0;class#Connection#0" />
                   </folding>
                 </state>
               </provider>
@@ -243,7 +381,7 @@
             <entry file="file://$PROJECT_DIR$/src/com/Jweather/Wallpaper.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="264">
-                  <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+                  <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
                   <folding>
                     <element signature="method#setWallpaper#0;class#Wallpaper#0" />
                   </folding>
@@ -269,6 +407,7 @@
       <find>StringUtils</find>
       <find>refresh_btn</find>
       <find>onMouseClicked</find>
+      <find>char</find>
     </findStrings>
     <replaceStrings>
       <replace>WordUtils</replace>
@@ -301,16 +440,17 @@
         <option value="$PROJECT_DIR$/src/com/Jweather/SettingsDialog.fxml" />
         <option value="$PROJECT_DIR$/src/com/Jweather/Unit.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Connection.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Main.fxml" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Settings.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/Weather.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/City.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/ShowWeather.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/Wallpaper.java" />
-        <option value="$PROJECT_DIR$/src/com/Jweather/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Connection.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/GetWeatherInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Main.java" />
         <option value="$PROJECT_DIR$/src/com/Jweather/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/LineChart.java" />
+        <option value="$PROJECT_DIR$/src/com/Jweather/Settings.java" />
       </list>
     </option>
   </component>
@@ -330,8 +470,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -571,7 +711,8 @@
       <workItem from="1577875271026" duration="1491000" />
       <workItem from="1577898854602" duration="5235000" />
       <workItem from="1577960320803" duration="1928000" />
-      <workItem from="1578159379825" duration="2215000" />
+      <workItem from="1578159379825" duration="2720000" />
+      <workItem from="1578245135690" duration="9212000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1548796358114</created>
@@ -584,7 +725,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201762000" />
+    <option name="totallyTimeSpent" value="211479000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -608,7 +749,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32882273" />
-      <window_info anchor="bottom" x="0" y="58" width="1600" height="842" id="Run" maximized="true" order="2" type="WINDOWED" weight="0.34776726" />
+      <window_info active="true" anchor="bottom" x="0" y="58" width="1600" height="842" id="Run" maximized="true" order="2" type="WINDOWED" visible="true" weight="0.34776726" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39748955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -833,12 +974,187 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Weather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding>
+            <element signature="method#Weather#0;class#Weather#0" />
+            <element signature="method#Weather#1;class#Weather#0" />
+            <element signature="e#559#560#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+            <element signature="e#810#811#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#936#937#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="true" />
+            <element signature="e#1399#1400#0" expanded="true" />
+            <element signature="e#1435#1436#0" expanded="true" />
+            <element signature="e#1470#1471#0" expanded="true" />
+            <element signature="e#1501#1502#0" expanded="true" />
+            <element signature="e#1535#1536#0" expanded="true" />
+            <element signature="e#1565#1566#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+            <element signature="e#1624#1625#0" expanded="true" />
+            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1689#1690#0" expanded="true" />
+            <element signature="e#1724#1725#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#1807#1808#0" expanded="true" />
+            <element signature="e#1834#1835#0" expanded="true" />
+            <element signature="e#1860#1861#0" expanded="true" />
+            <element signature="e#1892#1893#0" expanded="true" />
+            <element signature="e#1923#1924#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Wallpaper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="method#setWallpaper#0;class#Wallpaper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="method#ShowWeather#0;class#ShowWeather#0" />
+            <element signature="e#879#880#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-58">
-          <caret line="12" column="82" selection-start-line="12" selection-start-column="82" selection-end-line="12" selection-end-column="82" />
+        <state relative-caret-position="240">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="method#checkConnection#0;class#Connection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/GetWeatherInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="229" column="8" selection-start-line="229" selection-start-column="8" selection-end-line="229" selection-end-column="37" />
+          <folding>
+            <element signature="method#GetWeatherInfo#0;class#GetWeatherInfo#0" />
+            <element signature="method#fetchWeatherInfo#0;class#GetWeatherInfo#0" />
+            <element signature="method#fetchAPI#0;class#GetWeatherInfo#0" />
+            <element signature="method#setWeatherData#0;class#GetWeatherInfo#0" />
+            <element signature="method#readCurrent#0;class#GetWeatherInfo#0" />
+            <element signature="method#readDaily#0;class#GetWeatherInfo#0" />
+            <element signature="e#8289#8290#0" expanded="true" />
+            <element signature="e#8333#8334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/share/java/javafx-sdk-11.0.2/lib/javafx.controls.jar!/javafx/scene/chart/LineChart.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2178#2575#1" />
+            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2829#3305#0" />
+            <element signature="e#3311#5205#0" />
+            <element signature="e#5748#5749#0" expanded="true" />
+            <element signature="e#5773#5774#0" expanded="true" />
+            <element signature="e#5831#5832#0" expanded="true" />
+            <element signature="e#5856#5857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/LineChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding>
+            <element signature="method#Settings#0;class#Settings#0" />
+            <element signature="e#655#892#1" />
+            <element signature="e#744#882#1" />
+            <element signature="e#927#1122#1" />
+            <element signature="e#971#1112#1" />
+            <element signature="e#1165#1399#1" />
+            <element signature="e#1195#1282#0" />
+            <element signature="e#1314#1389#0" />
+            <element signature="e#1440#1609#1" />
+            <element signature="e#1474#1599#1" />
+            <element signature="method#copyCityData#0;class#Settings#0" />
+            <element signature="e#1789#1880#0" />
+            <element signature="e#1908#1945#0" />
+            <element signature="method#loadSettings#0;class#Settings#0" />
+            <element signature="e#2030#2104#0" />
+            <element signature="e#2132#2196#0" />
+            <element signature="e#2235#2482#0" />
+            <element signature="e#2549#2871#1" />
+            <element signature="e#2743#2861#1" />
+            <element signature="e#3070#3106#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="e#798#1209#0" />
+            <element signature="e#1684#1685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,8 +1162,8 @@
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+        <state relative-caret-position="360">
+          <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
           <folding>
             <element signature="n#Label#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#font#0;n#Label#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
@@ -880,7 +1196,6 @@
             <element signature="n#ImageView#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#image#0;n#ImageView#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#viewport#0;n#ImageView#0;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#14;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#font#0;n#Label#14;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#Label#15;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#font#0;n#Label#15;n#children#0;n#AnchorPane#0;n#children#0;n#AnchorPane#0;n#children#0;n#Pane#0;n#!!top" />
@@ -944,180 +1259,8 @@
             <element signature="n#ImageView#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#image#0;n#ImageView#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#viewport#0;n#ImageView#4;n#children#0;n#AnchorPane#1;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#Label#0;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
             <element signature="n#font#0;n#Label#0;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#0;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#0;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#1;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#1;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#2;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#2;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#3;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#3;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#4;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#4;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#5;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#5;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#6;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#6;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#Label#7;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-            <element signature="n#font#0;n#Label#7;n#children#0;n#Pane#1;n#children#0;n#AnchorPane#2;n#children#0;n#Pane#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="105" column="26" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
-          <folding>
-            <element signature="method#Settings#0;class#Settings#0" />
-            <element signature="e#655#892#1" />
-            <element signature="e#744#882#1" />
-            <element signature="e#927#1122#1" />
-            <element signature="e#971#1112#1" />
-            <element signature="e#1165#1399#1" />
-            <element signature="e#1195#1282#0" />
-            <element signature="e#1314#1389#0" />
-            <element signature="e#1440#1609#1" />
-            <element signature="e#1474#1599#1" />
-            <element signature="method#copyCityData#0;class#Settings#0" />
-            <element signature="e#1789#1880#0" />
-            <element signature="e#1908#1945#0" />
-            <element signature="e#2030#2104#0" />
-            <element signature="e#2132#2196#0" />
-            <element signature="e#2235#2482#0" />
-            <element signature="e#2549#2871#1" />
-            <element signature="e#2743#2861#1" />
-            <element signature="e#3070#3106#1" />
-            <element signature="e#3202#3203#0" expanded="true" />
-            <element signature="e#3236#3237#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Weather.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="method#Weather#0;class#Weather#0" />
-            <element signature="method#Weather#1;class#Weather#0" />
-            <element signature="e#559#560#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#644#645#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#810#811#0" expanded="true" />
-            <element signature="e#855#856#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#936#937#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1058#1059#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1321#1322#0" expanded="true" />
-            <element signature="e#1359#1360#0" expanded="true" />
-            <element signature="e#1399#1400#0" expanded="true" />
-            <element signature="e#1435#1436#0" expanded="true" />
-            <element signature="e#1470#1471#0" expanded="true" />
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1565#1566#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-            <element signature="e#1624#1625#0" expanded="true" />
-            <element signature="e#1659#1660#0" expanded="true" />
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1724#1725#0" expanded="true" />
-            <element signature="e#1754#1755#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-            <element signature="e#1807#1808#0" expanded="true" />
-            <element signature="e#1834#1835#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-            <element signature="e#1892#1893#0" expanded="true" />
-            <element signature="e#1923#1924#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Wallpaper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="method#setWallpaper#0;class#Wallpaper#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/ShowWeather.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding>
-            <element signature="method#ShowWeather#0;class#ShowWeather#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-          <folding>
-            <element signature="e#2669#2783#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Jweather/GetWeatherInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="method#GetWeatherInfo#0;class#GetWeatherInfo#0" />
-            <element signature="method#fetchWeatherInfo#0;class#GetWeatherInfo#0" />
-            <element signature="e#798#957#1" />
-            <element signature="e#846#947#1" />
-            <element signature="e#1310#1375#1" />
-            <element signature="e#1397#1709#1" />
-            <element signature="e#1411#1571#0" />
-            <element signature="e#1599#1699#0" />
-            <element signature="method#fetchAPI#0;class#GetWeatherInfo#0" />
-            <element signature="e#2650#3031#0" />
-            <element signature="method#setWeatherData#0;class#GetWeatherInfo#0" />
-            <element signature="method#readCurrent#0;class#GetWeatherInfo#0" />
-            <element signature="e#3372#5155#0" />
-            <element signature="e#5176#5245#0" />
-            <element signature="method#readDaily#0;class#GetWeatherInfo#0" />
-            <element signature="e#5375#7873#0" />
-            <element signature="e#5784#7500#1" />
-            <element signature="e#7894#7938#0" />
           </folding>
         </state>
       </provider>
