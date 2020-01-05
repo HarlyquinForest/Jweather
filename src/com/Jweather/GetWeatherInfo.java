@@ -21,7 +21,7 @@ import java.time.LocalDate;
 public class GetWeatherInfo
 {
     private  City selectedCity;
-    private boolean ready = false;
+    private static boolean ready = false;
     GetWeatherInfo(City c , String api)
     {
         selectedCity = c;
@@ -221,9 +221,13 @@ public class GetWeatherInfo
         return daily;
     }
 
-    boolean weatherReady()
+    static boolean weatherReady()
     {
         return ready;
+    }
+
+    public static void setReady(boolean ready) {
+        GetWeatherInfo.ready = ready;
     }
 
     public void setCity(City selectedCity) {
