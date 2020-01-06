@@ -1,19 +1,21 @@
 package com.Jweather;
 
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 public class Controller
 {
     public Controller() {}
-    @FXML
-    private Label h1,h2,h3,h4,h5,h6,h7,h8;
     @FXML
     private Label day_temp , night_temp , avg_temp;
     @FXML
@@ -33,7 +35,7 @@ public class Controller
     @FXML
     private Button refresh_btn;
 
-    int sleep = 100 ;
+    private int sleep = 100 ;
 
     @FXML
     public void initialize()
@@ -86,12 +88,15 @@ public class Controller
 
     private void setCurrentWeather(Weather w)
     {
-        Today_degree.setText(w.getDegree()+"°");
+        Today_degree.setText(w.getDegree()+"");
         humidity_lbl.setText(w.getHumidity()+"%");
         wind_lbl.setText(w.getSpeed()+"mps");
         weather_name_lbl.setText(w.getWeather());
         today_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+w.getIcon()+".png")));
         current_location_lbl.setText(ShowWeather.getCity().getName()+","+ShowWeather.getCity().getCountry());
+        night_temp.setText(w.getMin()+"°");
+        day_temp.setText(w.getMax()+"°");
+        avg_temp.setText((w.getMin()+w.getMax())/2+"°");
     }
 
     private void setDailyWeather(Weather[] daily)
@@ -170,8 +175,23 @@ public class Controller
     }
 
     @FXML
-    public void updatebtn(){}
+    public void updatebtn()
+    {
+        rotate_animation(refresh_btn);
+    }
     @FXML
     public void Settings_btn_Clicked(){}
+
+    private void rotate_animation(Control obj)
+    {
+        RotateTransition rotate = new RotateTransition();
+
+        rotate.setDuration(Duration.millis(1000));
+        rotate.setNode(obj);
+        rotate.setCycleCount(1);
+        rotate.setByAngle(360);
+        rotate.play();
+
+    }
 
 }
