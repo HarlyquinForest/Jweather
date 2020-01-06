@@ -80,7 +80,7 @@ public class Controller
         Weather w = showWeather.getWeather();
         setCurrentWeather(w);
         setDailyWeather(city.getDaysForecast());
-        LineChart lineChart = new LineChart(chart_canvas , new int[]{4,2,3,5,6,7,8,9} , new String[]{"0am","6am","a","b","c","r","6","p"});
+        LineChart lineChart = new LineChart(chart_canvas , getDaysForecastTemps(city.getDaysForecast()) , new String[]{"0am","6am","a","b","c","r","6","p"});
         lineChart.drawChart();
     }
 
@@ -126,6 +126,17 @@ public class Controller
         weather_day5_lbl.setTooltip(new Tooltip(weather_day5_lbl.getText()));
         day5_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+daily[4].getIcon()+".png")));
 
+    }
+
+    int[] getDaysForecastTemps(Weather[] forecast)
+    {
+        int[] temps = new int[forecast.length];
+
+        for(int i = 0 ; i < forecast.length ; i++)
+        {
+            temps[i] = forecast[i].getDegree();
+        }
+        return temps;
     }
 
     @FXML
