@@ -73,18 +73,18 @@ public class Controller
 
     }
 
-    void updateLabel(City city)
+    private void updateLabel(City city)
     {
         ShowWeather showWeather = new ShowWeather();
         ShowWeather.setCity(city);
         Weather w = showWeather.getWeather();
         setCurrentWeather(w);
         setDailyWeather(city.getDaysForecast());
-        LineChart lineChart = new LineChart(chart_canvas , getDaysForecastTemps(city.getDaysForecast()) , new String[]{"0am","6am","a","b","c","r","6","p"});
+        LineChart lineChart = new LineChart(chart_canvas , getDaysHourlyTemps(city.getDaysHourly()) , getDaysHourlyTimes(city.getDaysHourly()) , getDaysToolTips(city.getDaysHourly()));
         lineChart.drawChart();
     }
 
-    void setCurrentWeather(Weather w)
+    private void setCurrentWeather(Weather w)
     {
         Today_degree.setText(w.getDegree()+"°");
         humidity_lbl.setText(w.getHumidity()+"%");
@@ -94,7 +94,7 @@ public class Controller
         current_location_lbl.setText(ShowWeather.getCity().getName()+","+ShowWeather.getCity().getCountry());
     }
 
-    void setDailyWeather(Weather[] daily)
+    private void setDailyWeather(Weather[] daily)
     {
         day1_lbl.setText(daily[0].getDay());
         day1_temp_lbl.setText(daily[0].getDegree()+"°");
@@ -128,7 +128,7 @@ public class Controller
 
     }
 
-    int[] getDaysForecastTemps(Weather[] forecast)
+    private int[] getDaysHourlyTemps(Weather[] forecast)
     {
         int[] temps = new int[forecast.length];
 
@@ -137,6 +137,25 @@ public class Controller
             temps[i] = forecast[i].getDegree();
         }
         return temps;
+    }
+
+    private String[] getDaysHourlyTimes(Weather[] forecast)
+    {
+        System.out.println("---");
+        String[] times = new String[forecast.length];
+        for(int i = 0 ; i < forecast.length ; i++) {
+            times[i] = forecast[i].getTime();
+        }
+        return times;
+    }
+
+    private String[] getDaysToolTips(Weather[] forecast)
+    {
+        String[] tips = new String[forecast.length];
+        for(int i = 0 ; i < forecast.length ; i++) {
+            tips[i] = forecast[i].getDay();
+        }
+            return tips;
     }
 
     @FXML
