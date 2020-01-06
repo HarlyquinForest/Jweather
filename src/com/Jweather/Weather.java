@@ -11,6 +11,7 @@ public class Weather
     private String icon ;
     private String weather ;
     private String day ;
+    private String time ;
     private String windName;
     private String windDirection;
 
@@ -103,6 +104,14 @@ public class Weather
 
     public int getHumidity() {
         return humidity;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
     }
 }
 
