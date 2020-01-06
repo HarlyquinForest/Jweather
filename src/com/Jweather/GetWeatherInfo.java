@@ -16,7 +16,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class GetWeatherInfo
 {
@@ -103,6 +105,7 @@ public class GetWeatherInfo
     {
         selectedCity.setCurrentWeather(readCurrent(c));
         selectedCity.setDaysForecast(readDaily(d));
+        selectedCity.setDaysHourly(readHourly(h));
     }
     private Weather readCurrent(File file )
     {
@@ -219,6 +222,51 @@ public class GetWeatherInfo
             e.printStackTrace();
         }
         return daily;
+    }
+    private Weather[] readHourly(File file)
+    {
+        Weather[] hourly = new Weather[8];
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Element element;
+            Document doc = dBuilder.parse(file);
+            NodeList nodeList = doc.getElementsByTagName("time");
+            NodeList details;
+            Node node;
+            for (int i = 0; i < 8; i++) {
+                hourly[i] = new Weather();
+                node = nodeList.item(i);
+                element = (Element) node;
+                String[] temp = element.getAttribute("from").split("T");
+
+                if(LocalDate.now().toString().equals(temp[0])) {
+                    hourly[i].setDay("Today");
+                }
+                else
+                    hourly[i].setDay(LocalDate.parse(temp[0]).getDayOfWeek().toString()); // gets date and return the day nem , how intelligent is this ! :-0
+
+                String pattern = "HH:mm:ss";
+                SimpleDateFormat reading = new SimpleDateFormat(pattern);
+                pattern = "H";
+                SimpleDateFormat Hour = new SimpleDateFormat(pattern);
+                Date date = reading.parse(temp[1]);
+                temp[1] = Hour.format(date);
+                int h = Integer.parseInt(temp[1]);
+                if (h >= 00 && h <= 12)
+                    hourly[i].setTime(temp[1] + "am");
+                else if (h > 12 && h <= 23)
+                    hourly[i].setTime(temp[1] + "pm");
+
+                details = doc.getElementsByTagName("temperature");
+                node = details.item(i);
+                element = (Element) node;
+                hourly[i].setDegree(Math.round(Float.parseFloat(element.getAttribute("value"))));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hourly;
     }
 
     static boolean weatherReady()
