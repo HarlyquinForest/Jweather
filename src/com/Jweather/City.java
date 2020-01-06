@@ -7,6 +7,7 @@ public class City
     private String country;
     private Weather currentWeather ;
     private Weather[] daysForecast;
+    private Weather[] daysHourly;
     private int ID = 0 ;
 
     City(int i , String n , String c)
@@ -63,6 +64,14 @@ public class City
 
     public String getLastUpdate() {
         return lastUpdate;
+    }
+
+    public void setDaysHourly(Weather[] daysHourly) {
+        this.daysHourly = daysHourly;
+    }
+
+    public Weather[] getDaysHourly() {
+        return daysHourly;
     }
 
     @Override
