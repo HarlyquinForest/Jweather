@@ -508,7 +508,7 @@
       <workItem from="1578292448154" duration="4236000" />
       <workItem from="1578328414853" duration="3193000" />
       <workItem from="1578340849821" duration="919000" />
-      <workItem from="1578341950557" duration="2610000" />
+      <workItem from="1578341950557" duration="2846000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1548796358114</created>
@@ -521,7 +521,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222774000" />
+    <option name="totallyTimeSpent" value="223010000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,7 +545,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32882273" />
-      <window_info anchor="bottom" x="0" y="58" width="1600" height="842" id="Run" maximized="true" order="2" type="WINDOWED" visible="true" weight="0.34776726" />
+      <window_info anchor="bottom" x="0" y="58" width="1600" height="842" id="Run" maximized="true" order="2" type="WINDOWED" weight="0.34776726" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39748955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
