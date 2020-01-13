@@ -1,7 +1,6 @@
 package com.Jweather;
 
 import javafx.animation.RotateTransition;
-import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
@@ -36,13 +35,14 @@ public class Controller
     private Button refresh_btn;
 
     private int sleep = 100 ;
+    private City current;
+    private ShowWeather showWeather ;
 
     @FXML
     public void initialize()
     {
         new Thread(() ->
         {
-        City current;
             while (true)
             {
                 current = Settings.defaultCity;
@@ -50,13 +50,8 @@ public class Controller
                 {
                     System.out.println("ready");
                     GetWeatherInfo.setReady(false);
-                    final City city = current;
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateLabel(city);
-                        }
-                    });
+                    showWeather = new ShowWeather(current);
+                    Platform.runLater(this::updateLabel);
                 }
 //                System.out.println("Waiting thread is running");
                 try {
@@ -75,14 +70,15 @@ public class Controller
 
     }
 
-    private void updateLabel(City city)
+    private void updateLabel()
     {
-        ShowWeather showWeather = new ShowWeather();
-        ShowWeather.setCity(city);
-        Weather w = showWeather.getWeather();
-        setCurrentWeather(w);
-        setDailyWeather(city.getDaysForecast());
-        LineChart lineChart = new LineChart(chart_canvas , getDaysHourlyTemps(city.getDaysHourly()) , getDaysHourlyTimes(city.getDaysHourly()) , getDaysToolTips(city.getDaysHourly()));
+        setCurrentWeather(showWeather.getWeather());
+        setDailyWeather(showWeather.getForecast());
+        Weather[] hourly = showWeather.getHourlyForecast();
+        LineChart lineChart = new LineChart(chart_canvas
+                , getDaysHourlyTemps(hourly)
+                , getDaysHourlyTimes(hourly)
+                , getDaysToolTips(hourly));
         lineChart.drawChart();
     }
 
