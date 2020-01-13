@@ -38,14 +38,14 @@ public class SettingsDialog
     private JFXListView cities_listview;
     @FXML
     private JFXButton clear_btn;
-/*
+
     @FXML
     public void initialize()
     {
-        update();
+        //update();
 
     }
-    @FXML
+    /*@FXML
     public void exitWindow(ActionEvent event)
     {
 
