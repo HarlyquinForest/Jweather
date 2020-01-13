@@ -59,7 +59,7 @@ public class SettingsDialog
 
     public boolean isNumric(String str)
     {
-        return true; 
+        return true;
     }
     public void find_btn(ActionEvent event)
     {
