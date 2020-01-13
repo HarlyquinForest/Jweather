@@ -42,35 +42,35 @@ public class City
         this.name = name;
     }
 
-    public void setDaysForecast(Weather[] daysForecast) {
+    void setDaysForecast(Weather[] daysForecast) {
         this.daysForecast = daysForecast;
     }
 
-    public Weather[] getDaysForecast() {
+    Weather[] getDaysForecast() {
         return daysForecast;
     }
 
-    public void setCurrentWeather(Weather currentWeather) {
+    void setCurrentWeather(Weather currentWeather) {
         this.currentWeather = currentWeather;
     }
 
-    public Weather getCurrentWeather() {
+    Weather getCurrentWeather() {
         return currentWeather;
     }
 
-    public void setLastUpdate(String lastUpdate) {
+    void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
-    public String getLastUpdate() {
+    String getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setDaysHourly(Weather[] daysHourly) {
+    void setDaysHourly(Weather[] daysHourly) {
         this.daysHourly = daysHourly;
     }
 
-    public Weather[] getDaysHourly() {
+    Weather[] getDaysHourly() {
         return daysHourly;
     }
 
