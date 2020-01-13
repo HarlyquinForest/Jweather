@@ -8,7 +8,7 @@ public class City
     private Weather currentWeather ;
     private Weather[] daysForecast;
     private Weather[] daysHourly;
-    private int ID = 0 ;
+    private int ID ;
 
     City(int i , String n , String c)
     {
