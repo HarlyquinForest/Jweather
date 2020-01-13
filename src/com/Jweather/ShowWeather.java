@@ -18,29 +18,31 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class ShowWeather {
+class ShowWeather {
 
     private static City city ;
-    public ShowWeather()
+    ShowWeather(City c)
     {
+        city = c ;
     }
 
-    public static City getCity() {
+    static City getCity() {
         return city;
     }
 
-    public static void setCity(City city) {
+    static void setCity(City city) {
         ShowWeather.city = city;
     }
 
-    public Weather getWeather()
+    Weather getWeather()
     {
         return city.getCurrentWeather();
     }
-    public Weather[] getForecast()
+    Weather[] getForecast()
     {
         return city.getDaysForecast();
     }
+    Weather[] getHourlyForecast(){return city.getDaysHourly();}
     String showCity()
     {
         return city.getName();
