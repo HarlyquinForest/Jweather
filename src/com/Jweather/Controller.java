@@ -2,6 +2,10 @@ package com.Jweather;
 
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
@@ -10,6 +14,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 import java.time.LocalDate;
@@ -190,7 +197,25 @@ public class Controller
     @FXML
     public void Settings_btn_Clicked()
     {
+        try{
+            Parent settings = FXMLLoader.load(getClass().getResource("SettingsDialog.fxml"));
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Settings");
+            stage.setScene(new Scene(settings , 400 , 500));
+            stage.setResizable(false);
+            stage.show();
 
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent windowEvent) {
+                }
+            });
+
+        }catch (Exception e )
+        {
+            e.printStackTrace();
+        }
     }
 
     private void rotate_animation(Control obj)
