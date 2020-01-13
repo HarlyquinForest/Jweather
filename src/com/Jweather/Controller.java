@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+import java.time.LocalDate;
+
 public class Controller
 {
     public Controller() {}
@@ -93,6 +95,16 @@ public class Controller
         night_temp.setText(w.getMin()+"°");
         day_temp.setText(w.getMax()+"°");
         avg_temp.setText((w.getMin()+w.getMax())/2+"°");
+        String[] temp = current.getLastUpdate().split(" ");
+        if(LocalDate.now().toString().equals(temp[0]))
+        {
+            last_update_lbl.setText("Today,"+temp[1]);
+        }
+        else
+        {
+            String day = LocalDate.parse(temp[0]).getDayOfWeek().toString();
+            last_update_lbl.setText(day+","+temp[1]);
+        }
     }
 
     private void setDailyWeather(Weather[] daily)
@@ -176,7 +188,10 @@ public class Controller
         rotate_animation(refresh_btn);
     }
     @FXML
-    public void Settings_btn_Clicked(){}
+    public void Settings_btn_Clicked()
+    {
+
+    }
 
     private void rotate_animation(Control obj)
     {
