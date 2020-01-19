@@ -178,7 +178,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
+                <state relative-caret-position="703">
                   <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
                   <folding>
                     <element signature="e#1367#1368#0" expanded="true" />
@@ -530,7 +530,7 @@
       <workItem from="1578328414853" duration="3193000" />
       <workItem from="1578340849821" duration="919000" />
       <workItem from="1578341950557" duration="2846000" />
-      <workItem from="1578919106656" duration="3054000" />
+      <workItem from="1578919106656" duration="3175000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1548796358114</created>
@@ -543,7 +543,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226064000" />
+    <option name="totallyTimeSpent" value="226185000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1065,7 +1065,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Jweather/SettingsDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
+        <state relative-caret-position="703">
           <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
           <folding>
             <element signature="e#1367#1368#0" expanded="true" />
