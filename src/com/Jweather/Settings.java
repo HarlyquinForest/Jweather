@@ -8,15 +8,15 @@ import java.util.List;
 
 public class Settings
 {
-    private String HOME_PATH = System.getProperty("user.home");
-    private String CONFIG_PATH = HOME_PATH+"/.Jweather";
-    private File CONFIG_FILE = new File(CONFIG_PATH+"/config.conf");
+    static String HOME_PATH = System.getProperty("user.home");
+    static String CONFIG_PATH = HOME_PATH+"/.Jweather";
+    static File CONFIG_FILE = new File(CONFIG_PATH+"/config.conf");
     private File CITY_DATA = new File(CONFIG_PATH+"/city.json");
     private File TMP = new File("/tmp/Jweather");
-    private Unit unit ;
+    static Unit unit ;
     private String API ;
     static City defaultCity;
-    private ArrayList<City> cities;
+    static ArrayList<City> cities;
 
     Settings()
     {
