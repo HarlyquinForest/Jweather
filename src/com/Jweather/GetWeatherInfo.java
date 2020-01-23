@@ -185,8 +185,7 @@ public class GetWeatherInfo
                 details = doc.getElementsByTagName("time");
                 node= details.item(i);
                 element = (Element)node ;
-                if(!LocalDate.now().plusDays(i).toString().equals(element.getAttribute("day")))
-                    daily[i-1].setDay(LocalDate.now().getDayOfWeek().plus(i).toString());
+                daily[i-1].setDay(LocalDate.parse(element.getAttribute("day")).getDayOfWeek().toString());
 
 
                 details = doc.getElementsByTagName("temperature");
