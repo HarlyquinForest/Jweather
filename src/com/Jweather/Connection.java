@@ -17,10 +17,11 @@ public class Connection extends Thread
         try(final DatagramSocket socket = new DatagramSocket())
         {
             socket.connect(InetAddress.getByName("www.openweathermap.org"),10002 );
-            socket.setSoTimeout(200);
+            socket.setSoTimeout(300);
             IP = socket.getInetAddress().getHostAddress();
         }catch (Exception e)
         {
+            e.printStackTrace();
             return false ;
         }
         int success = 0 ;
@@ -29,14 +30,16 @@ public class Connection extends Thread
             InetAddress Ping  = InetAddress.getByName(IP);
             for(int i = 0 ; i < 4 ; i++)
             {
-                if(Ping.isReachable(5000))
+                if(Ping.isReachable(2000))
                     success++;
             }
         }catch (Exception e )
         {
+            e.printStackTrace();
             return false;
         }
-        return(success == 4 || success == 3);
+        ok = success > 0 ;
+        return ok;
 
     }
 }
