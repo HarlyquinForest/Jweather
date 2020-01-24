@@ -83,14 +83,12 @@ public class Settings
         }
         switch (lines.get(0))
         {
-            case "C":
-                unit = Unit.Celsius;
-            break;
-            case "F":
-                unit = Unit.Fahrenheit;
-            break;
             default:
+            case "metric":
                 unit = Unit.Celsius;
+            break;
+            case "imperial":
+                unit = Unit.Fahrenheit;
             break;
         }
         lines.remove(0);
