@@ -54,7 +54,7 @@ public class Controller
         {
             while (true)
             {
-                current = Settings.defaultCity;
+                current = Settings.seletedCity;
                 if(GetWeatherInfo.weatherReady() && current != null)
                 {
                     System.out.println("ready");
