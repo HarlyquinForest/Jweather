@@ -88,6 +88,10 @@ public class SettingsDialog
             celsius_radio.setSelected(true);
             Settings.unit = Unit.Celsius;
         }
+        String output = Settings.unit.getName() +"\n";
+        for(City i : list)
+            output += i.toString()+"\n";
+        writeToFile(output);
     }
     private boolean isNumric(String str)
     {
@@ -147,12 +151,7 @@ public class SettingsDialog
             else
                 output += l.toString()+"\n";
         }
-        try{
-            FileUtils.writeStringToFile(Settings.CONFIG_FILE , output , "utf-8" , false);
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        writeToFile(output);
         bindListView();
 
     }
@@ -161,28 +160,16 @@ public class SettingsDialog
         System.out.println("delete");
         int del_index = cities_listview.getSelectionModel().getSelectedIndex();
         Settings.cities.remove(del_index);
-        String output ="" ;
-        List<String> lines = new ArrayList<>();
-        try {
-            lines = FileUtils.readLines(Settings.CONFIG_FILE, "utf-8");
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        for(int i = 0 ; i < lines.size() ; i++)
+        String output = Settings.unit.getName() +"\n" ;
+        for(int i = 0 ; i < list.size() ; i++)
         {
             if(i == del_index) {
-                lines.remove(i);
+                list.remove(i);
             }
             else
-                output += lines.get(i)+"\n";
-
+                output += list.get(i)+"\n";
         }
-        try {
-            FileUtils.writeStringToFile(Settings.CONFIG_FILE , output , "utf-8" , false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        writeToFile(output);
         bindListView();
     }
     public void clear(ActionEvent event)
@@ -266,6 +253,15 @@ public class SettingsDialog
         clear_btn.setVisible(false);
         search_textbox.setDisable(false);
         find = findState.find;
+    }
+
+    private void writeToFile(String o)
+    {
+        try {
+            FileUtils.writeStringToFile(Settings.CONFIG_FILE , o , "utf-8" , false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
