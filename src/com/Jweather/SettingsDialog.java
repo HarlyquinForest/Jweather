@@ -15,8 +15,10 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class SettingsDialog
 {
@@ -157,6 +159,31 @@ public class SettingsDialog
     public void delete_menuitem_handler(ActionEvent event)
     {
         System.out.println("delete");
+        int del_index = cities_listview.getSelectionModel().getSelectedIndex();
+        Settings.cities.remove(del_index);
+        String output ="" ;
+        List<String> lines = new ArrayList<>();
+        try {
+            lines = FileUtils.readLines(Settings.CONFIG_FILE, "utf-8");
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        for(int i = 0 ; i < lines.size() ; i++)
+        {
+            if(i == del_index) {
+                lines.remove(i);
+            }
+            else
+                output += lines.get(i)+"\n";
+
+        }
+        try {
+            FileUtils.writeStringToFile(Settings.CONFIG_FILE , output , "utf-8" , false);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        bindListView();
     }
     public void clear(ActionEvent event)
     {
@@ -169,6 +196,7 @@ public class SettingsDialog
     private void bindListView()
     {
         cities_listview.getItems().clear();
+        list = Settings.cities;
         Collection<String> collection = new ArrayList<>();
         for(City c : list)
             if(c.getId() == Settings.defaultCity.getId())
