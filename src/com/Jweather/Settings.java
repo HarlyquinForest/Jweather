@@ -13,10 +13,11 @@ public class Settings
     static File CONFIG_FILE = new File(CONFIG_PATH+"/config.conf");
     private File CITY_DATA = new File(CONFIG_PATH+"/city.json");
     private File TMP = new File("/tmp/Jweather");
+    private static GetWeatherInfo getWeatherInfo ;
     static Unit unit ;
-    private String API ;
+    private static String API ;
     static City defaultCity;
-    static City seletedCity ;
+    private static City selectedCity;
     static ArrayList<City> cities;
 
     Settings()
@@ -57,6 +58,7 @@ public class Settings
         }
         cities = new ArrayList<>();
         loadSettings();
+        getWeatherInfo = new GetWeatherInfo(selectedCity, getAPI());
     }
     private boolean copyCityData()
     {
@@ -99,7 +101,7 @@ public class Settings
             if(temp[2].contains("*"))
             {
                 defaultCity = new City(Integer.parseInt(temp[0]) , temp[1] , temp[2].replace("*",""));
-                seletedCity = defaultCity;
+                selectedCity = defaultCity;
             }
         }
 
@@ -113,11 +115,22 @@ public class Settings
         }
     }
 
-    public String getAPI() {
+    public static String getAPI() {
         return API;
     }
 
     public City getDefaultCity() {
         return defaultCity;
+    }
+
+    public static City getSelectedCity() {
+        return selectedCity;
+    }
+
+    public static void setSelectedCity(City selectedCity)
+    {
+        Settings.selectedCity = selectedCity;
+        API = "?id="+ selectedCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
+        getWeatherInfo = new GetWeatherInfo(selectedCity , API);
     }
 }
