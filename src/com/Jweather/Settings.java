@@ -16,6 +16,7 @@ public class Settings
     static Unit unit ;
     private String API ;
     static City defaultCity;
+    static City seletedCity ;
     static ArrayList<City> cities;
 
     Settings()
@@ -98,6 +99,7 @@ public class Settings
             if(temp[2].contains("*"))
             {
                 defaultCity = new City(Integer.parseInt(temp[0]) , temp[1] , temp[2].replace("*",""));
+                seletedCity = defaultCity;
             }
         }
 
