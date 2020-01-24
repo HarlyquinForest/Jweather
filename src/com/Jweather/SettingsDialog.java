@@ -7,6 +7,7 @@ import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Control;
@@ -31,6 +32,8 @@ public class SettingsDialog
     private JFXListView cities_listview;
     @FXML
     private JFXButton clear_btn;
+    @FXML
+    private MenuItem show_menuitem , default_menuitem , delete_menuitem;
 
     private ArrayList<City> list ;
     private JsonParser parser ;
@@ -46,9 +49,8 @@ public class SettingsDialog
     @FXML
     public void initialize()
     {
+        System.out.println("settings init");
         list = Settings.cities;
-        bindListView();
-
         if(Settings.unit == Unit.Celsius)
             celsius_radio.setSelected(true);
         else if(Settings.unit == Unit.Fahrenheit)
@@ -62,6 +64,7 @@ public class SettingsDialog
             e.printStackTrace();
             System.out.println("Config file is missing");
         }
+        bindListView();
     }
     @FXML
     public void exitWindow(ActionEvent event)
@@ -73,21 +76,17 @@ public class SettingsDialog
     }
     public void radioButton_handle(ActionEvent event )
     {
-        String id = ((Control)event.getTarget()).getId() ;
-        if(id.equals(fahrenheit_radio.getId()))
-        {
+        String id = ((Control) event.getTarget()).getId();
+        if (id.equals(fahrenheit_radio.getId())) {
             celsius_radio.setSelected(false);
             fahrenheit_radio.setSelected(true);
-            Settings.unit = Unit.Fahrenheit ;
-        }
-        else if(id.equals(celsius_radio.getId()))
-        {
+            Settings.unit = Unit.Fahrenheit;
+        } else if (id.equals(celsius_radio.getId())) {
             fahrenheit_radio.setSelected(false);
             celsius_radio.setSelected(true);
             Settings.unit = Unit.Celsius;
         }
     }
-
     private boolean isNumric(String str)
     {
         try
@@ -127,6 +126,18 @@ public class SettingsDialog
     public void listview_handler(MouseEvent event)
     {
 
+    }
+    public void show_menuitem_handler(ActionEvent event)
+    {
+        System.out.println("show");
+    }
+    public void default_menuitem_handler(ActionEvent event)
+    {
+        System.out.println("default");
+    }
+    public void delete_menuitem_handler(ActionEvent event)
+    {
+        System.out.println("delete");
     }
     public void clear(ActionEvent event)
     {
@@ -206,5 +217,6 @@ public class SettingsDialog
         search_textbox.setDisable(false);
         find = findState.find;
     }
+
 
 }
