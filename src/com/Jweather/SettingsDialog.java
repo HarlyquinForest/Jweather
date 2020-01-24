@@ -130,10 +130,29 @@ public class SettingsDialog
     public void show_menuitem_handler(ActionEvent event)
     {
         System.out.println("show");
+        Settings.setSelectedCity(list.get(cities_listview.getSelectionModel().getSelectedIndex()));
     }
     public void default_menuitem_handler(ActionEvent event)
     {
         System.out.println("default");
+        int def_index = cities_listview.getSelectionModel().getSelectedIndex();
+        Settings.defaultCity = list.get(def_index);
+        String output = Settings.unit.getName() +"\n";
+        for(City l : list)
+        {
+            if(l.getId() == list.get(def_index).getId())
+                output += l.toString()+"*\n";
+            else
+                output += l.toString()+"\n";
+        }
+        try{
+            FileUtils.writeStringToFile(Settings.CONFIG_FILE , output , "utf-8" , false);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        bindListView();
+
     }
     public void delete_menuitem_handler(ActionEvent event)
     {
@@ -152,7 +171,10 @@ public class SettingsDialog
         cities_listview.getItems().clear();
         Collection<String> collection = new ArrayList<>();
         for(City c : list)
-            collection.add(c.toString());
+            if(c.getId() == Settings.defaultCity.getId())
+                collection.add(c.toString()+"*");
+            else
+                collection.add(c.toString());
         ObservableList<String> items = FXCollections.observableArrayList(collection);
         cities_listview.setItems(items);
     }
