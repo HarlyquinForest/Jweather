@@ -203,7 +203,9 @@ public class Controller
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Settings");
             stage.setScene(new Scene(settings , 400 , 500));
-            stage.setResizable(false);
+            stage.setResizable(true);
+            stage.setMinWidth(400);
+            stage.setMinHeight(500);
             stage.show();
 
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
