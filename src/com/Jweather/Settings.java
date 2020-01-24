@@ -102,15 +102,11 @@ public class Settings
                 selectedCity = defaultCity;
             }
         }
-
-        if (defaultCity != null)
-        {
-            API = "?id="+ defaultCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
+        if(defaultCity == null ) {
+            selectedCity = cities.get(0);
+            defaultCity = selectedCity;
         }
-        else
-        {
-            API = null ;
-        }
+        API = "?id="+ defaultCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
     }
 
     public static String getAPI() {
