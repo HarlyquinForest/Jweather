@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Jweather" />
+      <artifact name="Jweather:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -142,7 +142,7 @@
     <property name="last_opened_file_path" value="/opt/SceneBuilder/SceneBuilder" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.41379312" />
     <property name="recentsLimit" value="5" />
@@ -341,7 +341,12 @@
       <workItem from="1578341950557" duration="2846000" />
       <workItem from="1578919106656" duration="3175000" />
       <workItem from="1579681284264" duration="7477000" />
-      <workItem from="1579802539364" duration="3748000" />
+      <workItem from="1579802539364" duration="3956000" />
+      <workItem from="1579867269491" duration="770000" />
+      <workItem from="1579868096713" duration="567000" />
+      <workItem from="1579875030033" duration="2545000" />
+      <workItem from="1579891349290" duration="3717000" />
+      <workItem from="1579940982145" duration="3269000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1548796358114</created>
