@@ -90,7 +90,7 @@
                   </Label>
                   <ImageView fx:id="today_weather_icon" fitHeight="80.0" fitWidth="80.0" layoutX="710.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../source/Weather%20icons/01d.png" />
+                        <Image url="@../../source/Weather icons/01d.png" />
                      </image>
                      <viewport>
                         <Rectangle2D />
@@ -148,29 +148,29 @@
                   <Font name="Roboto Bold" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="day1_lbl" alignment="CENTER" layoutX="72.0" layoutY="63.0" prefWidth="100.0" text="Day1" textFill="WHITE" AnchorPane.leftAnchor="72.0">
+            <Label fx:id="day1_lbl" alignment="CENTER" layoutX="61.0" layoutY="50.0" prefWidth="120.0" text="Day1" textFill="WHITE" AnchorPane.leftAnchor="61.0">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="day5_lbl" alignment="CENTER" layoutX="592.0" layoutY="63.0" prefWidth="100.0" text="Day5" textFill="WHITE" AnchorPane.leftAnchor="592.0">
+            <Label fx:id="day5_lbl" alignment="CENTER" layoutX="582.0" layoutY="50.0" prefWidth="120.0" text="Day5" textFill="WHITE" AnchorPane.leftAnchor="582.0">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="day4_lbl" alignment="CENTER" layoutX="462.0" layoutY="63.0" prefWidth="100.0" text="Day4" textFill="WHITE" AnchorPane.leftAnchor="462.0">
+            <Label fx:id="day4_lbl" alignment="CENTER" layoutX="452.0" layoutY="50.0" prefWidth="120.0" text="Day4" textFill="WHITE" AnchorPane.leftAnchor="452.0">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="day3_lbl" alignment="CENTER" layoutX="332.0" layoutY="63.0" prefWidth="100.0" text="Day3" textFill="WHITE" AnchorPane.leftAnchor="332.0">
+            <Label fx:id="day3_lbl" alignment="CENTER" layoutX="322.0" layoutY="50.0" prefWidth="120.0" text="Day3" textFill="WHITE" AnchorPane.leftAnchor="322.0">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="day2_lbl" alignment="CENTER" layoutX="202.0" layoutY="63.0" prefWidth="100.0" text="Day2" textFill="WHITE" AnchorPane.leftAnchor="202.0">
+            <Label fx:id="day2_lbl" alignment="CENTER" layoutX="192.0" layoutY="50.0" prefWidth="120.0" text="Day2" textFill="WHITE" AnchorPane.leftAnchor="192.0">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto" size="18.0" />
                </font>
             </Label>
             <Label fx:id="day1_temp_lbl" alignment="CENTER" layoutX="72.0" layoutY="90.0" prefWidth="100.0" text="--" textFill="WHITE">
@@ -200,64 +200,64 @@
             </Label>
             <Label fx:id="weather_day1_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="71.0" layoutY="128.0" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="100.0" text="--" textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto Regular" size="18.0" />
                </font>
             </Label>
             <Label fx:id="weather_day2_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="128.0" maxWidth="-Infinity" prefWidth="100.0" text="--" textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto Regular" size="18.0" />
                </font>
             </Label>
             <Label fx:id="weather_day3_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="332.0" layoutY="128.0" maxWidth="-Infinity" prefWidth="100.0" text="--" textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto Regular" size="18.0" />
                </font>
             </Label>
             <Label fx:id="weather_day4_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="462.0" layoutY="128.0" maxWidth="-Infinity" prefWidth="100.0" text="--" textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto Regular" size="18.0" />
                </font>
             </Label>
             <Label fx:id="weather_day5_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="592.0" layoutY="128.0" maxWidth="-Infinity" prefWidth="100.0" text="--" textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="20.0" />
+                  <Font name="Roboto Regular" size="18.0" />
                </font>
             </Label>
-            <ImageView fx:id="day1_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="96.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="day1_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="96.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <ImageView fx:id="day2_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="227.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="day2_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="227.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <ImageView fx:id="day3_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="357.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="day3_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="357.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <ImageView fx:id="day4_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="487.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="day4_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="487.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <ImageView fx:id="day5_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="617.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="day5_weather_icon" fitHeight="50.0" fitWidth="50.0" layoutX="617.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../source/Weather%20icons/01d.png" />
+                  <Image url="@../../source/Weather icons/01d.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -269,54 +269,10 @@
          <children>
             <Label layoutX="14.0" layoutY="-1.0" text="Hourly" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="-1.0">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="Roboto Bold" size="25.0" />
                </font>
             </Label>
-            <Pane fx:id="chart_canvas" layoutX="15.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0" />
-            <Pane layoutX="20.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="20.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0">
-               <children>
-                  <Label fx:id="h1" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h2" alignment="CENTER" contentDisplay="CENTER" layoutX="133.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h3" alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h4" alignment="CENTER" contentDisplay="CENTER" layoutX="307.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h5" alignment="CENTER" contentDisplay="CENTER" layoutX="393.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h6" alignment="CENTER" contentDisplay="CENTER" layoutX="481.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h7" alignment="CENTER" contentDisplay="CENTER" layoutX="568.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="h8" alignment="CENTER" contentDisplay="CENTER" layoutX="657.0" maxWidth="-Infinity" prefWidth="50.0" text="--" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+            <Pane fx:id="chart_canvas" layoutX="15.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="725.0" style="-fx-background-color: rgba(0,0,0,0.1);" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0" />
          </children>
       </AnchorPane>
    </children>

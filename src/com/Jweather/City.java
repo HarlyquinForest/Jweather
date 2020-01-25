@@ -2,37 +2,81 @@ package com.Jweather;
 
 public class City
 {
+    private String lastUpdate;
     private String name ;
     private String country;
-    private int id = 0 ;
+    private Weather currentWeather ;
+    private Weather[] daysForecast;
+    private Weather[] daysHourly;
+    private int ID ;
 
-    public int getId() {
-        return id;
+    City(int i , String n , String c)
+    {
+        ID = i ;
+        name = n ;
+        country = c;
+        daysForecast = new Weather[5];
     }
 
-    public String getCountry() {
+    int getId() {
+        return ID;
+    }
+
+    String getCountry() {
         return country;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public void setCountry(String country) {
+    void setCountry(String country) {
         this.country = country;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    void setId(int id) {
+        this.ID = id;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
+    }
+
+    void setDaysForecast(Weather[] daysForecast) {
+        this.daysForecast = daysForecast;
+    }
+
+    Weather[] getDaysForecast() {
+        return daysForecast;
+    }
+
+    void setCurrentWeather(Weather currentWeather) {
+        this.currentWeather = currentWeather;
+    }
+
+    Weather getCurrentWeather() {
+        return currentWeather;
+    }
+
+    void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    void setDaysHourly(Weather[] daysHourly) {
+        this.daysHourly = daysHourly;
+    }
+
+    Weather[] getDaysHourly() {
+        return daysHourly;
     }
 
     @Override
     public String toString()
     {
-        return id + "," + name + ","+country;
+        return ID + "," + name + ","+country;
     }
 }

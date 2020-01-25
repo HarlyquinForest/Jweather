@@ -1,168 +1,117 @@
 package com.Jweather;
-import org.apache.commons.io.FileUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Scanner;
-import java.util.Set;
-
-public class Weather extends Thread
+public class Weather
 {
     //variables
-    private int City ;
+    private int Degree;
+    private int min ;
+    private int max;
+    private int humidity ;
+    private float speed ;
+    private String icon ;
+    private String weather ;
+    private String day ;
+    private String time ;
+    private String windName;
+    private String windDirection;
 
-
-    //constructor
-    public Weather()
+    Weather()
     {
-        this.City = Settings.getID();
-        //System.out.println(City);
-        CreateDirs();
     }
-    //create tmp dirs
-    private void CreateDirs()
+    Weather(int degree , String ico , String name , String d)
     {
-        File main = new File("/tmp/Jweather");
-        File CityDir = new File("/tmp/Jweather/"+City);
-        if(!main.exists())
-        {
-            try
-            {
-                main.mkdir();
-            }catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        if(!CityDir.exists())
-        {
-            try
-            {
-                CityDir.mkdir();
-                System.out.println("Dir created");
-
-            }catch (Exception e )
-            {
-                e.printStackTrace();
-            }
-        }
+            Degree = degree;
+            icon = ico ;
+            weather = name ;
+            day = d ;
     }
-    public static boolean saved()
-    {
-        boolean ok = true;
-        int id = Settings.city.getId();
-        if(!new File("/tmp/Jweather/"+id+"/current.xml").exists())
-        {
-            ok = false ;
-        }
-        else if(!new File("/tmp/Jweather/"+id+"/daily.xml").exists())
-        {
-            ok = false ;
-        }
-        else if(!new File("/tmp/Jweather/"+id+"/hourly.xml").exists())
-        {
-           ok = false ;
-        }
-        return ok ;
+
+    public int getDegree() {
+        return Degree;
     }
-    public void run()
-    {
-        int sleep = 1000 ;
-        do
-        {
-            Settings.checkConnection();
-            Settings.ready = saved();
-            try {
-                sleep(sleep);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            if(sleep != 20000)
-                sleep +=100 ;
 
-        } while(Settings.offline);
-        if(!saved())
-        {
-            getWeather();
-            Settings.ready = true;
-        }
-        else
-        {
-            Settings.ready = true;
-        }
+    public String getDay() {
+        return day;
     }
-    public void GetWeather()
-    {
-        getWeather();
+
+    public String getIcon() {
+        return icon;
     }
-    //get weather info form api
-    private void  getWeather()
-    {
-        String API ;
-        if(Settings.Celcius)
-            API = "&APPID=04ed4038994ff1be56247052ae7bc45f&units=metric&mode=xml";
-        else
-            API = "&APPID=04ed4038994ff1be56247052ae7bc45f&units=imperial&mode=xml";
-        File current = new File("/tmp/Jweather/"+City+"/current.xml");
-        File daily = new File("/tmp/Jweather/"+City+"/daily.xml");
-        File hourly = new File("/tmp/Jweather/"+City+"/hourly.xml");
-        String[] API_URL = {
-                  "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + City + API
-                , "http://api.openweathermap.org/data/2.5/weather?id=" + City + API
-                , "http://api.openweathermap.org/data/2.5/forecast?id=" + City + API
-                            };
-        URL url ;
-        URLConnection urlConnection ;
-        HttpURLConnection connection ;
-        BufferedReader in ;
-        String write ;
-        String read ;
-        try
-        {
-            for(int i = 0 ; i < 3 ; i++)
-            {
-                url = new URL(API_URL[i]);
-                urlConnection = url.openConnection();
-                connection =  (HttpURLConnection) urlConnection ;
-                in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                write ="";
-                read = "";
 
-                while((read = in.readLine()) != null )
-                {
-                    write += read;
-                }
-                switch (i)
-                {
-                    case 0 :
-                        FileUtils.write(daily , write , "utf-8");
-                        break;
-                    case 1 :
-                        FileUtils.write(current , write , "utf-8");
-                        break;
-                    case 2 :
-                        FileUtils.write(hourly , write , "utf-8");
-                        break;
-                }
-            }
+    public void setWindDirection(String windDirection) {
+        this.windDirection = windDirection;
+    }
 
-        } catch(Exception e )
-        {
-            System.out.println("Some problem occured!");
-        }
-        finally {
-            Settings.refresh = false ;
-        }
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
 
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public void setWindName(String windName) {
+        this.windName = windName;
+    }
+
+    public void setDegree(int degree) {
+        this.Degree = degree;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
+    }
+
+    public String getWindDirection() {
+        return windDirection;
+    }
+
+    public String getWindName() {
+        return windName;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getHumidity() {
+        return humidity;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
     }
 }
+

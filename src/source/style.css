@@ -26,7 +26,8 @@
 }
 .settings_button:hover
 {
-    -fx-background-color: #474747;
+    -fx-background-color: #6c6c6c;
+    -fx-cursor:hand;
 }
 .refresh_btn
 {
@@ -39,7 +40,8 @@
 }
 .refresh_btn:hover
 {
-    -fx-background-color: #474747;
+    -fx-background-color: #6c6c6c;
+    -fx-cursor:hand;
 }
 
 .exit_btn
@@ -51,7 +53,7 @@
 }
 .exit_btn:hover
 {
-    -fx-background-color: #474747;
+    -fx-background-color: #6c6c6c;
     -fx-text-fill: red;
 }
 .nav
@@ -60,7 +62,8 @@
 }
 .nav:hover
 {
-    -fx-background-color: #474747;
+    -fx-background-color: #6c6c6c;
+    -fx-cursor: hand;
 }
 
 

@@ -1,219 +1,140 @@
 package com.Jweather;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
-
-import javafx.application.Application;
-import org.apache.commons.io.FileUtils;
 
 public class Settings
 {
-    static City city = new City();
-    static boolean Celcius;
-    static boolean ready = false ;
-    static boolean offline = false ;
-    static boolean refresh = false ;
-    static Hashtable< Integer , String > Cities  = new Hashtable<Integer, String>();
-    static ArrayList<String> City_List = new ArrayList<String>();
     static String HOME_PATH = System.getProperty("user.home");
     static String CONFIG_PATH = HOME_PATH+"/.Jweather";
+    static File CONFIG_FILE = new File(CONFIG_PATH+"/config.conf");
+    private File CITY_DATA = new File(CONFIG_PATH+"/city.json");
+    private File TMP = new File("/tmp/Jweather");
+    private static GetWeatherInfo getWeatherInfo ;
+    static Unit unit ;
+    private static String API ;
+    static City defaultCity;
+    private static City selectedCity;
+    static ArrayList<City> cities;
 
-    public static  boolean checkConnection()
+    Settings()
     {
-        String IP ;
-        try(final DatagramSocket socket = new DatagramSocket())
+        if(!new File(CONFIG_PATH).exists())
         {
-            socket.connect(InetAddress.getByName("www.openweathermap.org"),10002);
-            IP = socket.getInetAddress().getHostAddress();
-
-        }catch (Exception e)
-        {
-            //System.out.println("can't find server ");
-            offline = true ;
-            return false ;
-
-
+           boolean ok =  new File(CONFIG_PATH).mkdirs();
+           if(!ok)
+           {
+               System.out.println("We got some error while creating required directories");
+               System.exit(-1);
+           }
         }
-
-        boolean reachable =  false ;
-        try
+        if(!TMP.exists())
         {
-            InetAddress Ping  = InetAddress.getByName(IP);
-
-            for(int i = 0 ; i < 4 ; i++)
+            if(!TMP.mkdirs())
             {
-                if(Ping.isReachable(5000))
-                {
-                    reachable = true;
-                    offline = false ;
-                    //System.out.println("Server is reachable ");
-
-                }
-                else
-                {
-                    reachable = false ;
-                    offline = true ;
-                }
-
+                System.out.println("We got some error while creating required directories");
+                System.exit(-1);
             }
-
-        }catch (Exception e )
-        {
-            offline = true ;
-            return false;
-
         }
-        finally
+        if(!CONFIG_FILE.exists())
         {
-            return reachable ;
-        }
-
-    }
-
-    public Settings()
-    {
-        CreateDir();
-        read_Settings();
-    }
-    private void CreateDir()
-    {
-        File local = new File(CONFIG_PATH);
-
-        if(!local.exists())
-        {
-            local.mkdir();
-            System.out.println("Created");
-        }
-
-    }
-    private void read_Settings()
-    {
-        File Settings = new File(CONFIG_PATH+"/config.conf");
-        List<String> reader = new ArrayList<String>();
-        //System.out.println("Read Settings");
-        try
-        {
-            reader = FileUtils.readLines(Settings,"utf-8");
-
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        switch (reader.get(0))
-        {
-            case "C":
-                Celcius = true;
-                break;
-            case "F":
-                Celcius = false ;
-                break;
-            default:
-                Celcius = true;
-                break;
-        }
-        String temp[] = new String[3];
-        int i = 0 ;
-        for (String line:reader)
-        {
-            if(i == 0 )
-            {
-                i++;
-                continue;
-            }
             try
             {
-                temp = line.split(",");
-                //System.out.println(temp[1]);
-                Cities.put(Integer.parseInt(temp[0]), temp[1].replace("*", ""));
-                City_List.add(temp[1].replace("*", ""));
-                if (temp[2].contains("*"))
-                {
-                    System.out.println(temp[0]);
-                    city.setId(Integer.parseInt(temp[0]));
-                    city.setName(temp[1]);
-                    city.setCountry(temp[2]);
-                }
-            }
-            catch (Exception e)
+                FileUtils.writeStringToFile(CONFIG_FILE, "metric\n2643743,London,GB\n", "utf-8");
+            }catch (Exception e)
             {
-                e.getCause();
+                System.out.println("Something went wrong");
             }
-
         }
-
-
-
-
-    }
-
-    public boolean state()
-    {
-        if(city.getId() != 0)
+        if(!CITY_DATA.exists())
         {
+            if(!copyCityData()) {
+                System.out.println("Couldn't copy city json to config dir");
+                System.exit(-1);
+            }
+        }
+        cities = new ArrayList<>();
+        loadSettings();
+        getWeatherInfo = new GetWeatherInfo(selectedCity, getAPI());
+    }
+    private boolean copyCityData()
+    {
+        File citySource = new File("src/source/city.json");
+        try {
+            FileUtils.copyFile(citySource, CITY_DATA);
             return true;
-        }
-        else
-            return false ;
-    }
-
-    public static int getID()
-    {
-        return city.getId();
-    }
-
-    public static void save() throws Exception
-    {
-        File file = new File(Settings.CONFIG_PATH+"/config.conf");
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-
-        String line ;
-        String[] temp = new String[3];
-        char unit = ' ';
-        if(Settings.Celcius)
-            unit='C';
-        else
-            unit='F';
-        String Data = unit+"\n";
-        randomAccessFile.seek(2);
-        while((line = randomAccessFile.readLine()) != null )
+        }catch (Exception e)
         {
-
-            temp = line.split(",");
-            if(Integer.parseInt(temp[0]) == Settings.city.getId())
-            {
-                //System.out.println(line+"Will use as default");
-                if(!temp[2].contains("*"))
-                    Data+=line+"*\n";
-                else
-                    Data+=line+"\n";
-            }
-            else if(temp[2].contains("*"))
-            {
-                Data+=line.replace("*","")+"\n";
-            }
-            else
-                Data+=line+"\n";
-
+            return false;
         }
-        file.delete();
-        //System.out.println(Data);
-        //System.out.println(lineNumber);
-        FileUtils.writeStringToFile(file , Data , "utf-8");
-
+    }
+    private void loadSettings()
+    {
+        List<String> lines;
+        try {
+            lines = FileUtils.readLines(CONFIG_FILE, "utf-8");
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            return;
+        }
+        switch (lines.get(0))
+        {
+            default:
+            case "metric":
+                unit = Unit.Celsius;
+            break;
+            case "imperial":
+                unit = Unit.Fahrenheit;
+            break;
+        }
+        lines.remove(0);
+        for(String line : lines)
+        {
+            String[] temp = line.split(",");
+            cities.add(new City(Integer.parseInt(temp[0]) , temp[1] , temp[2].replace("*","")));
+            if(temp[2].contains("*"))
+            {
+                defaultCity = new City(Integer.parseInt(temp[0]) , temp[1] , temp[2].replace("*",""));
+                selectedCity = defaultCity;
+            }
+        }
+        if(defaultCity == null ) {
+            selectedCity = cities.get(0);
+            defaultCity = selectedCity;
+        }
+        API = "?id="+ defaultCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
     }
 
-    void copyFile() throws  Exception
+    public static String getAPI() {
+        return API;
+    }
+
+    public City getDefaultCity() {
+        return defaultCity;
+    }
+
+    public static City getSelectedCity() {
+        return selectedCity;
+    }
+
+    public static void setSelectedCity(City selectedCity)
     {
-        File test = new File("src/source/city.json");
-        File test2 = new File(CONFIG_PATH+"/city.json");
-        FileUtils.copyFile(test , test2);
+        Settings.selectedCity = selectedCity;
+        API = "?id="+ selectedCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
+        getWeatherInfo = new GetWeatherInfo(selectedCity , API);
+    }
+
+    static void restCity()
+    {
+        try {
+            FileUtils.deleteDirectory(new File("/tmp/Jweather/"+selectedCity.getId()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

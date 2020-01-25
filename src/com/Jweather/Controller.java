@@ -3,40 +3,28 @@ package com.Jweather;
 import javafx.animation.RotateTransition;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.stage.Modality;
-import javafx.stage.WindowEvent;
-import javafx.util.Duration;
-import org.apache.commons.lang3.text.WordUtils;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Control;
+import javafx.scene.control.Tooltip;
+import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
+import javafx.stage.WindowEvent;
+import javafx.util.Duration;
+
+import java.time.LocalDate;
 import java.util.Set;
 
 public class Controller
 {
-    public Controller()
-    {
-
-    }
-    @FXML
-    private Label h1,h2,h3,h4,h5,h6,h7,h8;
+    public Controller() {}
     @FXML
     private Label day_temp , night_temp , avg_temp;
     @FXML
@@ -56,150 +44,194 @@ public class Controller
     @FXML
     private Button refresh_btn;
 
-    private boolean update = Settings.ready ;
-    private int sleep = 1000;
-    private int[] temperture = new int[8];
+    private int sleep = 100 ;
+    private City current;
+    private ShowWeather showWeather ;
 
     @FXML
-    public void initialize() {
-        new Thread() {
-            public void run() {
-                System.out.println("By Thread");
-                while (true)
+    public void initialize()
+    {
+        new Thread(() ->
+        {
+            while (true)
+            {
+                current = Settings.getSelectedCity();
+                if(GetWeatherInfo.weatherReady() && current != null)
                 {
-                    //System.out.println(currentThread() + "" + update + " sleep " + sleep);
-                    update = Settings.ready;
-                    try {
-                        sleep(sleep);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    if(sleep != 10000)
-                        sleep += 100;
-                    if(update)
-                    {
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Update();
-                                Settings.ready = false ;
-                                update = Settings.ready;
-                                System.out.println("Updated");
-
-                            }
-                        });
-                    }
-                    if(Settings.refresh)
-                    {
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Weather weather = new Weather();
-                                weather.GetWeather();
-
-                                Update();
-                                System.out.println("Updated refrsh");
-                            }
-                        });
-                    }
+                    System.out.println("ready");
+                    GetWeatherInfo.setReady(false);
+                    showWeather = new ShowWeather(current);
+                    Platform.runLater(this::updateLabel);
+                }
+//                System.out.println("Waiting thread is running");
+                try {
+                    Thread.sleep(sleep);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                sleep+=100;
+                if(sleep>=5000) {
+                    System.out.println("5 Seconds sleep");
+                    // going to deep sleep until user try to see other city
                 }
 
             }
-        }.start();
-
+        }).start();
 
     }
 
-    private void Update()
+    private void updateLabel()
+    {
+        setCurrentWeather(showWeather.getWeather());
+        setDailyWeather(showWeather.getForecast());
+        Weather[] hourly = showWeather.getHourlyForecast();
+        LineChart lineChart = new LineChart(chart_canvas
+                , getDaysHourlyTemps(hourly)
+                , getDaysHourlyTimes(hourly)
+                , getDaysToolTips(hourly));
+        lineChart.drawChart();
+    }
+
+    private void setCurrentWeather(Weather w)
+    {
+        Today_degree.setText(w.getDegree()+"");
+        humidity_lbl.setText(w.getHumidity()+"%");
+        wind_lbl.setText(w.getSpeed()+"mps");
+        weather_name_lbl.setText(w.getWeather());
+        today_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+w.getIcon()+".png")));
+        current_location_lbl.setText(ShowWeather.getCity().getName()+","+ShowWeather.getCity().getCountry());
+        night_temp.setText(w.getMin()+"°");
+        day_temp.setText(w.getMax()+"°");
+        avg_temp.setText((w.getMin()+w.getMax())/2+"°");
+        String[] temp = current.getLastUpdate().split(" ");
+        if(LocalDate.now().toString().equals(temp[0]))
+        {
+            last_update_lbl.setText("Today,"+temp[1]);
+        }
+        else
+        {
+            String day = LocalDate.parse(temp[0]).getDayOfWeek().toString();
+            last_update_lbl.setText(day+","+temp[1]);
+        }
+    }
+
+    private void setDailyWeather(Weather[] daily)
+    {
+        day1_lbl.setText(daily[0].getDay());
+        day1_temp_lbl.setText(daily[0].getDegree()+"°");
+        weather_day1_lbl.setText(daily[0].getWeather());
+        weather_day1_lbl.setTooltip(new Tooltip(weather_day1_lbl.getText()));
+        day1_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+daily[0].getIcon()+".png")));
+
+        day2_lbl.setText(daily[1].getDay());
+        day2_temp_lbl.setText(daily[1].getDegree()+"°");
+        weather_day2_lbl.setText(daily[1].getWeather());
+        weather_day2_lbl.setTooltip(new Tooltip(weather_day2_lbl.getText()));
+        day2_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+daily[1].getIcon()+".png")));
+
+        day3_lbl.setText(daily[2].getDay());
+        day3_temp_lbl.setText(daily[2].getDegree()+"°");
+        weather_day3_lbl.setText(daily[2].getWeather());
+        weather_day3_lbl.setTooltip(new Tooltip(weather_day3_lbl.getText()));
+        day3_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+daily[2].getIcon()+".png")));
+
+        day4_lbl.setText(daily[3].getDay());
+        day4_temp_lbl.setText(daily[3].getDegree()+"°");
+        weather_day4_lbl.setText(daily[3].getWeather());
+        weather_day4_lbl.setTooltip(new Tooltip(weather_day4_lbl.getText()));
+        day4_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+daily[3].getIcon()+".png")));
+
+        day5_lbl.setText(daily[4].getDay());
+        day5_temp_lbl.setText(daily[4].getDegree()+"°");
+        weather_day5_lbl.setText(daily[4].getWeather());
+        weather_day5_lbl.setTooltip(new Tooltip(weather_day5_lbl.getText()));
+        day5_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+daily[4].getIcon()+".png")));
+
+    }
+
+    private int[] getDaysHourlyTemps(Weather[] forecast)
+    {
+        int[] temps = new int[forecast.length];
+
+        for(int i = 0 ; i < forecast.length ; i++)
+        {
+            temps[i] = forecast[i].getDegree();
+        }
+        return temps;
+    }
+
+    private String[] getDaysHourlyTimes(Weather[] forecast)
+    {
+        System.out.println("---");
+        String[] times = new String[forecast.length];
+        for(int i = 0 ; i < forecast.length ; i++) {
+            times[i] = forecast[i].getTime();
+        }
+        return times;
+    }
+
+    private String[] getDaysToolTips(Weather[] forecast)
+    {
+        String[] tips = new String[forecast.length];
+        for(int i = 0 ; i < forecast.length ; i++) {
+            tips[i] = forecast[i].getDay();
+        }
+            return tips;
+    }
+
+    @FXML
+    public void PrivCityMouseHandler()
+    {
+        sleep = 100 ;
+        int current_index = 0;
+        for(City c : Settings.cities)
+        {
+            if(c.getId() == current.getId())
+                break;
+            current_index++;
+        }
+        if(current_index != 0 ) {
+            current = Settings.cities.get(--current_index);
+            Settings.setSelectedCity(current);
+        }
+        else
+        {
+            current = Settings.cities.get(Settings.cities.size() - 1);
+            Settings.setSelectedCity(current);
+        }
+    }
+    @FXML
+    public void NextCityMouseHandler()
+    {
+        sleep = 100;
+        int current_index = 0;
+        for(City c : Settings.cities)
+        {
+            if(c.getId() == current.getId())
+                break;
+            current_index++;
+        }
+        if(current_index < Settings.cities.size() - 1 ) {
+            current = Settings.cities.get(++current_index);
+            Settings.setSelectedCity(current);
+        }
+        else
+        {
+            current = Settings.cities.get(0);
+            Settings.setSelectedCity(current);
+        }
+    }
+
+    @FXML
+    public void updatebtn()
     {
         rotate_animation(refresh_btn);
-
-        ShowWeather w = new ShowWeather();
-        String[] temp = w.showCurrnet().split("-");
-        Today_degree.setText(temp[0]);
-        humidity_lbl.setText(temp[1]);
-        wind_lbl.setText(temp[2]+"m/s");
-        weather_name_lbl.setText(temp[3]);
-        String today_icon_ = "/source/Weather icons/"+temp[4]+".png";
-        Image today_icon = new Image(getClass().getResourceAsStream(today_icon_));
-        today_weather_icon.setImage(today_icon);
-        current_location_lbl.setText(temp[5]);
-
-        last_update_lbl.setText("Last Update "+temp[6]);
-
-        String[] days = w.Days().split("-");
-        day1_lbl.setText(days[0].replaceFirst("DAY",""));
-        day2_lbl.setText(days[1].replaceFirst("DAY",""));
-        day3_lbl.setText(days[2].replaceFirst("DAY",""));
-        day4_lbl.setText(days[3].replaceFirst("DAY",""));
-        day5_lbl.setText(days[4].replaceFirst("DAY",""));
-
-
-
-        String[] tempDays = w.showDays().replaceAll("sky is " , "").split("-");
-
-        for ( int i = 0 ; i < 9 ; i++)
-            tempDays[i] = WordUtils.capitalize(tempDays[i]);
-
-        weather_day1_lbl.setText(tempDays[0]);
-        day1_temp_lbl.setText(tempDays[1]);
-        day1_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[2]+".png")));
-
-        weather_day2_lbl.setText(tempDays[3]);
-        day2_temp_lbl.setText(tempDays[4]);
-        day2_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[5]+".png")));
-
-        weather_day3_lbl.setText(tempDays[6]);
-        day3_temp_lbl.setText(tempDays[7]);
-        day3_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[8]+".png")));
-
-        weather_day4_lbl.setText(tempDays[9]);
-        day4_temp_lbl.setText(tempDays[10]);
-        day4_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[11]+".png")));
-
-        weather_day5_lbl.setText(tempDays[12]);
-        day5_temp_lbl.setText(tempDays[13]);
-        day5_weather_icon.setImage(new Image(getClass().getResourceAsStream("/source/Weather icons/"+tempDays[14]+".png")));
-
-        int day = Integer.parseInt(tempDays[15]) , night = Integer.parseInt(tempDays[16]) , avg = (day + night)/2 ;
-        day_temp.setText(tempDays[16]+"°");
-        night_temp.setText(tempDays[15]+"°");
-        avg_temp.setText(avg+"°");
-
-
-        String[] t = w.forecast().split("-");
-
-        h1.setText(t[0]);h2.setText(t[2]);h3.setText(t[4]);h4.setText(t[6]);h5.setText(t[8]);h6.setText(t[10]);h7.setText(t[12]);h8.setText(t[14]);
-
-        int c = 0 ;
-        for(int i = 1 ; i < 16 ; i+=2 , c++)
-        {
-            temperture[c] =Integer.parseInt(t[i]);
-        }
-
-        init_chart();
+        defaultLbl();
+        Settings.restCity();
+        Settings.setSelectedCity(current);
     }
-    public void NextCityMouseHandler(MouseEvent event)
-    {
-        //System.out.println(Settings.Cities);
-        int key = nextKey();
-
-        default_lbl();
-
-        newCity(key);
-
-
-    }
-    public void PrivCityMouseHandler(MouseEvent event)
-    {
-        //System.out.println(Settings.Cities);
-        int key = privKey();
-
-        default_lbl();
-
-        newCity(key);
-    }
-    public void Settings_btn_Clicked(ActionEvent event )
+    @FXML
+    public void Settings_btn_Clicked()
     {
         try{
             Parent settings = FXMLLoader.load(getClass().getResource("SettingsDialog.fxml"));
@@ -207,18 +239,14 @@ public class Controller
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Settings");
             stage.setScene(new Scene(settings , 400 , 500));
-            stage.setResizable(false);
+            stage.setResizable(true);
+            stage.setMinWidth(400);
+            stage.setMinHeight(500);
             stage.show();
 
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent windowEvent) {
-                    try {
-                        Settings.save();
-                        //System.exit(0);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
                 }
             });
 
@@ -227,195 +255,7 @@ public class Controller
             e.printStackTrace();
         }
     }
-    public void updatebtn()
-    {
-        default_lbl();
-        sleep = 1000 ;
-        Weather weather = new Weather();
-        weather.start();
-        rotate_animation(refresh_btn);
 
-    }
-    public void default_lbl()
-    {
-        Today_degree.setText("--");
-        humidity_lbl.setText("--");
-        wind_lbl.setText("--");
-        weather_name_lbl.setText("--");
-        current_location_lbl.setText("--");
-        day_temp.setText("--");
-        night_temp.setText("--");
-        avg_temp.setText("--");
-
-        last_update_lbl.setText("Last Update: --:--:--");
-
-        day1_lbl.setText("--");
-        day2_lbl.setText("--");
-        day3_lbl.setText("--");
-        day4_lbl.setText("--");
-        day5_lbl.setText("--");
-
-        weather_day1_lbl.setText("--");
-        day1_temp_lbl.setText("--");
-
-        weather_day2_lbl.setText("--");
-        day2_temp_lbl.setText("--");
-
-        weather_day3_lbl.setText("--");
-        day3_temp_lbl.setText("--");
-
-        weather_day4_lbl.setText("--");
-        day4_temp_lbl.setText("--");
-
-        weather_day5_lbl.setText("--");
-        day5_temp_lbl.setText("--");
-    }
-    private void newCity(int key)
-    {
-        Settings.city.setId(key);
-        Settings.city.setName(Settings.Cities.get(key));
-
-        Settings.refresh = true;
-        Settings.ready = true;
-
-    }
-    private int nextKey()
-    {
-        int next = 0 ;
-        int temp = 0 ;
-        int first = 0 ;
-        Set<Integer> set = Settings.Cities.keySet();
-
-        Iterator<Integer> itr = set.iterator();
-        boolean n = false ;
-
-        while(itr.hasNext())
-        {
-            if(first==0 && temp == 0 )
-            {
-                temp = itr.next();
-                first = temp ;
-            }
-            else
-                temp = itr.next();
-            if(Settings.city.getId() == temp)
-            {
-                n  = true;
-            }
-            else if(n)
-            {
-                next = temp;
-                n=false;
-            }
-        }
-        if(next==0)
-            next=first;
-        System.out.println(next);
-        return next;
-
-    }
-    private int privKey()
-    {
-        int priv = 0 ;
-        int temp = 0 ;
-
-        boolean p = false;
-        Set<Integer> set = Settings.Cities.keySet();
-
-        Iterator<Integer> itr = set.iterator();
-
-        while(itr.hasNext())
-        {
-            temp = itr.next();
-            if(Settings.city.getId() == temp)
-            {
-                p=true;
-            }
-            else if(!p)
-            {
-                priv = temp ;
-            }
-
-        }
-        if(priv==0)
-            priv=temp;
-        System.out.println(priv);
-        return priv;
-
-    }
-    private void init_chart()
-    {
-        chart_canvas.getChildren().clear();
-        Line line[] = new Line[7];
-        Label l[] = new Label[8];
-        Circle circle[] = new Circle[8];
-
-        Line bar = new Line();
-        int x = 0 ;
-        for(int i = 0 ; i < 8 ; i++)
-        {
-            bar.setEndX(72);
-            bar.setEndY(-116);
-            bar.setStartX(72);
-            bar.setStartY(50);
-            bar.setLayoutY(126);
-            bar.setLayoutX(x);
-            bar.setStroke(Color.WHITE);
-            bar.setOpacity(0.3);
-            chart_canvas.getChildren().add(bar);
-            bar =  new Line();
-            x+=87;
-        }
-
-        int startx , endx = -15 , starty =100 ,endy = temperture[0];
-        for(int i = 0 ; i < 8 ; i++)
-        {
-            startx = endx;
-
-            starty=endy;
-            endy=  90 - temperture[i];
-
-            endx = startx+87;
-            //endy+=10;
-
-
-
-            if(i!=0)
-            {
-                line[i-1] = new Line();
-                line[i-1].setStartY(starty);
-                line[i-1].setEndY(endy);
-                line[i-1].setStartX(startx);
-                line[i-1].setEndX(endx);
-
-                line[i-1].setStroke(Color.WHITE);
-                line[i-1].setStrokeWidth(2);
-                line[i-1].setOpacity(0.5);
-                chart_canvas.getChildren().add(line[i-1]);
-            }
-            l[i] = new Label();
-            circle[i] = new Circle();
-
-            circle[i].setRadius(3);
-
-            circle[i].setCenterY(endy);
-            circle[i].setCenterX(endx);
-            circle[i].setFill(Color.WHITE);
-
-            l[i].setLayoutX(endx-12);
-            if(endy>starty)
-                l[i].setLayoutY(endy-30);
-            else
-                l[i].setLayoutY(endy+10);
-            l[i].setText(temperture[i]+"°");
-            l[i].setTextFill(Color.WHITE);
-
-            chart_canvas.getChildren().add(l[i]);
-            chart_canvas.getChildren().add(circle[i]);
-
-        }
-
-    }
     private void rotate_animation(Control obj)
     {
         RotateTransition rotate = new RotateTransition();
@@ -423,7 +263,18 @@ public class Controller
         rotate.setDuration(Duration.millis(1000));
         rotate.setNode(obj);
         rotate.setCycleCount(1);
-        rotate.setByAngle(180);
+        rotate.setByAngle(360);
         rotate.play();
+
     }
+
+    private void defaultLbl()
+    {
+        day1_lbl.setText("-");day2_lbl.setText("-");day3_lbl.setText("-");day4_lbl.setText("-");day5_lbl.setText("-");
+        day1_temp_lbl.setText("-");day2_temp_lbl.setText("-");day3_temp_lbl.setText("-");day4_temp_lbl.setText("-");day5_temp_lbl.setText("-");
+        weather_day1_lbl.setText("-");weather_day2_lbl.setText("-");weather_day3_lbl.setText("-");weather_day4_lbl.setText("-");weather_day5_lbl.setText("-");
+        humidity_lbl.setText("-");wind_lbl.setText("-");Today_degree.setText("-");weather_name_lbl.setText("-");day_temp.setText("-");night_temp.setText("-");
+        avg_temp.setText("-");
+    }
+
 }

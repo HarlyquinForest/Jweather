@@ -5,15 +5,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.WindowEvent;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Set;
 
 public class Main extends Application {
 
@@ -22,15 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-        Scene scene = new Scene(root,1500,750);
-
-        Settings set = new Settings();
-        Weather w = new Weather();
-        ShowWeather s = new ShowWeather();
-
-        s.setWallpaper(scene);
-
-        w.start();
+        Scene scene = new Scene(root,1500,750 );
 
         primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
@@ -39,6 +26,20 @@ public class Main extends Application {
         primaryStage.setMinWidth(1500);
         primaryStage.show();
 
+        Wallpaper wallpaper = new Wallpaper();
+        wallpaper.setWallpaper(scene);
+        new Thread(()->
+        {
+            Connection connection = new Connection();
+            connection.start();
+            System.out.println("Main thread started");
+            System.out.println("Connected to net ="+connection.ok);
+            Settings settings = new Settings() ;
+            GetWeatherInfo getWeatherInfo = new GetWeatherInfo(Settings.defaultCity , settings.getAPI());
+
+            System.out.println("Main thread finished");
+        }).start();
+
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
@@ -46,7 +47,6 @@ public class Main extends Application {
                 System.exit(0);
             }
         });
-
     }
 
 
