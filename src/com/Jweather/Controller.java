@@ -20,6 +20,7 @@ import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Controller
 {
@@ -182,17 +183,52 @@ public class Controller
     public void PrivCityMouseHandler()
     {
         sleep = 100 ;
+        int current_index = 0;
+        for(City c : Settings.cities)
+        {
+            if(c.getId() == current.getId())
+                break;
+            current_index++;
+        }
+        if(current_index != 0 ) {
+            current = Settings.cities.get(--current_index);
+            Settings.setSelectedCity(current);
+        }
+        else
+        {
+            current = Settings.cities.get(Settings.cities.size() - 1);
+            Settings.setSelectedCity(current);
+        }
     }
     @FXML
     public void NextCityMouseHandler()
     {
         sleep = 100;
+        int current_index = 0;
+        for(City c : Settings.cities)
+        {
+            if(c.getId() == current.getId())
+                break;
+            current_index++;
+        }
+        if(current_index < Settings.cities.size() - 1 ) {
+            current = Settings.cities.get(++current_index);
+            Settings.setSelectedCity(current);
+        }
+        else
+        {
+            current = Settings.cities.get(0);
+            Settings.setSelectedCity(current);
+        }
     }
 
     @FXML
     public void updatebtn()
     {
         rotate_animation(refresh_btn);
+        defaultLbl();
+        Settings.restCity();
+        Settings.setSelectedCity(current);
     }
     @FXML
     public void Settings_btn_Clicked()
@@ -230,6 +266,15 @@ public class Controller
         rotate.setByAngle(360);
         rotate.play();
 
+    }
+
+    private void defaultLbl()
+    {
+        day1_lbl.setText("-");day2_lbl.setText("-");day3_lbl.setText("-");day4_lbl.setText("-");day5_lbl.setText("-");
+        day1_temp_lbl.setText("-");day2_temp_lbl.setText("-");day3_temp_lbl.setText("-");day4_temp_lbl.setText("-");day5_temp_lbl.setText("-");
+        weather_day1_lbl.setText("-");weather_day2_lbl.setText("-");weather_day3_lbl.setText("-");weather_day4_lbl.setText("-");weather_day5_lbl.setText("-");
+        humidity_lbl.setText("-");wind_lbl.setText("-");Today_degree.setText("-");weather_name_lbl.setText("-");day_temp.setText("-");night_temp.setText("-");
+        avg_temp.setText("-");
     }
 
 }
