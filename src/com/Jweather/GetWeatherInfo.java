@@ -280,4 +280,5 @@ public class GetWeatherInfo
     public void setCity(City selectedCity) {
         this.selectedCity = selectedCity;
     }
+
 }
