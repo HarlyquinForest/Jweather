@@ -12,7 +12,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
+.idea/artifacts/
 # Generated files
 .idea/**/contentModel.xml
 
@@ -50,6 +50,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-
+#META-INF
+src/META-INF/
 #Properties
 jweather.properties
