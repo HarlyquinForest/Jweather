@@ -42,7 +42,7 @@ public class SettingsDialog
     private Object obj ;
     private JsonObject jsonObject ;
     private findState find = findState.find;
-    City c = new City(0,"n","w");
+    private City c = new City(0,"n","w");
     enum findState
     {
         find , add , clear ;
@@ -59,13 +59,17 @@ public class SettingsDialog
             fahrenheit_radio.setSelected(true);
 
         parser = new JsonParser();
-        try {
-            obj = parser.parse(new FileReader(Settings.CONFIG_PATH+"/city.json"));
-            jsonObject = new Gson().fromJson(String.valueOf(obj), JsonObject.class);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("Config file is missing");
-        }
+        new Thread(() -> {
+
+            try {
+                obj = parser.parse(new FileReader(Settings.CONFIG_PATH + "/city.json"));
+                jsonObject = new Gson().fromJson(String.valueOf(obj), JsonObject.class);
+            } catch (
+                    FileNotFoundException e) {
+                e.printStackTrace();
+                System.out.println("Config file is missing");
+            }
+        }).start();
         bindListView();
     }
     @FXML
@@ -178,7 +182,22 @@ public class SettingsDialog
     }
     public void trouble_btn(MouseEvent event)
     {
+        try {
+            Runtime rt = Runtime.getRuntime();
+            String url = "https://openweathermap.org/find?q=";
+            String[] browsers = {"epiphany", "firefox", "mozilla", "konqueror",
+                    "netscape","opera","links","lynx"};
 
+            StringBuffer cmd = new StringBuffer();
+            for (int i=0; i<browsers.length; i++)
+                cmd.append( (i==0  ? "" : " || " ) + browsers[i] +" \"" + url + "\" ");
+
+            rt.exec(new String[] { "sh", "-c", cmd.toString() });
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     private void bindListView()
     {
@@ -254,7 +273,6 @@ public class SettingsDialog
         search_textbox.setDisable(false);
         find = findState.find;
     }
-
     private void writeToFile(String o)
     {
         try {
