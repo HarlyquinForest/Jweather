@@ -3,6 +3,7 @@ package com.Jweather;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class Settings
         {
             try
             {
-                FileUtils.writeStringToFile(CONFIG_FILE, "C", "utf-8");
+                FileUtils.writeStringToFile(CONFIG_FILE, "metric\n2643743,London,GB\n", "utf-8");
             }catch (Exception e)
             {
                 System.out.println("Something went wrong");
@@ -126,5 +127,14 @@ public class Settings
         Settings.selectedCity = selectedCity;
         API = "?id="+ selectedCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
         getWeatherInfo = new GetWeatherInfo(selectedCity , API);
+    }
+
+    static void restCity()
+    {
+        try {
+            FileUtils.deleteDirectory(new File("/tmp/Jweather/"+selectedCity.getId()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
