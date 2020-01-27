@@ -47,6 +47,7 @@ public class Controller
     private int sleep = 100 ;
     private City current;
     private ShowWeather showWeather ;
+    private Image icon = new Image(Main.class.getResourceAsStream("/source/baseline_settings_white_48dp.png"));
 
     @FXML
     public void initialize()
@@ -239,11 +240,11 @@ public class Controller
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Settings");
             stage.setScene(new Scene(settings , 400 , 500));
-            stage.setResizable(true);
+            stage.setResizable(false);
             stage.setMinWidth(400);
             stage.setMinHeight(500);
+            stage.getIcons().add(icon);
             stage.show();
-
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent windowEvent) {
@@ -259,7 +260,6 @@ public class Controller
     private void rotate_animation(Control obj)
     {
         RotateTransition rotate = new RotateTransition();
-
         rotate.setDuration(Duration.millis(1000));
         rotate.setNode(obj);
         rotate.setCycleCount(1);
