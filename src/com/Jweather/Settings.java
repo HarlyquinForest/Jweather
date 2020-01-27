@@ -126,7 +126,7 @@ public class Settings
     {
         Settings.selectedCity = selectedCity;
         API = "?id="+ selectedCity.getId()+"&APPID=04ed4038994ff1be56247052ae7bc45f&units="+unit.getName()+"&mode=xml";
-        getWeatherInfo = new GetWeatherInfo(selectedCity , API);
+        new Thread(() -> {getWeatherInfo = new GetWeatherInfo(selectedCity , API);}).start();
     }
 
     static void restCity()
