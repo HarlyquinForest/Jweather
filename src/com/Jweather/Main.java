@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
@@ -18,12 +19,14 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         Scene scene = new Scene(root,1500,750 );
+        Image icon = new Image(Main.class.getResourceAsStream("/source/icon.png"));
 
         primaryStage.setTitle("Jweather");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setMinHeight(750);
         primaryStage.setMinWidth(1500);
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
 
         Wallpaper wallpaper = new Wallpaper();
