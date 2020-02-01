@@ -33,22 +33,17 @@ public class Main extends Application {
         wallpaper.setWallpaper(scene);
         new Thread(()->
         {
-            Connection connection = new Connection();
-            connection.start();
             System.out.println("Main thread started");
-            System.out.println("Connected to net ="+connection.ok);
+            System.out.println("Connected to net ="+Connection.ok);
             Settings settings = new Settings() ;
             GetWeatherInfo getWeatherInfo = new GetWeatherInfo(Settings.defaultCity , settings.getAPI());
 
             System.out.println("Main thread finished");
         }).start();
 
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-                Platform.exit();
-                System.exit(0);
-            }
+        primaryStage.setOnCloseRequest(windowEvent -> {
+            Platform.exit();
+            System.exit(0);
         });
     }
 
