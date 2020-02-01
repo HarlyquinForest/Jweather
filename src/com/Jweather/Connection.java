@@ -5,7 +5,7 @@ import java.net.InetAddress;
 
 public class Connection extends Thread
 {
-    boolean ok = false;
+    static boolean ok = false;
     @Override
     public void run() {
         ok = checkConnection();
