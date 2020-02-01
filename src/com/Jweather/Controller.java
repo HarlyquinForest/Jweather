@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -71,9 +72,21 @@ public class Controller
                     e.printStackTrace();
                 }
                 sleep+=100;
-                if(sleep>=5000) {
-                    System.out.println("5 Seconds sleep");
-                    // going to deep sleep until user try to see other city
+                if(Settings.ConnectionError)
+                {
+                    Platform.runLater(() ->
+                    {
+                        Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        VBox box = new VBox(20);
+                        box.getChildren().add(new Label("Can't find any internet connection !\nCan't get weather info for requested city"));
+                        Scene scene = new Scene(box,300,200);
+                        dialog.setScene(scene);
+                        dialog.show();
+                    });
+                    Settings.ConnectionError = false;
+                    current = Settings.defaultCity;
+                    Settings.setSelectedCity(current);
                 }
 
             }
