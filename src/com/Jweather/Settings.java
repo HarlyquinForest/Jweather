@@ -20,6 +20,7 @@ public class Settings
     static City defaultCity;
     private static City selectedCity;
     static ArrayList<City> cities;
+    static boolean ConnectionError ;
 
     Settings()
     {
