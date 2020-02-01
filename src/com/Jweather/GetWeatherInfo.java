@@ -26,6 +26,8 @@ public class GetWeatherInfo
     private static boolean ready = false;
     GetWeatherInfo(City c , String api)
     {
+        Connection connection = new Connection();
+        connection.start();
         selectedCity = c;
         fetchWeatherInfo(api);
     }
@@ -53,10 +55,17 @@ public class GetWeatherInfo
         else
         {
         try {
-            fetchAPI(api, current, daily, hourly);
-            setWeatherData(current , daily , hourly);
-            ready = true;
-            System.out.println("all Good");
+            if(Connection.ok) {
+                fetchAPI(api, current, daily, hourly);
+                setWeatherData(current, daily, hourly);
+                ready = true;
+                System.out.println("all Good");
+            }
+            else
+            {
+                System.out.println("Connection to internet failed");
+                Settings.ConnectionError = true;
+            }
         }catch (Exception e)
         {
             System.out.println("Something went wrong");
