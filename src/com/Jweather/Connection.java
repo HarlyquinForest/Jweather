@@ -21,7 +21,7 @@ public class Connection extends Thread
             IP = socket.getInetAddress().getHostAddress();
         }catch (Exception e)
         {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false ;
         }
         int success = 0 ;
@@ -35,7 +35,7 @@ public class Connection extends Thread
             }
         }catch (Exception e )
         {
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
         ok = success > 0 ;
