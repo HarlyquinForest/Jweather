@@ -195,6 +195,8 @@ public class Controller
     @FXML
     public void PrivCityMouseHandler()
     {
+        defaultLbl();
+        rotate_animation(refresh_btn);
         sleep = 100 ;
         int current_index = 0;
         for(City c : Settings.cities)
@@ -216,6 +218,8 @@ public class Controller
     @FXML
     public void NextCityMouseHandler()
     {
+        defaultLbl();
+        rotate_animation(refresh_btn);
         sleep = 100;
         int current_index = 0;
         for(City c : Settings.cities)
