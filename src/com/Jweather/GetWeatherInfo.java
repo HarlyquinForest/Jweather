@@ -27,7 +27,7 @@ public class GetWeatherInfo
     GetWeatherInfo(City c , String api)
     {
         Connection connection = new Connection();
-        connection.start();
+        connection.checkConnection();
         selectedCity = c;
         fetchWeatherInfo(api);
     }
