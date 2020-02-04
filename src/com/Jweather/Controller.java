@@ -86,7 +86,6 @@ public class Controller
                     });
                     Settings.ConnectionError = false;
                     current = Settings.defaultCity;
-                    Settings.setSelectedCity(current);
                 }
 
             }
