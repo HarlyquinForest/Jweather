@@ -15,7 +15,7 @@ put this line in your .zshrc or .bashrc (replace with your own javafx path !!!!)
 then download latest verison of Jweather form [here](https://github.com/HarlyquinForest/Jweather/releases)
 
 now move to Jweather-installtion and 
-``chmod +x install
+``chmod +x install &&
 ./install
 ``
 
