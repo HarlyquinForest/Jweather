@@ -10,7 +10,7 @@ first of all install javafx from [here](https://openjfx.io/), then you need to c
 ``
 export JAVA_FX=path/to/javafx-sdk/lib
 ``
-put this line in your .zshrc or .bashrc
+put this line in your .zshrc or .bashrc (replace with your own javafx path !!!!)
 
 now move to Jweather-installtion and 
 ``chmod +x install
