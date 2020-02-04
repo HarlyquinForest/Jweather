@@ -1,14 +1,19 @@
 # Jweather
 
-Hello and Welcome 
-
-Thanks for visiting this page .
+Hi , Jweather is a simple weather application . It's not something to use very commonly . It just show the weather ... 
 
 
-If you are intersted , you just need to install <a href="https://openjfx.io/" >javafx</a> packages and then clone it on your device 
+# Installation 
 
-create directory named ".Jweather" in your home and put config.conf and city.json files in it. ( sorry but this software is in beta state and yeah ... )
+first of all install javafx from <a href="https://openjfx.io/" >here</a> , then you need to create a environment variable . Remember varibale should named ``JAVA_FX`` unless application can't be lunched . 
 
+``
+export JAVA_FX=path/to/javafx-sdk/lib
+``
 
-<a href="https://drive.google.com/open?id=1ADmKIfpOfFLp7DRx7SAiYiE9A6iIWjDe" > Downlaod city.json </a>
+now run the installation script , and after that app is ready to use ( I guess ) 
+
+Please report if you found any bug , of if installation doesn't work . 
+
+Thank you 
 
