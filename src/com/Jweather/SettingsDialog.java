@@ -62,12 +62,12 @@ public class SettingsDialog
         new Thread(() -> {
 
             try {
-                obj = parser.parse(new FileReader(Settings.CONFIG_PATH + "/city.json"));
+                obj = parser.parse(new FileReader("/opt/Jweather/city.json"));
                 jsonObject = new Gson().fromJson(String.valueOf(obj), JsonObject.class);
             } catch (
                     FileNotFoundException e) {
                 e.printStackTrace();
-                System.out.println("Config file is missing");
+                System.out.println("City file is missing");
             }
         }).start();
         bindListView();
