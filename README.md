@@ -5,13 +5,17 @@ Hi , Jweather is a simple weather application . It's not something to use very c
 
 # Installation 
 
-first of all install javafx from <a href="https://openjfx.io/" >here</a> , then you need to create a environment variable . Remember varibale should named ``JAVA_FX`` unless application can't be lunched . 
+first of all install javafx from [here](https://openjfx.io/), then you need to create a environment variable . Remember varibale should named ``JAVA_FX`` unless application can't be lunched . 
 
 ``
 export JAVA_FX=path/to/javafx-sdk/lib
 ``
+put this line in your .zshrc or .bashrc
 
-now run the installation script , and after that app is ready to use ( I guess ) 
+now move to Jweather-installtion and 
+``chmod +x install
+./install
+``
 
 Please report if you found any bug , of if installation doesn't work . 
 
