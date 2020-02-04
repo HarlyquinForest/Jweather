@@ -12,7 +12,7 @@ public class Settings
     static String HOME_PATH = System.getProperty("user.home");
     static String CONFIG_PATH = HOME_PATH+"/.Jweather";
     static File CONFIG_FILE = new File(CONFIG_PATH+"/config.conf");
-    private File CITY_DATA = new File(CONFIG_PATH+"/city.json");
+    private File CITY_DATA = new File("/opt/Jweather/city.json");
     private File TMP = new File("/tmp/Jweather");
     private static GetWeatherInfo getWeatherInfo ;
     static Unit unit ;
@@ -53,26 +53,14 @@ public class Settings
         }
         if(!CITY_DATA.exists())
         {
-            if(!copyCityData()) {
-                System.out.println("Couldn't copy city json to config dir");
-                System.exit(-1);
-            }
+            System.out.println("Can't find required files , please reinstall app again !");
+            System.exit(-1);
         }
         cities = new ArrayList<>();
         loadSettings();
         getWeatherInfo = new GetWeatherInfo(selectedCity, getAPI());
     }
-    private boolean copyCityData()
-    {
-        File citySource = new File("src/source/city.json");
-        try {
-            FileUtils.copyFile(citySource, CITY_DATA);
-            return true;
-        }catch (Exception e)
-        {
-            return false;
-        }
-    }
+
     private void loadSettings()
     {
         List<String> lines;
