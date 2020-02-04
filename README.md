@@ -1,6 +1,6 @@
 # Jweather
 
-Hi , Jweather is a simple weather application . It's not something to use very commonly . It just show the weather ... 
+Hi , Jweather is a simple weather application . It's not something to use very commonly . It just shows the weather basicly ... 
 
 ![Jweather](Jweather-screenshot.png)
 # Installation 
