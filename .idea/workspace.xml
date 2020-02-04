@@ -90,19 +90,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>StringUtils</find>
-      <find>refresh_btn</find>
-      <find>onMouseClicked</find>
-      <find>char</find>
-      <find>hourly</find>
-      <find>day1</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>WordUtils</replace>
-    </replaceStrings>
-  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -149,6 +136,9 @@
     <property name="settings.editor.selected.configurable" value="com.codota.intellij.common.configuration.CodotaConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/source" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/source" />
     </key>
@@ -347,6 +337,11 @@
       <workItem from="1579875030033" duration="2545000" />
       <workItem from="1579891349290" duration="3717000" />
       <workItem from="1579940982145" duration="3269000" />
+      <workItem from="1580145921362" duration="5473000" />
+      <workItem from="1580543083213" duration="3744000" />
+      <workItem from="1580649625433" duration="1859000" />
+      <workItem from="1580719573548" duration="303000" />
+      <workItem from="1580802894691" duration="2051000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1548796358114</created>
