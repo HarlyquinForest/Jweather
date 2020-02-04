@@ -34,7 +34,6 @@ public class Main extends Application {
         new Thread(()->
         {
             System.out.println("Main thread started");
-            System.out.println("Connected to net ="+Connection.ok);
             Settings settings = new Settings() ;
             GetWeatherInfo getWeatherInfo = new GetWeatherInfo(Settings.defaultCity , settings.getAPI());
 
